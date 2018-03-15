@@ -1,0 +1,64 @@
+﻿<Controls:MetroWindow x:Class="Jigsaw_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Jigsaw_2"
+        mc:Ignorable="d"
+        Title="Jigsaw" Height="720" Width="1280" ShowIconOnTitleBar="False">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button Click="SettingsMenu">
+
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="30"
+                    Height="30"
+                    Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_cog}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="Settings" FontSize="20" />
+
+                </StackPanel>
+
+                <Button.ContextMenu>
+                    <ContextMenu BorderThickness="1">
+                        <MenuItem Header="Style: ">
+                            <CheckBox Content=" Night mode " FontSize ="14" Checked ="NightMode" Unchecked="LightMode"></CheckBox>
+                            <MenuItem Header="Color: " FontSize ="14" IsEnabled="False"></MenuItem>
+                            <ComboBox Name="ColorSelecter" SelectionChanged="SelectColor">
+                                <ComboBoxItem Content="Red"></ComboBoxItem>
+                                <ComboBoxItem Content="Blue"></ComboBoxItem>
+                                <ComboBoxItem Content="Yellow"></ComboBoxItem>
+                                <ComboBoxItem Content="Green"></ComboBoxItem>
+                            </ComboBox>
+                        </MenuItem>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+
+    <Grid Name="MainWindowGrid">
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="24,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" IsEnabled="False" Tag="ScoreDisplay"/>
+        <ProgressBar HorizontalAlignment="Left" Height="30" Margin="129,55,0,0" VerticalAlignment="Top" Width="1080" Tag="TimeBar"/>
+        <Button Content="Next Game" HorizontalAlignment="Left" Height="55" Margin="1009,90,0,0" VerticalAlignment="Top" Width="200" Style="{DynamicResource SquareButtonStyle}" Controls:ButtonHelper.PreserveTextCase="True" Tag="GameChanger"/>
+        <Frame Content="Frame" HorizontalAlignment="Left" Height="516" Margin="24,150,0,0" VerticalAlignment="Top" Width="1185" NavigationUIVisibility="Hidden"/>
+        <Label Content="Current player: " HorizontalAlignment="Left" Margin="24,24,0,0" VerticalAlignment="Top" Tag="CurrentPlayer"/>
+
+    </Grid>
+</Controls:MetroWindow>

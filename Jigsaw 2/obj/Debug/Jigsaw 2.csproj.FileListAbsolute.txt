@@ -1,0 +1,23 @@
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Jigsaw 2.exe.config
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Jigsaw 2.exe
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Jigsaw 2.pdb
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\ControlzEx.dll
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\MahApps.Metro.dll
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\System.Windows.Interactivity.dll
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\ControlzEx.pdb
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\MahApps.Metro.pdb
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\MahApps.Metro.xml
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.csprojResolveAssemblyReference.cache
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Resources\Icons.baml
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Resources\IconsNonShared.baml
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\MainWindow.g.cs
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\App.g.cs
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2_MarkupCompile.cache
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2_MarkupCompile.lref
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\MainWindow.baml
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.g.resources
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw_2.Properties.Resources.resources
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.csproj.GenerateResource.Cache
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.exe
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.pdb
+c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\App.baml
