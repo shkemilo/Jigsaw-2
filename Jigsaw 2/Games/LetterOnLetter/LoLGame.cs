@@ -8,6 +8,7 @@ using System.Windows.Shapes;
 using System.Resources;
 using Jigsaw_2.Abstracts;
 using Jigsaw_2.Helpers;
+using Jigsaw_2.Score;
 
 namespace Jigsaw_2.Games.LetterOnLetter
 {
@@ -66,7 +67,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
             checkBox = (TextBox)Finder.FindElementWithTag(allControls, "CheckFeedback");
 
             check = (Button)Finder.FindElementWithTag(allControls, "CheckerButton");
-            check.MouseDown += wordFeedback;
+            check.Click += wordFeedback;
             submit = (Button)Finder.FindElementWithTag(allControls, "SSButton");
             submit.Click += ssClick;
             undo = (Button)Finder.FindElementWithTag(allControls, "UndoButton");
@@ -113,7 +114,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
         }
 
         /// <summary> Gives information if the current word is a valid word. </summary>
-        void wordFeedback(object sender, EventArgs e)
+        void wordFeedback(object sender, RoutedEventArgs e)
         {
             if (mainDisp.Finished())
                 if (engine.Check(answer))
@@ -138,7 +139,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
         /// <summary> Starts the game. </summary>
         void startWordOnWord()
         {
-            //ScoreInterface.Instance.StartTimeControler();
+            ScoreInterface.Instance.StartTimeControler();
 
             state = "submit";
 
@@ -156,11 +157,13 @@ namespace Jigsaw_2.Games.LetterOnLetter
         /// <summary> Finishes the game. </summary>
         public override void GameOver()
         {
-            //ScoreInterface.Instance.StopTimeControler();
+            ScoreInterface.Instance.StopTimeControler();
             checkBox.Text = "";
             check.IsEnabled = false;
             submit.IsEnabled = false;
             undo.IsEnabled = false;
+
+            Console.WriteLine("sve sam ovo uradio");
 
             foreach (Control c in letterDisp)
                 c.IsEnabled = false;
@@ -179,7 +182,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
                 checkBox.Text = "Ova rec ne postoji u recniku";
             }
 
-            //GameManager.Instance.NextGame();
+            GameManager.Instance.NextGame();
         }
 
         /// <summary> Gives points based on the length of the word. </summary>
@@ -190,7 +193,8 @@ namespace Jigsaw_2.Games.LetterOnLetter
             if (answer.Length == engine.GetLongestWord().Length)
                 score += 6;
 
-            //ScoreInterface.Instance.ScoreEngine.ChangePoints(score);
+            ScoreInterface.Instance.ScoreEngine.ChangePoints(score);
+            ScoreInterface.Instance.DrawScoreInterface();
         }
     }
 

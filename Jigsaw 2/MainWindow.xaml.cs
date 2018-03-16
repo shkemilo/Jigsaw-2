@@ -4,8 +4,13 @@ using System.Windows;
 using System.Windows.Controls;
 using MahApps.Metro.Controls;
 using MahApps.Metro;
+using Jigsaw_2.Abstracts;
+using Jigsaw_2.Games.LetterOnLetter;
 using Jigsaw_2.Helpers;
 using Jigsaw_2.Score;
+using System.Windows.Threading;
+using System.Collections.Generic;
+using Jigsaw_2.Games;
 
 namespace Jigsaw_2
 {
@@ -13,27 +18,23 @@ namespace Jigsaw_2
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : MetroWindow
-    { 
+    {
         public MainWindow()
         {
             InitializeComponent();
 
             Finder.SetAllControls(Finder.FindVisualChildren<Control>(MainWindowGrid).ToList());
 
-            ScoreInterface.Instance.DrawScoreInterface();
-            ScoreInterface.Instance.StartTimeControler();
+            Queue<GamePage> games = new Queue<GamePage>();
+
+            games.Enqueue(new LetterOnLetter()); games.Enqueue(new LetterOnLetter());
+
+            GameManager.Instance.SetGames(games);
 
             GameManager.Instance.SetUsername();
-            
-        }
-   
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Tuple<AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);
 
-            ThemeManager.ChangeAppStyle(Application.Current,
-                                    ThemeManager.GetAccent("Green"),
-                                    ThemeManager.GetAppTheme("BaseDark"));
+            ScoreInterface.Instance.DrawScoreInterface();
+            
         }
 
         private void setAppStyle(Accent style, AppTheme theme)

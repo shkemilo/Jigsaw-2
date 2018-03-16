@@ -6,6 +6,11 @@ using MahApps.Metro.Controls.Dialogs;
 using Jigsaw_2.Score;
 using Jigsaw_2.Abstracts;
 using Jigsaw_2.Helpers;
+using System.Linq;
+using System.Collections;
+using Jigsaw_2.Games;
+using Jigsaw_2.Games.LetterOnLetter;
+using System.Windows.Navigation;
 
 namespace Jigsaw_2
 {
@@ -17,7 +22,7 @@ namespace Jigsaw_2
         private static GameManager instance = null;
         private static readonly object padlock = new object();
 
-        List<Game> games;
+        Queue<GamePage> games;
         int currentGame;
 
         Control gameChanger;
@@ -33,7 +38,7 @@ namespace Jigsaw_2
 
             gameChanger = Finder.FindElementWithTag("GameChanger");
 
-            //(gameChanger as Button).Click += StartCurrentGame;
+            (gameChanger as Button).Click += StartCurrentGame;
 
             Console.WriteLine(gameChanger.Parent.ToString());
 
@@ -86,7 +91,7 @@ namespace Jigsaw_2
 
         /// <summary> Set of commands to be run when there are no games left. </summary>
         private async void theEnd()
-        { 
+        {
 
             MessageDialogResult exitResult = await main.ShowMessageAsync("Jigsaw", "Your score is: " + ScoreInterface.Instance.ScoreEngine.Score + "\n Play Again?", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { NegativeButtonText = "No", AffirmativeButtonText = "Yes" });
 
@@ -97,31 +102,31 @@ namespace Jigsaw_2
         }
 
         /// <summary> Sets the Games field. </summary>
-        public void SetGames(List<Game> games) { this.games = games; }
+        public void SetGames(Queue<GamePage> games) { this.games = games; }
 
         /// <summary> Returns the current game in play. </summary>
         public Game GetCurrentGame()
         {
-            if(games != null)
-                return games[currentGame];
+            if (games != null)
+                return games.Peek().Game;
+
+            return null;
+        }
+
+        public GamePage GetCurrentPage()
+        {
+            if (games != null)
+                return games.Peek();
 
             return null;
         }
 
         /// <summary> Starts the current game to be played. </summary>
-        /*public void StartCurrentGame(object sender, EventArgs e)
+        public void StartCurrentGame(object sender, RoutedEventArgs e)
         {
-            if (games != null)
-            {
-                if(currentGame != 0)
-                    games[currentGame - 1].DisableGame();
+            Finder.FindVisualChildren<Frame>(main).ToList().First().Navigate(games.Peek());
 
-                //Console.WriteLine(games[currentGame].GetType());
-                if (games[currentGame] != null)
-                    games[currentGame].Start();
-
-                gameChanger.Enabled = false;
-            }
+            gameChanger.IsEnabled = false;
         }
 
         /// <summary> Changes to the next game. </summary>
@@ -129,14 +134,15 @@ namespace Jigsaw_2
         {
             ScoreInterface.Instance.ResetTimeBar();
 
-            if (currentGame != games.Count - 1)
-            {
-                currentGame++;
-                gameChanger.Enabled = true;
-            }
-            else
+            if (games.Count == 1)
                 theEnd();
-        }*/
+            else
+            {
+                gameChanger.IsEnabled = true;
+
+                games.Dequeue();
+            }
+        }
 
     }
 }

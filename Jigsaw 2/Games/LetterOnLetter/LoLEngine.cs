@@ -21,8 +21,6 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
             word = WordList.Instance.GetWoWSeed();
 
-            word = "kuremurekure";
-
             Console.WriteLine(word);
 
             generateLetters();

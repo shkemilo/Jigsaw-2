@@ -21,3 +21,6 @@ c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug
 c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.exe
 c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.pdb
 c:\users\matej\documents\visual studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\App.baml
+C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Games\LetterOnLetter\LetterOnLetter.g.cs
+C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Games\LetterOnLetter\LetterOnLetter.baml
+C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\GeneratedInternalTypeHelper.g.cs
