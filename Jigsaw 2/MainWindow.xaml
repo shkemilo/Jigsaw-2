@@ -6,8 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Jigsaw_2"
         mc:Ignorable="d"
-        Title="Jigsaw" Height="800" Width="1280
-                      " ShowIconOnTitleBar="True">
+        Title="Jigsaw" Height="800" Width="1280" Icon="./Resources/Graphics/Logo32.png" ShowIconOnTitleBar="True" ResizeMode="CanMinimize">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -19,6 +18,7 @@
 
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
+            
             <Button Click="SettingsMenu">
 
                 <StackPanel Orientation="Horizontal">
@@ -30,7 +30,7 @@
                         </Rectangle.OpacityMask>
                     </Rectangle>
 
-                    <TextBlock Margin="4 0 0 0"
+                    <TextBlock Margin="6 0 0 0"
                    VerticalAlignment="Center"
                    Text="Settings" FontSize="20" />
 
@@ -51,15 +51,40 @@
                     </ContextMenu>
                 </Button.ContextMenu>
             </Button>
+
+            <Button >
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="30"
+                    Height="30"
+                    Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_user}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+
+                    <TextBlock Margin="6 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="" FontSize="20" Tag="CurrentUser" />
+
+                </StackPanel>
+            </Button>
+            
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
 
     <Grid Name="MainWindowGrid">
         <TextBox HorizontalAlignment="Left" Height="30" Margin="24,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" IsEnabled="False" Tag="ScoreDisplay"/>
         <ProgressBar HorizontalAlignment="Left" Height="30" Margin="129,55,0,0" VerticalAlignment="Top" Width="1104" Tag="TimeBar" Maximum="1000"/>
-        <Button Content="Next Game" HorizontalAlignment="Left" Height="55" Margin="1033,90,0,0" VerticalAlignment="Top" Width="200" Style="{DynamicResource SquareButtonStyle}" Controls:ButtonHelper.PreserveTextCase="True" Tag="GameChanger"/>
+        <Button HorizontalAlignment="Left" Height="100" Margin="1133,90,0,0" VerticalAlignment="Top" Width="100" Style="{DynamicResource SquareButtonStyle}" Controls:ButtonHelper.PreserveTextCase="True" Tag="GameChanger">
+            <Rectangle Width="80"
+                Height="80"
+                Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_control_play}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+        </Button>
         <Frame x:Name="MainFrame" Content="" HorizontalAlignment="Left" Height="600" Margin="24,150,0,0" VerticalAlignment="Top" Width="1209" NavigationUIVisibility="Hidden"/>
-        <Label Content="Current player: " HorizontalAlignment="Left" Margin="24,13,0,0" VerticalAlignment="Top" Tag="CurrentPlayer" FontSize="20"/>
 
     </Grid>
 </Controls:MetroWindow>

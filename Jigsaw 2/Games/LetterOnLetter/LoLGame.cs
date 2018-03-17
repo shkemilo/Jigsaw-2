@@ -68,10 +68,12 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
             check = (Button)Finder.FindElementWithTag(allControls, "CheckerButton");
             check.Click += wordFeedback;
+            check.IsEnabled = false;
             submit = (Button)Finder.FindElementWithTag(allControls, "SSButton");
             submit.Click += ssClick;
             undo = (Button)Finder.FindElementWithTag(allControls, "UndoButton");
             undo.Click += undoLastLetter;
+            undo.IsEnabled = false;
 
             answer = "";
 
@@ -144,14 +146,18 @@ namespace Jigsaw_2.Games.LetterOnLetter
             state = "submit";
 
             foreach (Rectangle r in Finder.FindVisualChildren<Rectangle>(gameGrid))
-                if (r.Tag.ToString() == "SSImage")
-                {
-                    r.OpacityMask = new VisualBrush() { Visual = (Visual)ResourceDictionaryManager.GetResources()["appbar_check"] };
-                    break;
-                }
+                if(r.Tag != null)
+                    if (r.Tag.ToString() == "SSImage")
+                    {
+                        r.OpacityMask = new VisualBrush() { Visual = (Visual)ResourceDictionaryManager.GetResources()["appbar_check"] };
+                        break;
+                    }
 
             foreach (Control c in letterDisp)
                 c.IsEnabled = true;
+
+            check.IsEnabled = true;
+            undo.IsEnabled = true;
         }
 
         /// <summary> Finishes the game. </summary>
@@ -162,8 +168,6 @@ namespace Jigsaw_2.Games.LetterOnLetter
             check.IsEnabled = false;
             submit.IsEnabled = false;
             undo.IsEnabled = false;
-
-            Console.WriteLine("sve sam ovo uradio");
 
             foreach (Control c in letterDisp)
                 c.IsEnabled = false;

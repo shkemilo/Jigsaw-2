@@ -23,7 +23,6 @@ namespace Jigsaw_2
         private static readonly object padlock = new object();
 
         Queue<GamePage> games;
-        int currentGame;
 
         Control gameChanger;
 
@@ -33,7 +32,6 @@ namespace Jigsaw_2
 
         private GameManager()
         {
-            currentGame = 0;
             games = null;
 
             gameChanger = Finder.FindElementWithTag("GameChanger");
@@ -63,9 +61,31 @@ namespace Jigsaw_2
             }
         }
 
-        public async void SetUsername()
+        public string Username { get => username;  }
+
+        private string badInput(string input)
         {
-            var result = await main.ShowInputAsync("Jigsaw", "Enter your username: ");
+            string message = string.Empty;
+
+            if (input == string.Empty)
+                message = "Username musn't be blank. Try again.";
+            else if (input.Length > 12)
+                message = "Username too long. Try again";
+
+            return message;
+        }
+
+        private void setCurrentUser()
+        {
+            foreach (TextBlock tb in Finder.FindVisualChildren<TextBlock>(main))
+                if (tb.Tag != null)
+                    if (tb.Tag.ToString() == "CurrentUser")
+                        tb.Text = username;
+        }
+
+        public async void SetUsername(string message = "Enter your username: ")
+        {
+            string result = await main.ShowInputAsync("Jigsaw", message);
 
             if (result == null)
             {
@@ -78,14 +98,18 @@ namespace Jigsaw_2
             }
             else
             {
-                if ((result == "") || (result[0] == ' '))
-                    SetUsername();
+                result = result.Trim();
 
-                result.Trim();
-
-                username = result;
-
-                (Finder.FindElementWithTag("CurrentPlayer") as Label).Content += username;
+                if (badInput(result) != string.Empty)
+                {
+                    message = badInput(result);
+                    SetUsername(message);
+                }
+                else
+                {
+                    username = result;
+                    setCurrentUser();
+                }
             }
         }
 
@@ -107,18 +131,13 @@ namespace Jigsaw_2
         /// <summary> Returns the current game in play. </summary>
         public Game GetCurrentGame()
         {
-            if (games != null)
-                return games.Peek().Game;
-
-            return null;
+            return games.Peek().Game;
         }
 
+        /// <summary> Returns the current page that is being shown. </summary>
         public GamePage GetCurrentPage()
         {
-            if (games != null)
-                return games.Peek();
-
-            return null;
+            return games.Peek();
         }
 
         /// <summary> Starts the current game to be played. </summary>

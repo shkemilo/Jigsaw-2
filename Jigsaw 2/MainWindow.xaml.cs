@@ -23,6 +23,8 @@ namespace Jigsaw_2
         {
             InitializeComponent();
 
+            System.Threading.Thread.Sleep(2000);
+
             Finder.SetAllControls(Finder.FindVisualChildren<Control>(MainWindowGrid).ToList());
 
             Queue<GamePage> games = new Queue<GamePage>();

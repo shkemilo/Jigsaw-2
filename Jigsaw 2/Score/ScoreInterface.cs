@@ -64,7 +64,7 @@ namespace Jigsaw_2.Score
         void timeControlerTick(object sender, EventArgs e)
         {
             if (progressBar.Value != progressBar.Maximum)
-                progressBar.Value += 10;
+                progressBar.Value += 1;
             else
             {
                 stopCurrentGame();

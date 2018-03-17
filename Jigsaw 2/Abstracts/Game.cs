@@ -33,17 +33,5 @@ namespace Jigsaw_2.Abstracts
 
         public abstract void GameOver();
 
-        /*public void Start()
-        {
-            gameDisplay.Enabled = true;
-            gameDisplay.Visible = true;
-        }
-
-        public void DisableGame()
-        {
-            gameDisplay.Enabled = false;
-            gameDisplay.Visible = false;
-        }*/
-
     }
 }

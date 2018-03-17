@@ -27,17 +27,6 @@ namespace Jigsaw_2.Helpers
             timers = newTimers;
         }
 
-        /// <summary> Finds and returns a Timer by it's tag. Returns null if not found. </summary>
-        /*public static Timer FindTimerWithTag(string tag)
-        {
-            foreach (Timer t in timers)
-                if (t. != null)
-                    if (t.Tag.ToString() == tag)
-                        return t;
-
-            return null;
-        }*/
-
         /// <summary> Finds and returns a Control in the whole Windows form by it's tag. Returns null if not found. </summary>
         public static Control FindElementWithTag(string tag)
         {
@@ -92,6 +81,7 @@ namespace Jigsaw_2.Helpers
                 return tList;
         }
 
+        /// <summary> Finds and returns a list of all visual childrens of an object. </summary>
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
         {
             if (depObj != null)
@@ -112,21 +102,5 @@ namespace Jigsaw_2.Helpers
             }
         }
 
-        /// <summary> Returns a collection of Controls that is inside the specified Panel. </summary>
-        /*public static List<Control> GetAllElementsInPanel(Page targetPage)
-        {
-            List<Control> tempList = new List<Control>();
-
-            foreach (Control c in targetPage.Controls)
-                    tempList.Add(c);
-
-            if (tempList.Count != 0)
-            {
-                tempList.Reverse();
-                return tempList;
-            }
-            else
-                return null;
-        }*/
     }
 }

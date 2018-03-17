@@ -5,6 +5,10 @@ using System;
 
 namespace Jigsaw_2.Games
 {
+
+    /// <summary>
+    /// Extension of the Page class, merges a page and a game into one class
+    /// </summary>
     public class GamePage : Page
     {
         DispatcherTimer drawTimer;
@@ -14,12 +18,13 @@ namespace Jigsaw_2.Games
         public GamePage()
         {
             drawTimer = new DispatcherTimer();
-            drawTimer.Interval = new TimeSpan(0, 0, 0, 0, 10);
+            drawTimer.Interval = new TimeSpan(0, 0, 0, 0, 30);
             drawTimer.Tick += drawTick;
         }
 
         public Game Game { get => game; }
 
+        /// <summary> Sets the game associated with the page </summary>
         protected void SetGame(Game game)
         {
             this.game = game;
@@ -27,6 +32,7 @@ namespace Jigsaw_2.Games
             drawTimer.Start();
         }
 
+        /// <summary> Timer for drawing and animating the game. </summary>
         private void drawTick(object sender, EventArgs e)
         {
             if (game.ToAnimate() != null)

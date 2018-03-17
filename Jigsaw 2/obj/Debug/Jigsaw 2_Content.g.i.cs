@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/wordlist.txt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/graphics/puzzle%20(1).png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/graphics/puzzle.png")]
 
 
