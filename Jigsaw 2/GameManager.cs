@@ -22,7 +22,9 @@ namespace Jigsaw_2
         private static GameManager instance = null;
         private static readonly object padlock = new object();
 
-        Queue<GamePage> games;
+        Queue<string> games;
+
+        GamePage currentGame;
 
         Control gameChanger;
 
@@ -32,7 +34,10 @@ namespace Jigsaw_2
 
         private GameManager()
         {
-            games = null;
+            games = new Queue<string>();
+
+            games.Enqueue("letteronletter"); games.Enqueue("letteronletter");
+            games.Enqueue("jumper"); games.Enqueue("jumper");
 
             gameChanger = Finder.FindElementWithTag("GameChanger");
 
@@ -43,6 +48,8 @@ namespace Jigsaw_2
             main = (Application.Current.MainWindow as MainWindow);
 
             username = "";
+
+            NextGame();
         }
 
         /// <summary> Returns the Instance of the GameManager Singleton. </summary>
@@ -126,24 +133,27 @@ namespace Jigsaw_2
         }
 
         /// <summary> Sets the Games field. </summary>
-        public void SetGames(Queue<GamePage> games) { this.games = games; }
+        /*public void SetGames(Queue<GamePage> games)
+        {
+            this.games = games;
+        }*/
 
         /// <summary> Returns the current game in play. </summary>
         public Game GetCurrentGame()
         {
-            return games.Peek().Game;
+            return currentGame.Game;
         }
 
         /// <summary> Returns the current page that is being shown. </summary>
         public GamePage GetCurrentPage()
         {
-            return games.Peek();
+            return currentGame;
         }
 
         /// <summary> Starts the current game to be played. </summary>
         public void StartCurrentGame(object sender, RoutedEventArgs e)
         {
-            Finder.FindVisualChildren<Frame>(main).ToList().First().Navigate(games.Peek());
+            Finder.FindVisualChildren<Frame>(main).ToList().First().Navigate(currentGame);
 
             gameChanger.IsEnabled = false;
         }
@@ -153,13 +163,13 @@ namespace Jigsaw_2
         {
             ScoreInterface.Instance.ResetTimeBar();
 
-            if (games.Count == 1)
+            if (games.Count == 0)
                 theEnd();
             else
             {
                 gameChanger.IsEnabled = true;
 
-                games.Dequeue();
+                currentGame = GameFactory.GetGame(games.Dequeue());
             }
         }
 

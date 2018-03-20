@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
 using Jigsaw_2.Abstracts;
@@ -32,10 +31,11 @@ namespace Jigsaw_2.Games.Jumper
             this.engine = engine;
 
             userControls = Finder.FindElementsWithTag(allControls, "UserControls");
+
+            setUserControlsEnabled(false);
             foreach (Control c in userControls)
             {
                 (c as Button).Click += addToAnswer;
-                c.IsEnabled = false;
             }
 
             this.numberOfRows = numberOfRows;
@@ -49,27 +49,8 @@ namespace Jigsaw_2.Games.Jumper
             nextRowButton.Click += startGame;
             nextRowButton.IsEnabled = true;
 
-
-
             engine.Subscribe(mainDisp);
             GUIElements.Add(mainDisp);
-        }
-
-        /// <summary> Starts the game when the button is clicked. </summary>
-        private void startGame(object sender, RoutedEventArgs e)
-        {
-            ScoreInterface.Instance.StartTimeControler();
-
-            (sender as Button).Content = "Next Row";
-            foreach (Control c in userControls)
-                c.IsEnabled = true;
-
-
-            nextRowButton.Click -= startGame;
-            nextRowButton.Click += nextRow;
-            nextRowButton.IsEnabled = false;
-
-            mainDisp.SetActiveRowVisual();
         }
 
         /// <summary> Sets the display of the correct combination. </summary>
@@ -84,19 +65,21 @@ namespace Jigsaw_2.Games.Jumper
             correctCombinationDisplay = new JumperDisplayComponent(elementHolder);
         }
 
+        /// <summary> Sets a JumperDisplayComponent by its tag. </summary>
         private JumperDisplayComponent getDisplayComponent(string tag)
         {
             List<JumperDisplayElement> temp = new List<JumperDisplayElement>();
 
             foreach(Control c in Finder.FindElementsWithTag(allControls, tag))
             {
-                (c as Button).Click += undo;
+                //(c as Button).Click += undo;
                 temp.Add(new JumperDisplayElement(c as Button));
             }
 
             return new JumperDisplayComponent(temp);
         }
 
+        /// <summary> Sets a JumperCheckerComponent by its tag. </summary>
         private JumperCheckerComponent getCheckerComponent(string tag)
         {
             List<JumperCheckerElement> temp = new List<JumperCheckerElement>();
@@ -124,71 +107,113 @@ namespace Jigsaw_2.Games.Jumper
             mainDisp = new JumperDisplay(mainDispList, mainCheckList);
         }
 
+        /// <summary> Enabled/Disables the user controls. </summary>
+        private void setUserControlsEnabled(bool b)
+        {
+            foreach (Control c in userControls)
+                c.IsEnabled = b;
+        }
+
+        /// <summary> Disables the current field. </summary>
+        private void disableField()
+        {
+            if (mainDisp.GetCurrentRow().CurrentElementIndex != -1)
+                mainDisp.GetActiveElement().GetField().Click -= undo;
+        }
+
+        /// <summary> Enables the current field. </summary>
+        private void enableField()
+        {
+            if (mainDisp.GetCurrentRow().CurrentElementIndex != -1)
+                mainDisp.GetActiveElement().GetField().Click += undo;
+        }
+
+        /// <summary> Updates the answer. </summary>
+        private void changeAnswer(int newElement)
+        {
+            answer[mainDisp.GetCurrentRow().CurrentElementIndex] = newElement;
+            engine.Broadcast(IntToImageConverter.Instance.Convert(answer[mainDisp.GetCurrentRow().CurrentElementIndex]));
+        }
+
+        /// <summary> Shows the correct combination. </summary>
+        private void showCorrectCombinationDisplay()
+        {
+            for (int i = 0; i < correctCombinationDisplay.NumberOfElements; i++)
+            {
+                correctCombinationDisplay.NextElement();
+
+                correctCombinationDisplay.Update(IntToImageConverter.Instance.Convert(engine.GetCombination()[i]));
+                correctCombinationDisplay.Show();
+            }
+        }
+
+        /// <summary> Starts the game when the button is clicked. </summary>
+        private void startGame(object sender, RoutedEventArgs e)
+        {
+            ScoreInterface.Instance.StartTimeControler();
+
+            (sender as Button).Content = "Next Row";
+
+            setUserControlsEnabled(true);
+
+            nextRowButton.Click -= startGame;
+            nextRowButton.Click += nextRow;
+            nextRowButton.IsEnabled = false;
+
+            mainDisp.SetActiveRowVisual();
+        }
+
         /// <summary> Adds a element to the answer. </summary>
         private void addToAnswer(object sender, RoutedEventArgs e)
         {
-            if (mainDisp.GetCurrentRow().CurrentElementIndex != -1)
-                mainDisp.GetActiveElement().SetEnabled(false);
+            if (mainDisp.GetCurrentRow().CurrentElementIndex != 3)
+            {
+                disableField();
 
-            mainDisp.GetCurrentRow().NextElement();
+                mainDisp.GetCurrentRow().NextElement();
 
-            answer[mainDisp.GetCurrentRow().CurrentElementIndex] = userControls.IndexOf((sender as Control)) + 1;
-            engine.Broadcast(IntToImageConverter.Instance.Convert(answer[mainDisp.GetCurrentRow().CurrentElementIndex]));
+                changeAnswer(userControls.IndexOf((sender as Control)) + 1);
 
-            mainDisp.GetActiveElement().SetEnabled(true);
+                enableField();
+            }
 
             if (mainDisp.GetCurrentRow().CurrentElementIndex == 3)
                 nextRowButton.IsEnabled = true;
         }
 
-        /// <summary> Changes to the next row. </summary> //TODO: This function works but is very very shitty. Refactor it.
-        private void nextRow(object sender, RoutedEventArgs e)
-        {
-            if (mainDisp.CurrentRow < numberOfRows - 1)
-            {
-                mainDisp.GetActiveElement().SetEnabled(false);
-
-                engine.Broadcast(engine.CheckFeedback(answer));
-
-                if (engine.Check(answer))
-                    GameOver();
-
-                mainDisp.ManualChekerShow();
-                mainDisp.NextRow();
-
-                mainDisp.SetActiveRowVisual();
-
-                answer = new int[] { 0, 0, 0, 0 };
-
-                nextRowButton.IsEnabled = false;
-            }
-            else
-            {
-                engine.Broadcast(engine.CheckFeedback(answer));
-                mainDisp.ManualChekerShow();
-                mainDisp.GetActiveElement().SetEnabled(false);
-
-                nextRowButton.IsEnabled = false;
-                GameOver();
-            }
-        }
-
         /// <summary> Undo the last operation. </summary>
         private void undo(object sender, RoutedEventArgs e)
         {
-            mainDisp.GetActiveElement().SetEnabled(false);
+            disableField();
 
-            answer[mainDisp.GetCurrentRow().CurrentElementIndex] = 0;
-            engine.Broadcast(IntToImageConverter.Instance.Convert(answer[mainDisp.GetCurrentRow().CurrentElementIndex]));
+            changeAnswer(0);
 
             mainDisp.GetCurrentRow().PreviousElement();
-            Console.WriteLine(mainDisp.GetCurrentRow().CurrentElementIndex);
 
-            if(mainDisp.GetCurrentRow().CurrentElementIndex != -1)
-                mainDisp.GetActiveElement().SetEnabled(true);
+            enableField();
+
+            nextRowButton.IsEnabled = false;
+        }
+
+        /// <summary> Changes to the next row. </summary> //TODO: This function works but is very very shitty. Refactor it.
+        private void nextRow(object sender, RoutedEventArgs e)
+        {
+            mainDisp.GetCurrentRow().Disable();
+
+            engine.Broadcast(engine.CheckFeedback(answer));
+            mainDisp.ManualChekerShow();
 
             nextRowButton.IsEnabled = false;
 
+            if ( engine.Check(answer) || ( mainDisp.CurrentRow == (numberOfRows - 1) ) )
+                GameOver();
+            else
+            { 
+                answer = new int[] { 0, 0, 0, 0 };
+
+                mainDisp.NextRow();
+                mainDisp.SetActiveRowVisual();
+            }
         }
 
         /// <summary> Finishes the game. </summary>
@@ -196,18 +221,11 @@ namespace Jigsaw_2.Games.Jumper
         {
             ScoreInterface.Instance.StopTimeControler();
 
-            foreach (Control c in userControls)
-                c.IsEnabled = false;
+            setUserControlsEnabled(false);
 
             GUIElements.Remove(mainDisp);
 
-            for (int i = 0; i < correctCombinationDisplay.NumberOfElements; i++)
-            {
-                correctCombinationDisplay.NextElement();
-
-                correctCombinationDisplay.Update(IntToImageConverter.Instance.Convert(engine.GetCombination()[i]));
-                correctCombinationDisplay.Show();      
-            }
+            showCorrectCombinationDisplay();
 
             if (engine.Check(answer))
                 Grader();

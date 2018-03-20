@@ -29,15 +29,13 @@ namespace Jigsaw_2.Games.Jumper
             Console.WriteLine(field.Content);
 
             elementImage = field.Content as Image;
-
-
-            source = null;
         }
 
         /// <summary> Changes the controls enabled state. </summary>
         public void SetEnabled(bool b) 
         {
             field.IsEnabled = b;
+            
         }
 
         public Button GetField()
@@ -102,6 +100,12 @@ namespace Jigsaw_2.Games.Jumper
         {
             return elements.ElementAt(currentElementIndex);
 
+        }
+
+        public void Disable()
+        {
+            foreach (JumperDisplayElement element in elements)
+                element.SetEnabled(false);
         }
 
         /// <summary> Return a field at specified index. Returns null if index doesnt exist. </summary>
@@ -237,8 +241,7 @@ namespace Jigsaw_2.Games.Jumper
         public void NextRow()
         {
             if (currentRow < numberOfRows - 1)
-                currentRow++;
-                
+                currentRow++;     
         }
 
         public void SetActiveRowVisual()

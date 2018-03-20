@@ -41,7 +41,7 @@
                 <Button.ContextMenu>
                     <ContextMenu BorderThickness="1">
                         <MenuItem Header="Style: ">
-                            <CheckBox Content=" Night mode " FontSize ="14" Checked ="NightMode" Unchecked="LightMode" IsChecked="True"></CheckBox>
+                            <CheckBox Content=" Night mode " FontSize ="14" Checked ="NightMode" Unchecked="LightMode" IsChecked="False"></CheckBox>
                             <MenuItem Header="Color: " FontSize ="14" IsEnabled="False"></MenuItem>
                             <ComboBox Name="ColorSelecter" SelectionChanged="SelectColor" SelectedIndex="8">
                                 <ComboBoxItem Content="Blue"></ComboBoxItem>

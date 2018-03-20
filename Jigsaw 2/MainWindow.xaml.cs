@@ -30,11 +30,11 @@ namespace Jigsaw_2
 
             Queue<GamePage> games = new Queue<GamePage>();
 
-            games.Enqueue(new LetterOnLetter()); games.Enqueue(new LetterOnLetter());
+            //games.Enqueue(new LetterOnLetter()); games.Enqueue(new LetterOnLetter());
 
             games.Enqueue(new Jumper()); games.Enqueue(new Jumper());
 
-            GameManager.Instance.SetGames(games);
+            //GameManager.Instance.SetGames(games);
 
             GameManager.Instance.SetUsername();
 

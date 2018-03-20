@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Games\GameFactory.cs" />
     <Compile Include="Games\GamePage.cs" />
     <Compile Include="Games\Jumper\Jumper.xaml.cs">
       <DependentUpon>Jumper.xaml</DependentUpon>
