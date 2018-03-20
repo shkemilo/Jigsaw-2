@@ -62,7 +62,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
         /// <summary> Check if the word is inside the Word list. </summary>
         public bool Check(string s)
         {
-            if(s != null)
+            if(s != string.Empty)
                 for (int i = 0; i < wordList.Length; i++)
                     if (s.ToUpper() == wordList[i].ToUpper())
                         return true;

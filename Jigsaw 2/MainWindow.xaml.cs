@@ -11,6 +11,7 @@ using Jigsaw_2.Score;
 using System.Windows.Threading;
 using System.Collections.Generic;
 using Jigsaw_2.Games;
+using Jigsaw_2.Games.Jumper;
 
 namespace Jigsaw_2
 {
@@ -30,6 +31,8 @@ namespace Jigsaw_2
             Queue<GamePage> games = new Queue<GamePage>();
 
             games.Enqueue(new LetterOnLetter()); games.Enqueue(new LetterOnLetter());
+
+            games.Enqueue(new Jumper()); games.Enqueue(new Jumper());
 
             GameManager.Instance.SetGames(games);
 

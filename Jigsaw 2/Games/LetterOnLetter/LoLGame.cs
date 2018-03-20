@@ -36,12 +36,8 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
         string state;
 
-        Grid gameGrid;
-
-        public LoLGame(LoLEngine engine, Grid gameGrid)
+        public LoLGame(LoLEngine engine, Grid gameGrid) : base(gameGrid)
         {
-            this.gameGrid = gameGrid;
-            allControls = Finder.FindVisualChildren<Control>(gameGrid).ToList();
             letterDisp = Finder.FindElementsWithTag(allControls, "CharacterDisplayButton");
             foreach (Control b in letterDisp)
             {
@@ -149,7 +145,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
                 if(r.Tag != null)
                     if (r.Tag.ToString() == "SSImage")
                     {
-                        r.OpacityMask = new VisualBrush() { Visual = (Visual)ResourceDictionaryManager.GetResources()["appbar_check"] };
+                        r.OpacityMask = new VisualBrush() { Visual = (Visual)ResourceDictionaryManager.GetResources()["appbar_door_enter"] };
                         break;
                     }
 

@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Controls;
+using Jigsaw_2.Helpers;
 
 namespace Jigsaw_2.Abstracts
 {
@@ -8,6 +10,7 @@ namespace Jigsaw_2.Abstracts
     /// </summary>
     public abstract class Game
     {
+        protected Grid gameGrid;
         protected List<Control> allControls;
 
         protected List<GUIElement> GUIElements;
@@ -15,8 +18,11 @@ namespace Jigsaw_2.Abstracts
 
         protected int score;
 
-        public Game()
-        { 
+        public Game(Grid gameGrid)
+        {
+            this.gameGrid = gameGrid;
+            allControls = Finder.FindVisualChildren<Control>(gameGrid).ToList();
+
             GUIElements = new List<GUIElement>();
             anims = new List<Animateable>();
 

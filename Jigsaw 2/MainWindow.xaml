@@ -6,7 +6,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Jigsaw_2"
         mc:Ignorable="d"
-        Title="Jigsaw" Height="800" Width="1280" Icon="./Resources/Graphics/Logo32.png" ShowIconOnTitleBar="True" ResizeMode="CanMinimize">
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        BorderThickness="2"
+        Title="Jigsaw" Height="900" Width="1280" Icon="./Resources/Graphics/Logo32.png" ShowIconOnTitleBar="True" ResizeMode="CanMinimize">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -39,13 +41,31 @@
                 <Button.ContextMenu>
                     <ContextMenu BorderThickness="1">
                         <MenuItem Header="Style: ">
-                            <CheckBox Content=" Night mode " FontSize ="14" Checked ="NightMode" Unchecked="LightMode"></CheckBox>
+                            <CheckBox Content=" Night mode " FontSize ="14" Checked ="NightMode" Unchecked="LightMode" IsChecked="True"></CheckBox>
                             <MenuItem Header="Color: " FontSize ="14" IsEnabled="False"></MenuItem>
-                            <ComboBox Name="ColorSelecter" SelectionChanged="SelectColor">
-                                <ComboBoxItem Content="Red"></ComboBoxItem>
+                            <ComboBox Name="ColorSelecter" SelectionChanged="SelectColor" SelectedIndex="8">
                                 <ComboBoxItem Content="Blue"></ComboBoxItem>
-                                <ComboBoxItem Content="Yellow"></ComboBoxItem>
+                                <ComboBoxItem Content="Red"></ComboBoxItem>
                                 <ComboBoxItem Content="Green"></ComboBoxItem>
+                                <ComboBoxItem Content="Purple"></ComboBoxItem>
+                                <ComboBoxItem Content="Orange"></ComboBoxItem>
+                                <ComboBoxItem Content="Lime"></ComboBoxItem>
+                                <ComboBoxItem Content="Emerald"></ComboBoxItem>
+                                <ComboBoxItem Content="Teal"></ComboBoxItem>
+                                <ComboBoxItem Content="Cyan"></ComboBoxItem>
+                                <ComboBoxItem Content="Cobalt"></ComboBoxItem>
+                                <ComboBoxItem Content="Indigo"></ComboBoxItem>
+                                <ComboBoxItem Content="Violet"></ComboBoxItem>
+                                <ComboBoxItem Content="Magenta"></ComboBoxItem>
+                                <ComboBoxItem Content="Crimson"></ComboBoxItem>
+                                <ComboBoxItem Content="Amber"></ComboBoxItem>
+                                <ComboBoxItem Content="Yellow"></ComboBoxItem>
+                                <ComboBoxItem Content="Brown"></ComboBoxItem>
+                                <ComboBoxItem Content="Olive"></ComboBoxItem>
+                                <ComboBoxItem Content="Steel"></ComboBoxItem>
+                                <ComboBoxItem Content="Mauve"></ComboBoxItem>
+                                <ComboBoxItem Content="Taupe"></ComboBoxItem>
+                                <ComboBoxItem Content="Sienna"></ComboBoxItem>
                             </ComboBox>
                         </MenuItem>
                     </ContextMenu>
@@ -75,16 +95,16 @@
     <Grid Name="MainWindowGrid">
         <TextBox HorizontalAlignment="Left" Height="30" Margin="24,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" IsEnabled="False" Tag="ScoreDisplay"/>
         <ProgressBar HorizontalAlignment="Left" Height="30" Margin="129,55,0,0" VerticalAlignment="Top" Width="1104" Tag="TimeBar" Maximum="1000"/>
-        <Button HorizontalAlignment="Left" Height="100" Margin="1133,90,0,0" VerticalAlignment="Top" Width="100" Style="{DynamicResource SquareButtonStyle}" Controls:ButtonHelper.PreserveTextCase="True" Tag="GameChanger">
-            <Rectangle Width="80"
-                Height="80"
+        <Button HorizontalAlignment="Left" Height="60" Margin="1163,90,0,0" VerticalAlignment="Top" Width="70" Style="{DynamicResource SquareButtonStyle}" Controls:ButtonHelper.PreserveTextCase="True" Tag="GameChanger">
+            <Rectangle Width="50"
+                Height="50"
                 Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
                 <Rectangle.OpacityMask>
                     <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_control_play}" />
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
-        <Frame x:Name="MainFrame" Content="" HorizontalAlignment="Left" Height="600" Margin="24,150,0,0" VerticalAlignment="Top" Width="1209" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="MainFrame" Content="" HorizontalAlignment="Left" Height="682" Margin="24,150,0,0" VerticalAlignment="Top" Width="1209" NavigationUIVisibility="Hidden"/>
 
     </Grid>
 </Controls:MetroWindow>

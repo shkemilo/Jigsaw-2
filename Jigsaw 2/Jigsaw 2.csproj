@@ -65,9 +65,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Games\GamePage.cs" />
+    <Compile Include="Games\Jumper\Jumper.xaml.cs">
+      <DependentUpon>Jumper.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Jumper\JumperEngine.cs" />
+    <Compile Include="Games\Jumper\JumperGame.cs" />
+    <Compile Include="Games\Jumper\JumperGUI.cs" />
     <Compile Include="Games\LetterOnLetter\LetterOnLetter.xaml.cs">
       <DependentUpon>LetterOnLetter.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\IntToImageConverter.cs" />
     <Compile Include="Helpers\ResourceDictionaryManager.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -76,6 +83,10 @@
     </Compile>
     <Compile Include="Score\ScoreEngine.cs" />
     <Compile Include="Score\ScoreInterface.cs" />
+    <Page Include="Games\Jumper\Jumper.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Games\LetterOnLetter\LetterOnLetter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,7 +154,10 @@
     <Resource Include="Resources\Entypo-license.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Games\Jumper\" />
+    <Resource Include="Resources\Graphics\Jumper\Club64.png" />
+    <Resource Include="Resources\Graphics\Jumper\Diamond64.png" />
+    <Resource Include="Resources\Graphics\Jumper\Heart64.png" />
+    <Resource Include="Resources\Graphics\Jumper\Spade64.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\WordList.txt" />
@@ -151,6 +165,12 @@
   <ItemGroup>
     <Resource Include="Resources\Graphics\Logo64.png" />
     <Resource Include="Resources\Graphics\Logo32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Graphics\Jumper\Logo64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Graphics\Jumper\Star64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
