@@ -26,8 +26,10 @@ namespace Jigsaw_2.Games.Jumper
 
             generateCombination();
 
+        #if DEBUG
             for (int i = 0; i < numberOfFields; i++)
-                Console.WriteLine(combination[i]);
+            Console.WriteLine(combination[i]);
+        #endif
         }
 
         /// <summary> Generates a combination to be found by the user. </summary>

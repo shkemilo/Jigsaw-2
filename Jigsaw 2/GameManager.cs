@@ -7,10 +7,8 @@ using Jigsaw_2.Score;
 using Jigsaw_2.Abstracts;
 using Jigsaw_2.Helpers;
 using System.Linq;
-using System.Collections;
 using Jigsaw_2.Games;
-using Jigsaw_2.Games.LetterOnLetter;
-using System.Windows.Navigation;
+
 
 namespace Jigsaw_2
 {
@@ -36,14 +34,15 @@ namespace Jigsaw_2
         {
             games = new Queue<string>();
 
-            games.Enqueue("letteronletter"); games.Enqueue("letteronletter");
-            games.Enqueue("jumper"); games.Enqueue("jumper");
+            games.Enqueue("letteronletter");
+            games.Enqueue("letteronletter");
+
+            games.Enqueue("jumper");
+            games.Enqueue("jumper");
 
             gameChanger = Finder.FindElementWithTag("GameChanger");
 
             (gameChanger as Button).Click += StartCurrentGame;
-
-            Console.WriteLine(gameChanger.Parent.ToString());
 
             main = (Application.Current.MainWindow as MainWindow);
 
@@ -90,19 +89,22 @@ namespace Jigsaw_2
                         tb.Text = username;
         }
 
+        private async void exitDialog()
+        {
+            MessageDialogResult exitResult = await main.ShowMessageAsync("Jigsaw", "Do you want to exit the game?", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { NegativeButtonText = "No", AffirmativeButtonText = "Yes" });
+
+            if (exitResult == MessageDialogResult.Affirmative)
+                Application.Current.Shutdown();
+            else
+                SetUsername();
+        }
+
         public async void SetUsername(string message = "Enter your username: ")
         {
             string result = await main.ShowInputAsync("Jigsaw", message);
 
             if (result == null)
-            {
-                MessageDialogResult exitResult = await main.ShowMessageAsync("Jigsaw", "Do you want to exit the game?", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { NegativeButtonText = "No", AffirmativeButtonText = "Yes" });
-
-                if (exitResult == MessageDialogResult.Affirmative)
-                    Application.Current.Shutdown();
-                else
-                    SetUsername();
-            }
+                exitDialog();
             else
             {
                 result = result.Trim();
@@ -131,12 +133,6 @@ namespace Jigsaw_2
 
             Application.Current.Shutdown();
         }
-
-        /// <summary> Sets the Games field. </summary>
-        /*public void SetGames(Queue<GamePage> games)
-        {
-            this.games = games;
-        }*/
 
         /// <summary> Returns the current game in play. </summary>
         public Game GetCurrentGame()

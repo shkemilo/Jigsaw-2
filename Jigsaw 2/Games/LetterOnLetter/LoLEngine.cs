@@ -21,7 +21,9 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
             word = WordList.Instance.GetWoWSeed();
 
-            Console.WriteLine(word);
+            #if DEBUG
+                Console.WriteLine(word);
+            #endif
 
             generateLetters();
         }

@@ -5,6 +5,8 @@ using Jigsaw_2.Helpers;
 using Jigsaw_2.Score;
 using System.Windows.Shapes;
 using System.Windows;
+using System.Linq;
+using System.Windows.Media;
 
 namespace Jigsaw_2.Games.Jumper
 { 
@@ -152,7 +154,7 @@ namespace Jigsaw_2.Games.Jumper
         {
             ScoreInterface.Instance.StartTimeControler();
 
-            (sender as Button).Content = "Next Row";
+            Finder.FindVisualChildren<Rectangle>(sender as Button).First().OpacityMask = new VisualBrush() { Visual = (Visual)ResourceDictionaryManager.GetResources()["appbar_navigate_next"] };
 
             setUserControlsEnabled(true);
 

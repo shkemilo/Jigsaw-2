@@ -26,8 +26,6 @@ namespace Jigsaw_2.Games.Jumper
         {
             this.field = field;
 
-            Console.WriteLine(field.Content);
-
             elementImage = field.Content as Image;
         }
 
@@ -149,7 +147,7 @@ namespace Jigsaw_2.Games.Jumper
 
             color = Brushes.Gray;
 
-            Show();
+            field.Fill = color;
         }
 
         /// <summary> Shows the element. </summary>

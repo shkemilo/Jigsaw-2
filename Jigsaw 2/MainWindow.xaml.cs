@@ -28,14 +28,6 @@ namespace Jigsaw_2
 
             Finder.SetAllControls(Finder.FindVisualChildren<Control>(MainWindowGrid).ToList());
 
-            Queue<GamePage> games = new Queue<GamePage>();
-
-            //games.Enqueue(new LetterOnLetter()); games.Enqueue(new LetterOnLetter());
-
-            games.Enqueue(new Jumper()); games.Enqueue(new Jumper());
-
-            //GameManager.Instance.SetGames(games);
-
             GameManager.Instance.SetUsername();
 
             ScoreInterface.Instance.DrawScoreInterface();

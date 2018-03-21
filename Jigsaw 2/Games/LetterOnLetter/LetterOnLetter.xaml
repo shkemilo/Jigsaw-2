@@ -19,34 +19,34 @@
     </gamePage:GamePage.Resources>
 
     <Grid x:Name="LetterOnLetterGrid">
-        <Button HorizontalAlignment="Left" Height="120" Margin="530,77,0,0" VerticalAlignment="Top" BorderThickness="0" Background="Transparent" Width="152" Tag="SSButton" Focusable="False">
+        <Button HorizontalAlignment="Left" Height="120" Margin="516,108,0,0" VerticalAlignment="Top" BorderThickness="0" Background="Transparent" Width="152" Tag="SSButton" Focusable="False">
             <Rectangle x:Name ="lol" Tag="SSImage"
                     Width="80"
-                    Height="100"
+                    Height="90"
                     Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
                 <Rectangle.OpacityMask>
                     <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_control_pause}"/>
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
-        <Button HorizontalAlignment="Left" Margin="156,197,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="75" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
-        <Button HorizontalAlignment="Left" Margin="230,197,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="75" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
-        <Button HorizontalAlignment="Left" Margin="306,197,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="75" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
-        <Button HorizontalAlignment="Left" Margin="380,197,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="75" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
-        <Button HorizontalAlignment="Left" Margin="456,197,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="75" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
-        <Button HorizontalAlignment="Left" Margin="530,197,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="75" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
-        <Button HorizontalAlignment="Left" Margin="606,197,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="75" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
-        <Button HorizontalAlignment="Left" Margin="680,197,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="75" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
-        <Button HorizontalAlignment="Left" Margin="756,197,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="75" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
-        <Button HorizontalAlignment="Left" Margin="830,197,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="75" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
-        <Button HorizontalAlignment="Left" Margin="906,197,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="75" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
-        <Button HorizontalAlignment="Left" Margin="980,197,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="75" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
+        <Button HorizontalAlignment="Left" Margin="142,228,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="76" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
+        <Button HorizontalAlignment="Left" Margin="216,228,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="76" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
+        <Button HorizontalAlignment="Left" Margin="292,228,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="76" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
+        <Button HorizontalAlignment="Left" Margin="366,228,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="76" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
+        <Button HorizontalAlignment="Left" Margin="442,228,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="76" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
+        <Button HorizontalAlignment="Left" Margin="516,228,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="76" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
+        <Button HorizontalAlignment="Left" Margin="592,228,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="76" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
+        <Button HorizontalAlignment="Left" Margin="666,228,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="76" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
+        <Button HorizontalAlignment="Left" Margin="742,228,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="76" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
+        <Button HorizontalAlignment="Left" Margin="816,228,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="76" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
+        <Button HorizontalAlignment="Left" Margin="892,228,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="76" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
+        <Button HorizontalAlignment="Left" Margin="966,228,0,0" VerticalAlignment="Top" Width="76" Style="{DynamicResource MetroCircleButtonStyle}" Height="76" Tag="CharacterDisplayButton" FontSize="28" mah:ControlsHelper.ContentCharacterCasing="Upper" mah:ButtonHelper.PreserveTextCase="True"/>
 
-        <TextBox HorizontalAlignment="Left" Height="60" Margin="156,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="754" FontSize="28" IsEnabled="False" Tag="CurrentWord"/>
-        <TextBox HorizontalAlignment="Left" Height="60" Margin="156,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="754" FontSize="28" IsEnabled="False" Tag="CheckFeedback"/>
-        <TextBox HorizontalAlignment="Left" Height="60" Margin="156,458,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="906" FontSize="28" IsEnabled="False" Tag="LongestWord"/>
+        <TextBox HorizontalAlignment="Left" Height="60" Margin="142,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="754" FontSize="28" IsEnabled="False" Tag="CurrentWord"/>
+        <TextBox HorizontalAlignment="Left" Height="60" Margin="142,404,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="754" FontSize="28" IsEnabled="False" Tag="CheckFeedback"/>
+        <TextBox HorizontalAlignment="Left" Height="60" Margin="142,490,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="906" FontSize="28" IsEnabled="False" Tag="LongestWord"/>
 
-        <Button HorizontalAlignment="Left" Margin="934,284,0,0" VerticalAlignment="Top" Width="122"  Background="Transparent" BorderThickness="0" Height="60" Tag="UndoButton" Focusable="False" >
+        <Button HorizontalAlignment="Left" Margin="920,316,0,0" VerticalAlignment="Top" Width="122"  Background="Transparent" BorderThickness="0" Height="60" Tag="UndoButton" Focusable="False" >
             <Rectangle Width="80"
                 Height="40"
                 Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
@@ -56,7 +56,7 @@
             </Rectangle>
         </Button>
 
-        <Button HorizontalAlignment="Left" Margin="934,372,0,0" VerticalAlignment="Top" Width="122" Background="Transparent" BorderThickness="0" Height="60" Padding="0" Tag="CheckerButton" Focusable="False">
+        <Button HorizontalAlignment="Left" Margin="920,404,0,0" VerticalAlignment="Top" Width="122" Background="Transparent" BorderThickness="0" Height="60" Padding="0" Tag="CheckerButton" Focusable="False">
             <Rectangle Width="50"
                 Height="60"
                 Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
@@ -65,6 +65,8 @@
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
+        <TextBlock HorizontalAlignment="Left" Height="54" Margin="29,55,0,0" TextWrapping="Wrap" Text="Letter On Letter" VerticalAlignment="Top" Width="579" FontSize="36"/>
+        <Image HorizontalAlignment="Left" Height="64" Margin="292,45,0,0" VerticalAlignment="Top" Width="64" Source="/Jigsaw 2;component/Resources/Graphics/Logo64.png"/>
 
     </Grid>
 </gamePage:GamePage>
