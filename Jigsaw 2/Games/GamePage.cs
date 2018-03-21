@@ -5,8 +5,7 @@ using System;
 
 namespace Jigsaw_2.Games
 {
-
-    /// <summary>
+     /// <summary>
     /// Extension of the Page class, merges a page and a game into one class
     /// </summary>
     public class GamePage : Page
@@ -43,6 +42,5 @@ namespace Jigsaw_2.Games
                 foreach (GUIElement g in game.ToDraw())
                     g.Show();
         }
-
     }
 }

@@ -30,8 +30,5 @@ namespace Jigsaw_2.Abstracts
             foreach (Observer o in observers)
                 o.Update(message);
         }
-
     }
-
-
 }

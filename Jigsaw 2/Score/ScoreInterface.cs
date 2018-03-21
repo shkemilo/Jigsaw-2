@@ -95,6 +95,5 @@ namespace Jigsaw_2.Score
         {
             progressBar.Value = 0;
         }
-
     }
 }

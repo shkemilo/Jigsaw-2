@@ -31,7 +31,6 @@ namespace Jigsaw_2
             GameManager.Instance.SetUsername();
 
             ScoreInterface.Instance.DrawScoreInterface();
-            
         }
 
         private void setAppStyle(Accent style, AppTheme theme)
@@ -52,7 +51,6 @@ namespace Jigsaw_2
             Tuple<AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);
             string selectedColor = (ColorSelecter.SelectedItem as ComboBoxItem).Content.ToString();
 
-
             setAppStyle(ThemeManager.GetAccent(selectedColor), appStyle.Item1);
         }
 
@@ -61,7 +59,6 @@ namespace Jigsaw_2
             Tuple<AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);
 
             setAppStyle(appStyle.Item2, ThemeManager.GetAppTheme("BaseDark"));
-
         }
 
         private void LightMode(object sender, RoutedEventArgs e)

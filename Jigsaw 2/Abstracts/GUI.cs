@@ -2,9 +2,9 @@ using System.Windows.Controls;
 
 namespace Jigsaw_2.Abstracts
 {
-     /// <summary>
-     /// Superclass for GUI elements.
-     /// </summary>
+    /// <summary>
+    /// Superclass for GUI elements.
+    /// </summary>
     public abstract class GUIElement : Observer
     {
         /// <summary> Shows the GUI element's message to display. </summary>
@@ -14,9 +14,9 @@ namespace Jigsaw_2.Abstracts
         public abstract void Update<T>(T message);
     }
 
-     /// <summary>
-     /// Extension for Animated GUI elements.
-     /// </summary>
+    /// <summary>
+    /// Extension for Animated GUI elements.
+    /// </summary>
     public interface Animateable
     {
         /// <summary> Animates the GUI element. </summary>
@@ -50,7 +50,5 @@ namespace Jigsaw_2.Abstracts
             if(messageDisplay is TextBox)
                 (messageDisplay as TextBox).Text = message.ToString();
         }
-    }
-
-    
+    } 
 }

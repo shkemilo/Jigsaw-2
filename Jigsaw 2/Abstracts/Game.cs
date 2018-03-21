@@ -29,15 +29,23 @@ namespace Jigsaw_2.Abstracts
             score = 0;
         }
 
-        public List<Animateable> ToAnimate() { return anims; }
+        public List<Animateable> ToAnimate()
+        {
+            return anims;
+        }
 
-        public List<GUIElement> ToDraw() { return GUIElements; }
+        public List<GUIElement> ToDraw()
+        {
+            return GUIElements;
+        }
 
-        public int GetScore() { return score; }
+        public int GetScore()
+        {
+            return score;
+        }
 
         public abstract void Grader();
 
         public abstract void GameOver();
-
     }
 }

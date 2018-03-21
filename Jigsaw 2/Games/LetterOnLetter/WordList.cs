@@ -4,8 +4,6 @@ using System.Linq;
 
 namespace Jigsaw_2.Games.LetterOnLetter
 {
-    
-
     /// <summary>
     /// Singlton that is used for storing the Word List used for the Word on Word game.
     /// </summary>

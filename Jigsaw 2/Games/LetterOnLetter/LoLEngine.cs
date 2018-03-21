@@ -64,5 +64,4 @@ namespace Jigsaw_2.Games.LetterOnLetter
             return WordList.Instance.Check(s);
         }
     }
-
 }

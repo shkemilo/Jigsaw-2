@@ -1,6 +1,5 @@
 ﻿using Jigsaw_2.Abstracts;
 
-
 namespace Jigsaw_2.Score
 {
     /// <summary>

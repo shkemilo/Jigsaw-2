@@ -241,5 +241,4 @@ namespace Jigsaw_2.Games.Jumper
             ScoreInterface.Instance.ScoreEngine.ChangePoints((numberOfRows - mainDisp.CurrentRow) * 5);
         }
     }
-
 }

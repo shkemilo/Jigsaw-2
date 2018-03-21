@@ -1,10 +1,8 @@
 using System;
-using System.Drawing;
 using System.Windows.Media.Imaging;
 
 namespace Jigsaw_2.Helpers
 {
-
     /// <summary>
     /// Helper class used for converting ints specifed Images.
     /// </summary>

@@ -39,12 +39,13 @@ namespace Jigsaw_2.Games.LetterOnLetter
         public LoLGame(LoLEngine engine, Grid gameGrid) : base(gameGrid)
         {
             letterDisp = Finder.FindElementsWithTag(allControls, "CharacterDisplayButton");
+
+            setLetterDisplayEnabled(false);
             foreach (Control b in letterDisp)
             {
-      
                 (b as Button).Click += addToAnswer;
-                b.IsEnabled = false;
             }
+
             usedLetters = new List<Control>();
 
             currentWordDisplay = new Display(Finder.FindElementWithTag(allControls, "CurrentWord"));
@@ -56,7 +57,9 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
             engine.Subscribe(mainDisp);
 
-            GUIElements.Add(mainDisp); GUIElements.Add(currentWordDisplay); GUIElements.Add(longestWordDisplay);
+            GUIElements.Add(mainDisp);
+            GUIElements.Add(currentWordDisplay);
+            GUIElements.Add(longestWordDisplay);
 
             anims.Add(mainDisp);
 
@@ -78,23 +81,49 @@ namespace Jigsaw_2.Games.LetterOnLetter
             engine.Broadcast(engine.GetLetters());
         }
 
-        /// <summary> Adds a letter to the answer. </summary>
-        void addToAnswer(object sender, RoutedEventArgs e)
+        private void changeSSImage()
         {
-            if (sender is Button)
+            foreach (Rectangle r in Finder.FindVisualChildren<Rectangle>(gameGrid))
+                if (r.Tag != null)
+                    if (r.Tag.ToString() == "SSImage")
+                    {
+                        r.OpacityMask = new VisualBrush() { Visual = (Visual)ResourceDictionaryManager.GetResources()["appbar_door_enter"] };
+                        break;
+                    }
+        }
+
+        private void setLetterDisplayEnabled(bool b)
+        {
+            foreach (Control c in letterDisp)
+                c.IsEnabled = b;
+        }
+
+        private bool checkBoxUpdate()
+        {
+            if (engine.Check(answer))
             {
-                Button currentButton = (Button)sender;
-                if (currentButton.IsEnabled == true)
-                {
-                    answer += currentButton.Content;
-                    currentWordDisplay.Update(answer);
-
-                    currentButton.IsEnabled = false;
-
-                    usedLetters.Add(currentButton);
-                    checkBox.Text = "";
-                }
+                checkBox.Text = "Ova rec postoji u recniku";
+                return true;
             }
+            else
+            {
+                checkBox.Text = "Ova rec ne postoji u recniku";
+                return false;
+            }
+        }
+
+        /// <summary> Adds a letter to the answer. </summary>
+        private void addToAnswer(object sender, RoutedEventArgs e)
+        {
+                Button currentButton = sender as Button;
+               
+                answer += currentButton.Content;
+                currentWordDisplay.Update(answer);
+
+                currentButton.IsEnabled = false;
+                usedLetters.Add(currentButton);
+
+                checkBox.Text = "";
         }
 
         /// <summary> Undos the last letter added to the answer. </summary>
@@ -115,10 +144,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
         void wordFeedback(object sender, RoutedEventArgs e)
         {
             if (mainDisp.Finished())
-                if (engine.Check(answer))
-                    checkBox.Text = "Ova rec postoji u recniku";
-                else
-                    checkBox.Text = "Ova rec ne postoji u recniku";
+                checkBoxUpdate();    
         }
 
         /// <summary> Handles the stopping and submiting. </summary>
@@ -135,22 +161,15 @@ namespace Jigsaw_2.Games.LetterOnLetter
         }
 
         /// <summary> Starts the game. </summary>
-        void startWordOnWord()
+        private void startWordOnWord()
         {
             ScoreInterface.Instance.StartTimeControler();
 
             state = "submit";
 
-            foreach (Rectangle r in Finder.FindVisualChildren<Rectangle>(gameGrid))
-                if(r.Tag != null)
-                    if (r.Tag.ToString() == "SSImage")
-                    {
-                        r.OpacityMask = new VisualBrush() { Visual = (Visual)ResourceDictionaryManager.GetResources()["appbar_door_enter"] };
-                        break;
-                    }
+            changeSSImage();
 
-            foreach (Control c in letterDisp)
-                c.IsEnabled = true;
+            setLetterDisplayEnabled(true);
 
             check.IsEnabled = true;
             undo.IsEnabled = true;
@@ -160,27 +179,20 @@ namespace Jigsaw_2.Games.LetterOnLetter
         public override void GameOver()
         {
             ScoreInterface.Instance.StopTimeControler();
+
             checkBox.Text = "";
+
             check.IsEnabled = false;
             submit.IsEnabled = false;
             undo.IsEnabled = false;
 
-            foreach (Control c in letterDisp)
-                c.IsEnabled = false;
+            setLetterDisplayEnabled(false);
 
             longestWordDisplay.Update(engine.GetLongestWord());
             longestWordDisplay.Show();
 
-            if (engine.Check(answer))
-            {
-                checkBox.Text = "Ova rec postoji u recniku";
-
+            if(checkBoxUpdate())
                 Grader();
-            }
-            else
-            {
-                checkBox.Text = "Ova rec ne postoji u recniku";
-            }
 
             GameManager.Instance.NextGame();
         }
@@ -197,5 +209,4 @@ namespace Jigsaw_2.Games.LetterOnLetter
             ScoreInterface.Instance.DrawScoreInterface();
         }
     }
-
 }

@@ -9,7 +9,6 @@ using Jigsaw_2.Helpers;
 using System.Linq;
 using Jigsaw_2.Games;
 
-
 namespace Jigsaw_2
 {
     /// <summary>
@@ -125,7 +124,6 @@ namespace Jigsaw_2
         /// <summary> Set of commands to be run when there are no games left. </summary>
         private async void theEnd()
         {
-
             MessageDialogResult exitResult = await main.ShowMessageAsync("Jigsaw", "Your score is: " + ScoreInterface.Instance.ScoreEngine.Score + "\n Play Again?", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { NegativeButtonText = "No", AffirmativeButtonText = "Yes" });
 
             if (exitResult == MessageDialogResult.Affirmative)
@@ -168,6 +166,5 @@ namespace Jigsaw_2
                 currentGame = GameFactory.GetGame(games.Dequeue());
             }
         }
-
     }
 }

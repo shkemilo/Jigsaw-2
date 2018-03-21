@@ -33,7 +33,6 @@ namespace Jigsaw_2.Games.Jumper
         public void SetEnabled(bool b) 
         {
             field.IsEnabled = b;
-            
         }
 
         public Button GetField()
@@ -45,7 +44,6 @@ namespace Jigsaw_2.Games.Jumper
         public override void Show()
         {
             elementImage.Source = source;
-
         }
 
         /// <summary> Updates the image the element will show. </summary>
@@ -97,7 +95,6 @@ namespace Jigsaw_2.Games.Jumper
         public JumperDisplayElement GetActiveElement()
         {
             return elements.ElementAt(currentElementIndex);
-
         }
 
         public void Disable()
@@ -283,5 +280,4 @@ namespace Jigsaw_2.Games.Jumper
                 throw new Exception("This function only accepts Images of Color arrays");
         }
     }
-
 }

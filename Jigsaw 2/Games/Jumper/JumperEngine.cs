@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Drawing;
 using Jigsaw_2.Abstracts;
 
 namespace Jigsaw_2.Games.Jumper
