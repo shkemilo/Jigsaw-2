@@ -1,7 +1,11 @@
 ﻿namespace Jigsaw_2.Games
 {
-    static class GameFactory
-    { 
+    /// <summary>
+    /// Static class that represents a factory for creating Games and their associated pages
+    /// </summary>
+    public static class GameFactory
+    {
+        /// <summary> Creates and returns a GamePage based on the games name. </summary>
         public static GamePage GetGame(string s)
         {
             s = s.ToLower();

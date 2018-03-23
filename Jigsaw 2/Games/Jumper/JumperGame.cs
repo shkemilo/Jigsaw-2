@@ -197,13 +197,13 @@ namespace Jigsaw_2.Games.Jumper
             nextRowButton.IsEnabled = false;
         }
 
-        /// <summary> Changes to the next row. </summary> //TODO: This function works but is very very shitty. Refactor it.
+        /// <summary> Changes to the next row. </summary>
         private void nextRow(object sender, RoutedEventArgs e)
         {
-            mainDisp.GetCurrentRow().Disable();
+            mainDisp.GetActiveElement().GetField().Click -= undo;
 
             engine.Broadcast(engine.CheckFeedback(answer));
-            mainDisp.ManualChekerShow();
+            mainDisp.Show();
 
             nextRowButton.IsEnabled = false;
 

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -12,18 +11,11 @@ namespace Jigsaw_2.Helpers
     public static class Finder
     {
         static List<Control> allControls;
-        static List<Timer> timers;
 
         /// <summary> Sets the All Controls filed so that the class has a reference to all the elements of a Windows form. </summary>
         public static void SetAllControls(List<Control> newControls)
         {
             allControls = newControls;
-        }
-
-        /// <summary> Sets the Timers field so the class has a reference to all the Timers of a Windows form. </summary>
-        public static void SetTimers(List<Timer> newTimers)
-        {
-            timers = newTimers;
         }
 
         /// <summary> Finds and returns a Control in the whole Windows form by it's tag. Returns null if not found. </summary>

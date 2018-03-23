@@ -65,8 +65,8 @@
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
-        <TextBlock HorizontalAlignment="Left" Height="54" Margin="29,55,0,0" TextWrapping="Wrap" Text="Letter On Letter" VerticalAlignment="Top" Width="579" FontSize="36"/>
-        <Image HorizontalAlignment="Left" Height="64" Margin="292,45,0,0" VerticalAlignment="Top" Width="64" Source="/Jigsaw 2;component/Resources/Graphics/Logo64.png"/>
+        <TextBlock HorizontalAlignment="Left" Height="53" Margin="829,35,-198,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="579" FontSize="30"><Run Text="Letter On Letter Gam"/><Run Text="e"/></TextBlock>
+        <Image HorizontalAlignment="Left" Height="64" VerticalAlignment="Top" Width="64" Source="/Jigsaw 2;component/Resources/Graphics/Logo64.png" Margin="1136,10,0,0"/>
 
     </Grid>
 </gamePage:GamePage>

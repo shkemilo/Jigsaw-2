@@ -1,14 +1,14 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using System.Resources;
 using Jigsaw_2.Abstracts;
 using Jigsaw_2.Helpers;
 using Jigsaw_2.Score;
+using MahApps.Metro.Controls.Dialogs;
+using MahApps.Metro.Controls;
 
 namespace Jigsaw_2.Games.LetterOnLetter
 {
@@ -112,6 +112,14 @@ namespace Jigsaw_2.Games.LetterOnLetter
             }
         }
 
+        private async void submitConfirm()
+        {
+            MessageDialogResult exitResult = await (Application.Current.MainWindow as MetroWindow).ShowMessageAsync("Jigsaw", "Are You sure You want to submit Your current Word?", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { NegativeButtonText = "No", AffirmativeButtonText = "Yes" });
+
+            if (exitResult == MessageDialogResult.Affirmative)
+                GameOver();
+        }
+
         /// <summary> Adds a letter to the answer. </summary>
         private void addToAnswer(object sender, RoutedEventArgs e)
         {
@@ -157,7 +165,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
                 if (state == "stop")
                     startWordOnWord();
                 else if (state == "submit")
-                    GameOver();
+                    submitConfirm();
         }
 
         /// <summary> Starts the game. </summary>

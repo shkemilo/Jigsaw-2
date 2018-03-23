@@ -30,5 +30,4 @@ namespace Jigsaw_2.Score
             return score;
         }
     }
-
 }

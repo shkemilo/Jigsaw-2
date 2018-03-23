@@ -68,26 +68,32 @@ namespace Jigsaw_2
 
         public string Username { get => username;  }
 
+        /// <summary> Checks if the username was correctly typed. </summary>
         private string badInput(string input)
         {
             string message = string.Empty;
 
             if (input == string.Empty)
                 message = "Username musn't be blank. Try again.";
-            else if (input.Length > 12)
+            else if (input.Length > 16)
                 message = "Username too long. Try again";
 
             return message;
         }
 
+        /// <summary> Sets the text in the main window to show the current user. </summary>
         private void setCurrentUser()
         {
             foreach (TextBlock tb in Finder.FindVisualChildren<TextBlock>(main))
                 if (tb.Tag != null)
                     if (tb.Tag.ToString() == "CurrentUser")
+                    {
                         tb.Text = username;
+                        break;
+                    }
         }
 
+        /// <summary> Asks the user if he wants to exit the application. </summary>
         private async void exitDialog()
         {
             MessageDialogResult exitResult = await main.ShowMessageAsync("Jigsaw", "Do you want to exit the game?", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { NegativeButtonText = "No", AffirmativeButtonText = "Yes" });
@@ -98,6 +104,7 @@ namespace Jigsaw_2
                 SetUsername();
         }
 
+        /// <summary> Gets the users interface </summary>
         public async void SetUsername(string message = "Enter your username: ")
         {
             string result = await main.ShowInputAsync("Jigsaw", message);

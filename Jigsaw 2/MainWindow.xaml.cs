@@ -4,14 +4,8 @@ using System.Windows;
 using System.Windows.Controls;
 using MahApps.Metro.Controls;
 using MahApps.Metro;
-using Jigsaw_2.Abstracts;
-using Jigsaw_2.Games.LetterOnLetter;
 using Jigsaw_2.Helpers;
 using Jigsaw_2.Score;
-using System.Windows.Threading;
-using System.Collections.Generic;
-using Jigsaw_2.Games;
-using Jigsaw_2.Games.Jumper;
 
 namespace Jigsaw_2
 {
@@ -24,7 +18,7 @@ namespace Jigsaw_2
         {
             InitializeComponent();
 
-            System.Threading.Thread.Sleep(2000);
+            System.Threading.Thread.Sleep(2000); //prevents random bugs when reseting the application
 
             Finder.SetAllControls(Finder.FindVisualChildren<Control>(MainWindowGrid).ToList());
 
@@ -33,11 +27,13 @@ namespace Jigsaw_2
             ScoreInterface.Instance.DrawScoreInterface();
         }
 
+        /// <summary> Sets the theme of the application. </summary>
         private void setAppStyle(Accent style, AppTheme theme)
         {
             ThemeManager.ChangeAppStyle(Application.Current, style, theme);
         }
 
+        /// <summary> Shows the dropdown settings menu. </summary>
         private void SettingsMenu(object sender, RoutedEventArgs e)
         {
             (sender as Button).ContextMenu.IsEnabled = true;
@@ -46,6 +42,7 @@ namespace Jigsaw_2
             (sender as Button).ContextMenu.IsOpen = true;
         }
 
+        /// <summary> Changes the color theme of the application. </summary>
         private void SelectColor(object sender, SelectionChangedEventArgs e)
         {
             Tuple<AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);
@@ -54,6 +51,7 @@ namespace Jigsaw_2
             setAppStyle(ThemeManager.GetAccent(selectedColor), appStyle.Item1);
         }
 
+        /// <summary> Activates night mode. </summary>
         private void NightMode(object sender, RoutedEventArgs e)
         {
             Tuple<AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);
@@ -61,11 +59,28 @@ namespace Jigsaw_2
             setAppStyle(appStyle.Item2, ThemeManager.GetAppTheme("BaseDark"));
         }
 
+        /// <summary> Activates light mode. </summary>
         private void LightMode(object sender, RoutedEventArgs e)
         {
             Tuple<AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);
 
             setAppStyle(appStyle.Item2, ThemeManager.GetAppTheme("BaseLight"));
+        }
+
+        /// <summary> Function used for perserving the aspect ratio while resizing. </summary>
+        protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
+        {
+            double aspectRatio = 1.5;
+
+            double percentWidthChange = Math.Abs(sizeInfo.NewSize.Width - sizeInfo.PreviousSize.Width) / sizeInfo.PreviousSize.Width;
+            double percentHeightChange = Math.Abs(sizeInfo.NewSize.Height - sizeInfo.PreviousSize.Height) / sizeInfo.PreviousSize.Height;
+
+            if (percentWidthChange > percentHeightChange)
+                Height = sizeInfo.NewSize.Width / aspectRatio;
+            else
+                Width = sizeInfo.NewSize.Height * aspectRatio;
+
+            base.OnRenderSizeChanged(sizeInfo);
         }
     }
 }
