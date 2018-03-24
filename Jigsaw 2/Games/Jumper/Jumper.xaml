@@ -158,7 +158,7 @@
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
-        <TextBlock HorizontalAlignment="Left" Height="52" Margin="939,22,0,0" TextWrapping="Wrap" Text="Jumper Game" VerticalAlignment="Top" Width="261" FontSize="30"/>
-        <Image HorizontalAlignment="Left" Height="64" Margin="1136,10,0,0" VerticalAlignment="Top" Width="64" Source="/Jigsaw 2;component/Resources/Graphics/Jumper/Logo64.png"/>
+        <TextBlock HorizontalAlignment="Left" Height="52" Margin="839,22,0,0" TextWrapping="Wrap" Text="Jumper Game" VerticalAlignment="Top" Width="261" FontSize="30"/>
+        <Image HorizontalAlignment="Left" Height="64" Margin="1036,10,0,0" VerticalAlignment="Top" Width="64" Source="/Jigsaw 2;component/Resources/Graphics/Jumper/Logo64.png"/>
     </Grid>
 </gamePage:GamePage>

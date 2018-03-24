@@ -7,7 +7,6 @@ C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\ControlzEx.pdb
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\MahApps.Metro.pdb
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\MahApps.Metro.xml
-C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.csprojResolveAssemblyReference.cache
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Resources\Icons.baml
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Resources\IconsNonShared.baml
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Games\Jumper\Jumper.g.cs
@@ -26,3 +25,4 @@ C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.csproj.GenerateResource.Cache
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.exe
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.pdb
+C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.csprojResolveAssemblyReference.cache

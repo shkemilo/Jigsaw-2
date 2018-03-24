@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         GlowBrush="{DynamicResource AccentColorBrush}"
         BorderThickness="2"
-        Title="Jigsaw" Height="1000" Width="1328" Icon="./Resources/Graphics/Logo32.png" ShowIconOnTitleBar="True" ResizeMode="CanResizeWithGrip">
+        Title="Jigsaw" Height="1000" Width="1500" Icon="./Resources/Graphics/Logo32.png" ShowIconOnTitleBar="True" ResizeMode="CanResizeWithGrip">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -17,12 +17,12 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    
-   
+
+
 
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            
+
             <Button Click="SettingsMenu">
 
                 <StackPanel Orientation="Horizontal">
@@ -74,6 +74,22 @@
                 </Button.ContextMenu>
             </Button>
 
+            <Button Click="ShowInstructions">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20"
+                    Height="30"
+                    Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_question}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+
+                    <TextBlock Margin="6 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="Instructions" FontSize="20" />
+                </StackPanel>
+            </Button>
+
             <Button >
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="30"
@@ -90,13 +106,13 @@
 
                 </StackPanel>
             </Button>
-            
+
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Viewbox Stretch="Uniform" >
         <Grid Name="MainWindowGrid">
-            <TextBox HorizontalAlignment="Left" Height="30" Margin="10,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" IsEnabled="False" Tag="ScoreDisplay"/>
-            <ProgressBar HorizontalAlignment="Left" Height="30" Margin="115,15,0,0" VerticalAlignment="Top" Width="1104" Tag="TimeBar" Maximum="1000"/>
+            <TextBox HorizontalAlignment="Right" Height="30" Margin="0,15,1039,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" IsEnabled="False" Tag="ScoreDisplay" FontSize="20" FontWeight="SemiBold"/>
+            <ProgressBar HorizontalAlignment="Left" Height="30" Margin="185,15,0,0" VerticalAlignment="Top" Width="1034" Tag="TimeBar" Maximum="1000"/>
             <Button HorizontalAlignment="Left" Height="60" Margin="1149,50,0,0" VerticalAlignment="Top" Width="70" Style="{DynamicResource SquareButtonStyle}" Controls:ButtonHelper.PreserveTextCase="True" Tag="GameChanger">
                 <Rectangle Width="50"
                     Height="50"
@@ -106,7 +122,8 @@
                     </Rectangle.OpacityMask>
                 </Rectangle>
             </Button>
-            <Frame x:Name="MainFrame" Content="" HorizontalAlignment="Left" Height="730" Margin="33,140,0,0" VerticalAlignment="Top" Width="1176" NavigationUIVisibility="Hidden"/>
+            <Frame x:Name="MainFrame" Content="" HorizontalAlignment="Left" Height="730" Margin="33,140,0,0" VerticalAlignment="Top" Width="1176" NavigationUIVisibility="Hidden" Navigating="OnNavigating"/>
+            <Label Content="Current score:" HorizontalAlignment="Left" Margin="-42,15,0,0" VerticalAlignment="Top" Height="30" Width="117" FontSize="16"/>
         </Grid>
     </Viewbox>
 </Controls:MetroWindow>

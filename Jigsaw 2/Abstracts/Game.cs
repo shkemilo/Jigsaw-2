@@ -18,7 +18,11 @@ namespace Jigsaw_2.Abstracts
 
         protected int score;
 
-        public Game(Grid gameGrid)
+        string name;
+
+        public string Name { get => name; }
+
+        public Game(Grid gameGrid, string name)
         {
             this.gameGrid = gameGrid;
             allControls = Finder.FindVisualChildren<Control>(gameGrid).ToList();
@@ -27,6 +31,8 @@ namespace Jigsaw_2.Abstracts
             anims = new List<Animateable>();
 
             score = 0;
+
+            this.name = name;
         }
 
         public List<Animateable> ToAnimate()

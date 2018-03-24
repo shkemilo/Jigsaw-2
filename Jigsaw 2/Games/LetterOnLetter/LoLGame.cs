@@ -36,7 +36,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
         string state;
 
-        public LoLGame(LoLEngine engine, Grid gameGrid) : base(gameGrid)
+        public LoLGame(LoLEngine engine, Grid gameGrid) : base(gameGrid, "letteronletter")
         {
             letterDisp = Finder.FindElementsWithTag(allControls, "CharacterDisplayButton");
 
@@ -114,7 +114,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
         private async void submitConfirm()
         {
-            MessageDialogResult exitResult = await (Application.Current.MainWindow as MetroWindow).ShowMessageAsync("Jigsaw", "Are You sure You want to submit Your current Word?", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { NegativeButtonText = "No", AffirmativeButtonText = "Yes" });
+            MessageDialogResult exitResult = await (Application.Current.MainWindow as MetroWindow).ShowMessageAsync("Jigsaw", "Are you sure you want to submit your current word?", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { NegativeButtonText = "No", AffirmativeButtonText = "Yes" });
 
             if (exitResult == MessageDialogResult.Affirmative)
                 GameOver();
@@ -214,7 +214,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
                 score += 6;
 
             ScoreInterface.Instance.ScoreEngine.ChangePoints(score);
-            ScoreInterface.Instance.DrawScoreInterface();
+            //ScoreInterface.Instance.DrawScoreInterface();
         }
     }
 }

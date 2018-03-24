@@ -28,7 +28,7 @@ namespace Jigsaw_2.Games.Jumper
 
         int[] answer;
 
-        public JumperGame(JumperEngine engine, Grid gameGrid, int numberOfRows = 6) : base(gameGrid)
+        public JumperGame(JumperEngine engine, Grid gameGrid, int numberOfRows = 6) : base(gameGrid, "jumper")
         {
             this.engine = engine;
 
@@ -229,8 +229,7 @@ namespace Jigsaw_2.Games.Jumper
 
             showCorrectCombinationDisplay();
 
-            if (engine.Check(answer))
-                Grader();
+            Grader();
 
             GameManager.Instance.NextGame();
         }
@@ -238,7 +237,8 @@ namespace Jigsaw_2.Games.Jumper
         /// <summary> Gives points depending on when the combination was solved. </summary>
         public override void Grader()
         {
-            ScoreInterface.Instance.ScoreEngine.ChangePoints((numberOfRows - mainDisp.CurrentRow) * 5);
+            if (engine.Check(answer))
+                ScoreInterface.Instance.ScoreEngine.ChangePoints((numberOfRows - mainDisp.CurrentRow) * 5);
         }
     }
 }

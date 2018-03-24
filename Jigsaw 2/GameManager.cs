@@ -104,6 +104,11 @@ namespace Jigsaw_2
                 SetUsername();
         }
 
+        public async void ShowInstructions()
+        { 
+            await main.ShowMessageAsync("Instructions", GameFactory.GetInstructions(currentGame.Game.Name));
+        }
+        
         /// <summary> Gets the users interface </summary>
         public async void SetUsername(string message = "Enter your username: ")
         {
