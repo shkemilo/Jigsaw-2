@@ -18,7 +18,7 @@ namespace Jigsaw_2.Games.Jumper
         JumperEngine engine;
         JumperDisplay mainDisp;
 
-        JumperDisplayComponent correctCombinationDisplay;
+        JumperDisplayComposite correctCombinationDisplay;
 
         List<Control> userControls;
 
@@ -59,46 +59,46 @@ namespace Jigsaw_2.Games.Jumper
         private void setCorrectCombinationDisplay(List<Control> allControls)
         {
             List<Control> tempElements = Finder.FindElementsWithTag(allControls, "CorrectCombination");
-            List<JumperDisplayElement> elementHolder = new List<JumperDisplayElement>();
+            List<JumperDisplayLeaf> elementHolder = new List<JumperDisplayLeaf>();
 
             foreach (Control c in tempElements)
-                elementHolder.Add(new JumperDisplayElement(c as Button));
+                elementHolder.Add(new JumperDisplayLeaf(c as Button));
 
-            correctCombinationDisplay = new JumperDisplayComponent(elementHolder);
+            correctCombinationDisplay = new JumperDisplayComposite(elementHolder);
         }
 
         /// <summary> Sets a JumperDisplayComponent by its tag. </summary>
-        private JumperDisplayComponent getDisplayComponent(string tag)
+        private JumperDisplayComposite getDisplayComponent(string tag)
         {
-            List<JumperDisplayElement> temp = new List<JumperDisplayElement>();
+            List<JumperDisplayLeaf> temp = new List<JumperDisplayLeaf>();
 
             foreach(Control c in Finder.FindElementsWithTag(allControls, tag))
             {
                 //(c as Button).Click += undo;
-                temp.Add(new JumperDisplayElement(c as Button));
+                temp.Add(new JumperDisplayLeaf(c as Button));
             }
 
-            return new JumperDisplayComponent(temp);
+            return new JumperDisplayComposite(temp);
         }
 
         /// <summary> Sets a JumperCheckerComponent by its tag. </summary>
-        private JumperCheckerComponent getCheckerComponent(string tag)
+        private JumperCheckerComposite getCheckerComponent(string tag)
         {
-            List<JumperCheckerElement> temp = new List<JumperCheckerElement>();
+            List<JumperCheckerLeaf> temp = new List<JumperCheckerLeaf>();
 
             foreach (Ellipse e in Finder.FindVisualChildren<Ellipse>(gameGrid))
                 if (e.Tag != null)
                     if (e.Tag.ToString() == tag)
-                        temp.Add(new JumperCheckerElement(e));
+                        temp.Add(new JumperCheckerLeaf(e));
 
-            return new JumperCheckerComponent(temp);
+            return new JumperCheckerComposite(temp);
         }
 
         /// <summary> Sets the main dispaly of the game. </summary>
         private void setMainDisp(List<Control> allControls)
         {
-            List<JumperDisplayComponent> mainDispList = new List<JumperDisplayComponent>();
-            List<JumperCheckerComponent> mainCheckList = new List<JumperCheckerComponent>();
+            List<JumperDisplayComposite> mainDispList = new List<JumperDisplayComposite>();
+            List<JumperCheckerComposite> mainCheckList = new List<JumperCheckerComposite>();
 
             for (int i = 0; i < numberOfRows; i++)
             { 

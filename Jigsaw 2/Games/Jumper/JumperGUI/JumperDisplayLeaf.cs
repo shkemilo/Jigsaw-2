@@ -8,14 +8,14 @@ namespace Jigsaw_2.Games.Jumper
     /// <summary>
     /// GUIEelement used to represent one field for displaying one element of the current answer in the Jumper Game.
     /// </summary>
-    public class JumperDisplayElement : GUIElement
+    public class JumperDisplayLeaf : GUIElement
     {
         Button field;
         Image elementImage;
 
         BitmapImage source;
 
-        public JumperDisplayElement(Button field)
+        public JumperDisplayLeaf(Button field)
         {
             this.field = field;
 

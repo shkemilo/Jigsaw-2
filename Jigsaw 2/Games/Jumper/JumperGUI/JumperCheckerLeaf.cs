@@ -8,13 +8,13 @@ namespace Jigsaw_2.Games.Jumper
     /// <summary>
     /// GUIElement used for representing a field of a cheker used for displaying the validity of a element of the answer in the Jumper Game.
     /// </summary>
-    public class JumperCheckerElement : GUIElement
+    public class JumperCheckerLeaf : GUIElement
     {
         Ellipse field;
 
         SolidColorBrush color;
 
-        public JumperCheckerElement(Ellipse field)
+        public JumperCheckerLeaf(Ellipse field)
         {
             this.field = field;
 

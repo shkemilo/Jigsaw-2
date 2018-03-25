@@ -6,11 +6,9 @@ using MahApps.Metro.Controls;
 using MahApps.Metro;
 using Jigsaw_2.Helpers;
 using Jigsaw_2.Score;
-using System.Windows.Media.Animation;
-using System.Windows.Navigation;
-using Jigsaw_2.Games;
 using System.Threading;
-using System.Windows.Threading;
+using Jigsaw_2.Animators;
+
 
 namespace Jigsaw_2
 {
@@ -23,13 +21,15 @@ namespace Jigsaw_2
         {
             InitializeComponent();
 
-            System.Threading.Thread.Sleep(2000); //prevents random bugs when reseting the application
+            Thread.Sleep(2000); //prevents random bugs when reseting the application
 
             Finder.SetAllControls(Finder.FindVisualChildren<Control>(MainWindowGrid).ToList());
 
             GameManager.Instance.SetUsername();
 
             ScoreInterface.Instance.DrawScoreInterface();
+
+            FrameAnimator anim = new FrameAnimator(MainFrame, WidthProperty);
         }
 
         /// <summary> Sets the theme of the application. </summary>
@@ -92,65 +92,5 @@ namespace Jigsaw_2
         {
             GameManager.Instance.ShowInstructions();
         }
-
-        //TODO: Put this in FrameAnimator class
-        #region FrameAnimator
-        private bool _allowDirectNavigation = false;
-        private NavigatingCancelEventArgs _navArgs = null;
-        private Duration _duration = new Duration(TimeSpan.FromSeconds(0.7));
-        private double _oldHeight = 0;
-
-        private void OnNavigating(object sender, NavigatingCancelEventArgs e)
-        {
-            if (MainFrame.Content != null && !_allowDirectNavigation)
-            {
-                e.Cancel = true;
-
-                _navArgs = e;
-                _oldHeight = MainFrame.ActualWidth;
-
-                DoubleAnimation animation0 = new DoubleAnimation();
-                animation0.From = MainFrame.ActualWidth;
-                animation0.To = 0;
-                animation0.Duration = _duration;
-                animation0.Completed += SlideCompleted;
-                MainFrame.BeginAnimation(WidthProperty, animation0);
-            }
-            _allowDirectNavigation = false;
-        }
-
-        private void SlideCompleted(object sender, EventArgs e)
-        {
-            _allowDirectNavigation = true;
-            switch (_navArgs.NavigationMode)
-            {
-                case NavigationMode.New:
-                    if (_navArgs.Uri == null)
-                        MainFrame.Navigate(_navArgs.Content);
-                    else
-                        MainFrame.Navigate(_navArgs.Uri);
-                    break;
-                case NavigationMode.Back:
-                    MainFrame.GoBack();
-                    break;
-                case NavigationMode.Forward:
-                    MainFrame.GoForward();
-                    break;
-                case NavigationMode.Refresh:
-                    MainFrame.Refresh();
-                    break;
-            }
-
-            Dispatcher.BeginInvoke(DispatcherPriority.Loaded,
-                (ThreadStart)delegate ()
-                {
-                    DoubleAnimation animation0 = new DoubleAnimation();
-                    animation0.From = 0;
-                    animation0.To = _oldHeight;
-                    animation0.Duration = _duration;
-                    MainFrame.BeginAnimation(WidthProperty, animation0);
-                });
-        }
     }
-    #endregion
 }

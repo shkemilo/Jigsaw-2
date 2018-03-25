@@ -7,13 +7,13 @@ namespace Jigsaw_2.Games.Jumper
     /// <summary>
     /// GUIElement used for representing the validity of the whole answer in the Jumper Game.
     /// </summary>
-    public class JumperCheckerComponent : GUIElement
+    public class JumperCheckerComposite : GUIElement
     {
-        List<JumperCheckerElement> elements;
+        List<JumperCheckerLeaf> elements;
 
         int numberOfElements;
 
-        public JumperCheckerComponent(List<JumperCheckerElement> elements, int numberOfElements = 4)
+        public JumperCheckerComposite(List<JumperCheckerLeaf> elements, int numberOfElements = 4)
         {
             this.elements = elements;
 
@@ -32,7 +32,7 @@ namespace Jigsaw_2.Games.Jumper
         /// <summary> Shows the whole componenet. </summary>
         public override void Show()
         {
-            foreach (JumperCheckerElement element in elements)
+            foreach (JumperCheckerLeaf element in elements)
                 element.Show();
         }
 

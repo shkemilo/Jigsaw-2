@@ -1,5 +1,4 @@
 ﻿using System.Windows.Controls;
-
 using System.Windows.Threading;
 using System;
 using Jigsaw_2.Abstracts;

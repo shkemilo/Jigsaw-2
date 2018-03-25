@@ -9,14 +9,14 @@ namespace Jigsaw_2.Games.Jumper
     /// <summary>
     /// GUIElement used to represent current answer in the Jumper Game.
     /// </summary>
-    public class JumperDisplayComponent : GUIElement
+    public class JumperDisplayComposite : GUIElement
     {
-        List<JumperDisplayElement> elements;
+        List<JumperDisplayLeaf> elements;
 
         int numberOfElements;
         int currentElementIndex;
 
-        public JumperDisplayComponent(List<JumperDisplayElement> elements, int numberOfElements = 4)
+        public JumperDisplayComposite(List<JumperDisplayLeaf> elements, int numberOfElements = 4)
         {
             this.elements = elements;
 
@@ -40,19 +40,19 @@ namespace Jigsaw_2.Games.Jumper
         }
 
         /// <summary> Returns the current element to be set. </summary>
-        public JumperDisplayElement GetActiveElement()
+        public JumperDisplayLeaf GetActiveElement()
         {
             return elements.ElementAt(currentElementIndex);
         }
 
         public void Disable()
         {
-            foreach (JumperDisplayElement element in elements)
+            foreach (JumperDisplayLeaf element in elements)
                 element.SetEnabled(false);
         }
 
         /// <summary> Return a field at specified index. Returns null if index doesnt exist. </summary>
-        public JumperDisplayElement GetFieldAtIndex(int n)
+        public JumperDisplayLeaf GetFieldAtIndex(int n)
         {
             if ((n < numberOfElements) && (n >= 0))
                 return elements[n];
@@ -63,7 +63,7 @@ namespace Jigsaw_2.Games.Jumper
         /// <summary> Shows all the elements in row. </summary>
         public override void Show()
         {
-            foreach (JumperDisplayElement element in elements)
+            foreach (JumperDisplayLeaf element in elements)
                 element.Show();
         }
 

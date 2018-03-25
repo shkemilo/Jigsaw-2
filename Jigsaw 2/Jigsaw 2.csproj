@@ -72,11 +72,11 @@
     </Compile>
     <Compile Include="Games\Jumper\JumperEngine.cs" />
     <Compile Include="Games\Jumper\JumperGame.cs" />
-    <Compile Include="Games\Jumper\JumperGUI\JumperCheckerComponent.cs" />
-    <Compile Include="Games\Jumper\JumperGUI\JumperCheckerElement.cs" />
+    <Compile Include="Games\Jumper\JumperGUI\JumperCheckerComposite.cs" />
+    <Compile Include="Games\Jumper\JumperGUI\JumperCheckerLeaf.cs" />
     <Compile Include="Games\Jumper\JumperGUI\JumperDisplay.cs" />
-    <Compile Include="Games\Jumper\JumperGUI\JumperDisplayComponent.cs" />
-    <Compile Include="Games\Jumper\JumperGUI\JumperDisplayElement.cs" />
+    <Compile Include="Games\Jumper\JumperGUI\JumperDisplayComposite.cs" />
+    <Compile Include="Games\Jumper\JumperGUI\JumperDisplayLeaf.cs" />
     <Compile Include="Games\LetterOnLetter\LetterOnLetter.xaml.cs">
       <DependentUpon>LetterOnLetter.xaml</DependentUpon>
     </Compile>

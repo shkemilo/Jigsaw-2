@@ -122,7 +122,7 @@
                     </Rectangle.OpacityMask>
                 </Rectangle>
             </Button>
-            <Frame x:Name="MainFrame" Content="" HorizontalAlignment="Left" Height="730" Margin="33,140,0,0" VerticalAlignment="Top" Width="1176" NavigationUIVisibility="Hidden" Navigating="OnNavigating"/>
+            <Frame x:Name="MainFrame" Content="" HorizontalAlignment="Left" Height="730" Margin="33,140,0,0" VerticalAlignment="Top" Width="1176" NavigationUIVisibility="Hidden"/>
             <Label Content="Current score:" HorizontalAlignment="Left" Margin="-42,15,0,0" VerticalAlignment="Top" Height="30" Width="117" FontSize="16"/>
         </Grid>
     </Viewbox>

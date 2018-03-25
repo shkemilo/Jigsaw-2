@@ -10,13 +10,13 @@ namespace Jigsaw_2.Games.Jumper
     /// </summary>
     public class JumperDisplay : GUIElement
     {
-        List<JumperDisplayComponent> displays;
-        List<JumperCheckerComponent> checkers;
+        List<JumperDisplayComposite> displays;
+        List<JumperCheckerComposite> checkers;
 
         int numberOfRows;
         int currentRow;
 
-        public JumperDisplay(List<JumperDisplayComponent> displays, List<JumperCheckerComponent> checkers, int numberOfRows = 6)
+        public JumperDisplay(List<JumperDisplayComposite> displays, List<JumperCheckerComposite> checkers, int numberOfRows = 6)
         {
             this.displays = displays;
             this.checkers = checkers;
@@ -40,13 +40,13 @@ namespace Jigsaw_2.Games.Jumper
         }
 
         /// <summary> Returns the current element to be set. </summary>
-        public JumperDisplayElement GetActiveElement()
+        public JumperDisplayLeaf GetActiveElement()
         {
             return displays[currentRow].GetActiveElement();
         }
 
         /// <summary> Returns the current row. </summary>
-        public JumperDisplayComponent GetCurrentRow()
+        public JumperDisplayComposite GetCurrentRow()
         {
             return displays[currentRow];
         }
