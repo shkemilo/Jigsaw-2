@@ -25,6 +25,8 @@ namespace Jigsaw_2.Games
                 return new LetterOnLetter.LetterOnLetter();
             else if (s == "jumper")
                 return new Jumper.Jumper();
+            else if (s == "couplings")
+                return new Couplings.Couplings();
 
             throw new Exception("Game does not exsist. (yet)");
         }

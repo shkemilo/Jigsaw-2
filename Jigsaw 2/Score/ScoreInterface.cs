@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Threading;
 using Jigsaw_2.Abstracts;
 using Jigsaw_2.Helpers;
+using Jigsaw_2.Animators;
 
 namespace Jigsaw_2.Score
 {
@@ -28,14 +29,14 @@ namespace Jigsaw_2.Score
             scoreEngine = new ScoreEngine();
             scoreDisplay = new Display((TextBox)Finder.FindElementWithTag("ScoreDisplay"));
             progressBar = (ProgressBar)Finder.FindElementWithTag("TimeBar");
-            progressBar.Maximum = 10000;
+            progressBar.Maximum = 120;
 
             scoreEngine.Subscribe(scoreDisplay);
 
             scoreEngine.Broadcast(scoreEngine.GetScore());
 
             timeControler = new DispatcherTimer();
-            timeControler.Interval = new TimeSpan(0, 0, 0, 0, 10);
+            timeControler.Interval = TimeSpan.FromSeconds(1);
             timeControler.Tick += timeControlerTick;
         }
 
@@ -64,7 +65,7 @@ namespace Jigsaw_2.Score
         void timeControlerTick(object sender, EventArgs e)
         {
             if (progressBar.Value != progressBar.Maximum)
-                progressBar.Value += 1;
+                progressBar.SetPercent(progressBar.Value + 1, TimeSpan.FromSeconds(1));
             else
             {
                 stopCurrentGame();
@@ -93,7 +94,7 @@ namespace Jigsaw_2.Score
         /// <summary> Resets the time bar to 0. </summary>
         public void ResetTimeBar()
         {
-            progressBar.Value = 0;
+            progressBar.SetPercent(0, TimeSpan.FromSeconds(3));
         }
     }
 }

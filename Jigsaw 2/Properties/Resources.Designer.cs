@@ -61,6 +61,67 @@ namespace Jigsaw_2.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to eduard mane 
+        ///51
+        ///pablo pikaso 
+        ///91
+        ///rafael 
+        ///37
+        ///piter pol rubens 
+        ///62
+        ///jan vermer 
+        ///42
+        ///teodor zeriko 
+        ///32
+        ///djura jaksic 
+        ///48
+        ///francisko goja 
+        ///82
+        ///
+        ///bernardo 
+        ///bertoluci
+        ///akira 
+        ///kurosava
+        ///nikita 
+        ///mihalkov
+        ///zan luk 
+        ///godar
+        ///vim 
+        ///venders
+        ///fatih 
+        ///akin
+        ///verner 
+        ///hercog
+        ///alfred 
+        ///hickok
+        ///
+        ///morfijum 
+        ///analgetik
+        ///diazepam 
+        ///anksiolitici
+        ///ampicilin 
+        ///antibiotik
+        ///fluvoksamin 
+        ///antidepresiv
+        ///rezorcinol 
+        ///antiseptik
+        ///flunizolid 
+        ///antiasmatik
+        ///laktuloza 
+        ///laksativ
+        ///pirantel 
+        ///antelmintik
+        ///
+        ///golub 
+        ///niski visokol [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CouplingsList {
+            get {
+                return ResourceManager.GetString("CouplingsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CK
         ///Ej
         ///Ep

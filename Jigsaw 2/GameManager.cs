@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Windows;
@@ -38,6 +37,9 @@ namespace Jigsaw_2
 
             games.Enqueue("jumper");
             games.Enqueue("jumper");
+
+            games.Enqueue("couplings");
+            games.Enqueue("couplings");
 
             gameChanger = Finder.FindElementWithTag("GameChanger");
 

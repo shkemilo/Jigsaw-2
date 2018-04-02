@@ -8,7 +8,7 @@ using Jigsaw_2.Helpers;
 using Jigsaw_2.Score;
 using System.Threading;
 using Jigsaw_2.Animators;
-
+using Jigsaw_2.Games.Couplings;
 
 namespace Jigsaw_2
 {
