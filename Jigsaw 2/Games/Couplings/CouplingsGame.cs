@@ -9,6 +9,9 @@ using Jigsaw_2.Animators;
 
 namespace Jigsaw_2.Games.Couplings
 {
+    /// <summary>
+    /// Represents the Couplings Game.
+    /// </summary>
     class CouplingsGame : Game
     {
         CouplingsEngine engine;
@@ -31,6 +34,7 @@ namespace Jigsaw_2.Games.Couplings
             (Finder.FindElementWithTag(allControls, "StartButton") as Button).Click += start;
         }
 
+        /// <summary> Gets all the matches from the GUI. </summary>
         private Queue<CouplingsDisplayBase> getMatches(string[] content)
         {
             Queue<CouplingsDisplayBase> tempMatches = new Queue<CouplingsDisplayBase>();
@@ -42,6 +46,7 @@ namespace Jigsaw_2.Games.Couplings
             return tempMatches;
         }
 
+        /// <summary> Gets all the match targets from the GUI. </summary>
         private List<CouplingsDisplayBase> getMatchTargets(string[] content)
         {
             List<CouplingsDisplayBase> tempMatchTargets = new List<CouplingsDisplayBase>();
@@ -53,6 +58,7 @@ namespace Jigsaw_2.Games.Couplings
             return tempMatchTargets;
         }
 
+        /// <summary> Gets the matches content from the engine. </summary>
         private string[] getMatchesContent(Tuple<string, string>[] couplings)
         {
             string[] matchesContent = new string[numberOfFields];
@@ -65,6 +71,7 @@ namespace Jigsaw_2.Games.Couplings
             return matchesContent;
         }
 
+        /// <summary> Gets the match targets content from the engine. </summary>
         private string[] getMatchTargetsContent(Tuple<string, string>[] couplings)
         {
             string[] matchTargetsContent = new string[numberOfFields];
@@ -75,11 +82,74 @@ namespace Jigsaw_2.Games.Couplings
             return matchTargetsContent;
         }
 
+        /// <summary> Sets the display. </summary>
         private void setDisplay(Tuple<string, string>[] couplings)
         {
             display = new CouplingsDisplay(getMatches(getMatchesContent(couplings)), getMatchTargets(getMatchTargetsContent(couplings)));
         }
 
+        /// <summary> Changes to a new couplings. </summary>
+        private void nextCoupling()
+        {
+            if (currentFieldIndex < numberOfFields - 1)
+            {
+                display.NextMatch();
+                currentFieldIndex++;
+            }
+            else
+                GameOver();
+        }
+
+        /// <summary> Updates the couplings based on their correctness. </summary>
+        private void update(bool correct, int buttonIndex)
+        {
+            display.Update(correct);
+
+            if (correct)
+            {
+                Grader();
+
+                display.Update(new Tuple<int, bool>(buttonIndex, correct));
+            }
+
+            display.Show();
+        }
+
+        /// <summary> checks if  </summary>
+        private bool check(string match, string matchTarget)
+        {
+            return engine.Check(match, matchTarget);
+        }
+
+        /// <summary> Gets the index of the button by finding its reference in the match targets. </summary>
+        private int getIndexOfButton(Button b)
+        {
+            int i = 0;
+            foreach (CouplingsDisplayBase element in display.GetMatchTargets())
+                if (b == element.GetMatch())
+                    return i;
+                else
+                    i++;
+
+            throw new Exception("Button does not exsist.");
+        }
+
+        /// <summary> Animates and orders the couplings in the correct order when the game ends. </summary>
+        private void orderCouplings()
+        {
+            int[] offset = engine.GetOffset();
+
+            int z = 0;
+            foreach (CouplingsDisplayBase element in display.GetMatchTargets())
+            {
+                double xPos = element.GetMatch().Margin.Left;
+                double yPos = element.GetMatch().Margin.Top + offset[z++] * 60;
+
+                element.GetMatch().MoveTo(xPos, yPos);
+            }
+        }
+
+        /// <summary> Event which starts the game. </summary>
         private void start(object sender, RoutedEventArgs e)
         {
             setDisplay(engine.GetCouplings());
@@ -96,71 +166,18 @@ namespace Jigsaw_2.Games.Couplings
             (sender as Button).IsEnabled = false;
         }
 
+        /// <summary> Evenet which couples two words togeather. </summary>
         private void couple(object sender, RoutedEventArgs e)
         {
-            int buttonIndex = GetIndexOfButton(sender as Button);
+            int buttonIndex = getIndexOfButton(sender as Button);
             bool correct = check(display.CurrentMatch().GetContent(), (sender as Button).Content.ToString());
 
             update(correct, buttonIndex);
 
-            if (currentFieldIndex < numberOfFields - 1)
-            {
-                display.NextMatch();
-                currentFieldIndex++;
-            }
-            else
-                GameOver();
+            nextCoupling();
         }
 
-        private void update(bool correct, int buttonIndex)
-        {
-            display.Update(correct);
-
-            if (correct)
-            {
-                Grader();
-
-                display.Update(new Tuple<int, bool>(buttonIndex, correct));
-            }
-
-            display.Show();
-        }
-
-        private bool check(string match, string matchTarget)
-        {
-            if (engine.Check(match, matchTarget))
-                return true;
-            else
-                return false;
-        }
-
-
-        private int GetIndexOfButton(Button b)
-        {
-            int i = 0;
-            foreach (CouplingsDisplayBase element in display.GetMatchTargets())
-                if (b == element.GetMatch())
-                    return i;
-                else
-                    i++;
-
-            throw new Exception("Button does not exsist.");
-        }
-
-        private void orderCouplings()
-        {
-            int[] offset = engine.GetOffset();
-
-            int z = 0;
-            foreach (CouplingsDisplayBase element in display.GetMatchTargets())
-            {
-                double xPos = element.GetMatch().Margin.Left;
-                double yPos = element.GetMatch().Margin.Top + offset[z++] * 60;
-
-                element.GetMatch().MoveTo(xPos, yPos);
-            }
-        }
-
+        /// <summary> When all the matches have been evalueted or time has ran out. </summary>
         public override void GameOver()
         {
             ScoreInterface.Instance.StopTimeControler();
@@ -169,9 +186,12 @@ namespace Jigsaw_2.Games.Couplings
 
             orderCouplings();
 
+            GUIElements.Remove(display);
+
             GameManager.Instance.NextGame();
         }
 
+        /// <summary> Adds points if the couple was correct. </summary>
         public override void Grader()
         {
             ScoreInterface.Instance.ScoreEngine.ChangePoints(valueOfField);

@@ -32,11 +32,11 @@ namespace Jigsaw_2
         {
             games = new Queue<string>();
 
-            games.Enqueue("letteronletter");
+            /*games.Enqueue("letteronletter");
             games.Enqueue("letteronletter");
 
             games.Enqueue("jumper");
-            games.Enqueue("jumper");
+            games.Enqueue("jumper");*/
 
             games.Enqueue("couplings");
             games.Enqueue("couplings");

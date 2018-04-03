@@ -21,22 +21,22 @@
     <Grid Name="CouplingsGrid">
         <!--<Line X1="0" X2="0" Y1="150" Y2="600" Stroke="Black" StrokeThickness="0.5" Margin="5,0,10,0"/>-->
 
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,100,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,160,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,220,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,280,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,340,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,400,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,460,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,520,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="750,100,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="750,160,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="750,220,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="750,280,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15"/>
-        <Button x:Name="test2" Content="" HorizontalAlignment="Left" Height="50" Margin="750,340,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="750,400,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="750,460,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15"/>
-        <Button x:Name="test1" Content="" HorizontalAlignment="Left" Height="50" Margin="750,520,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,100,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,160,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,220,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,280,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,340,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,400,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,460,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,520,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="750,100,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="750,160,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="750,220,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="750,280,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
+        <Button x:Name="test2" Content="" HorizontalAlignment="Left" Height="50" Margin="750,340,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="750,400,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="750,460,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
+        <Button x:Name="test1" Content="" HorizontalAlignment="Left" Height="50" Margin="750,520,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
         <Button Content="Start" HorizontalAlignment="Left" Height="50" Margin="500,10,0,0" VerticalAlignment="Top" Width="200" Tag="StartButton" mah:ButtonHelper.CornerRadius="15"/>
 
 

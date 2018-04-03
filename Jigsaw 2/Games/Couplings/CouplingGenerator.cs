@@ -27,7 +27,7 @@ namespace Jigsaw_2.Games.Couplings
                 foreach (string s in currentCoupling)
                     Console.WriteLine(s);
 
-                throw new Exception("jebem ti mater");
+                throw new Exception("This shouldn't happen lol");
             }
 
             foreach (KeyValuePair<string, string> s in couplings)

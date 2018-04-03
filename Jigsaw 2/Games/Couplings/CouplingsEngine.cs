@@ -6,8 +6,11 @@ using System.Linq;
 
 namespace Jigsaw_2.Games.Couplings
 {
+    /// <summary>
+    /// Engine class used for Game logic in the Couplings Game.
+    /// </summary>
     class CouplingsEngine : Engine
-    { 
+    {
         int numberOfFields;
 
         Dictionary<string, string> couplings;
@@ -23,50 +26,57 @@ namespace Jigsaw_2.Games.Couplings
             offset = new int[numberOfFields];
         }
 
+        /// <summary> Calculates how many positions did the elements move based on their original position. </summary>
+       private void setOffset(List<string> original, List<string> shuffled)
+        {
+            for (int i = 0; i < numberOfFields; i++)
+                offset[i] = shuffled.IndexOf(original[i]) - i;
+        }
+
+        /// <summary> Converts a dictionary to 2 arrays, one containing the keys, and other the values. </summary>
+        private void dictionaryToArrays(ref string[] keys, ref string[] vals)
+        {
+            int z = 0;
+            foreach (KeyValuePair<string, string> pair in couplings)
+            {
+                vals[z] = pair.Value;
+                keys[z++] = pair.Key;
+            }
+        }
+
+        /// <summary> Merges 2 arrays into a array of tuples. </summary>
+        private Tuple<string, string>[] arraysToTupleArray(string[] array1, string[] array2)
+        {
+            Tuple<string, string>[] temp = new Tuple<string, string>[numberOfFields];
+
+            for (int i = 0; i < numberOfFields; i++) //Organizes the keys and values into tuples
+                temp[i] = new Tuple<string, string>(array1[i], array2[i]);
+
+            return temp;
+        }
+
+        /// <summary> Shuffles and returns the Couplings as an array of Tuples. </summary>
         public Tuple<string, string>[]  GetCouplings()
         {
             string[] tempValues = new string[numberOfFields];
             string[] tempKeys = new string[numberOfFields];
 
-            int z = 0;
-            foreach (KeyValuePair<string, string> s in couplings) //Puts the keys and values of the dictionary into string arrays TODO: Encapsulate
-            {
-                tempValues[z] = s.Value;
-                tempKeys[z] = s.Key;
-                z++;
-            }
+            dictionaryToArrays(ref tempKeys, ref tempValues);
 
             new Random(Guid.NewGuid().GetHashCode()).Shuffle(tempValues);
 
             setOffset(couplings.Values.ToList(), tempValues.ToList());
 
-            Tuple<string, string>[] temp = new Tuple<string, string>[numberOfFields];
-
-            for (int i = 0; i < numberOfFields; i++) //Organizes the keys and values into tuples
-                temp[i] = new Tuple<string, string>(tempValues[i], tempKeys[i]);
-            
-            return temp;
+            return arraysToTupleArray(tempValues, tempKeys);
         }
 
-        public Dictionary<string, string> GetRealCouplings()
-        {
-            return couplings;
-        }
-
-        private void setOffset(List<string> original, List<string> shuffled)
-        {
-            for (int i = 0; i < numberOfFields; i++)
-                offset[i] = shuffled.IndexOf(original[i]) - i;
-
-            for (int i = 0; i < offset.Length; i++)
-                Console.WriteLine(offset[i]);
-        }
-
+        /// <summary> Gets how much did the elements move when they were shuffled. </summary>
         public int[] GetOffset()
         {
             return offset;
         }
 
+        /// <summary> Checks if the Coupling was pair correctly. </summary>
         public bool Check(string hit, string target)
         {
             if (couplings[target.ToLower()] == hit.ToLower())
