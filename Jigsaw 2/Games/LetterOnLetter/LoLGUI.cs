@@ -1,6 +1,6 @@
+using Jigsaw_2.Abstracts;
 using System;
 using System.Windows.Controls;
-using Jigsaw_2.Abstracts;
 
 namespace Jigsaw_2.Games.LetterOnLetter
 {
@@ -9,13 +9,13 @@ namespace Jigsaw_2.Games.LetterOnLetter
     /// </summary>
     public class LoLDisplay : GUIElement, Animateable
     {
-        Control[] fields;
+        private Control[] fields;
 
-        int numberOfFields;
-        int shownLetters;
-        char[] lettersToShow;
-        char[] letters;
-        Random rnd;
+        private int numberOfFields;
+        private int shownLetters;
+        private char[] lettersToShow;
+        private char[] letters;
+        private Random rnd;
 
         public LoLDisplay(Control[] fields, int numberOfFields)
         {

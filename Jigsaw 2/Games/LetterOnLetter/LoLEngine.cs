@@ -1,6 +1,6 @@
-using System;
 using Jigsaw_2.Abstracts;
 using Jigsaw_2.Helpers;
+using System;
 
 namespace Jigsaw_2.Games.LetterOnLetter
 {
@@ -9,11 +9,11 @@ namespace Jigsaw_2.Games.LetterOnLetter
     /// </summary>
     public class LoLEngine : Engine
     {
-        WordList words;
+        private WordList words;
 
-        int numberOfFields;
-        string word;
-        char[] letters;
+        private int numberOfFields;
+        private string word;
+        private char[] letters;
 
         public LoLEngine(int numberOfFields)
         {
@@ -25,9 +25,9 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
             word = words.GetWoWSeed();
 
-            #if DEBUG
-                Console.WriteLine(word);
-            #endif
+#if DEBUG
+            Console.WriteLine(word);
+#endif
 
             generateLetters();
         }

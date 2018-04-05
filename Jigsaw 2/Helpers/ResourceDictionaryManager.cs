@@ -2,13 +2,13 @@
 using System.Windows;
 
 namespace Jigsaw_2.Helpers
-{ 
+{
     /// <summary>
     /// Helper class used for fetching resource dictionaries
     /// </summary>
     public static class ResourceDictionaryManager
     {
-        static ResourceDictionary resources;
+        private static ResourceDictionary resources;
 
         static ResourceDictionaryManager()
         {

@@ -1,9 +1,9 @@
+using Jigsaw_2.Abstracts;
+using Jigsaw_2.Animators;
+using Jigsaw_2.Helpers;
 using System;
 using System.Windows.Controls;
 using System.Windows.Threading;
-using Jigsaw_2.Abstracts;
-using Jigsaw_2.Helpers;
-using Jigsaw_2.Animators;
 
 namespace Jigsaw_2.Score
 {
@@ -15,14 +15,14 @@ namespace Jigsaw_2.Score
         private static ScoreInterface instance = null;
         private static readonly object padlock = new object();
 
-        ScoreEngine scoreEngine;
+        private ScoreEngine scoreEngine;
         public ScoreEngine ScoreEngine { get => scoreEngine; }
 
-        Display scoreDisplay;
-        
-        ProgressBar progressBar;
+        private Display scoreDisplay;
 
-        DispatcherTimer timeControler;
+        private ProgressBar progressBar;
+
+        private DispatcherTimer timeControler;
 
         private ScoreInterface()
         {
@@ -56,13 +56,13 @@ namespace Jigsaw_2.Score
         }
 
         /// <summary> When time is up stop the current game. </summary>
-        void stopCurrentGame()
+        private void stopCurrentGame()
         {
             GameManager.Instance.GetCurrentGame().GameOver();
         }
 
         /// <summary> Tick event used for simulating time, and animating the progress bar. </summary>
-        void timeControlerTick(object sender, EventArgs e)
+        private void timeControlerTick(object sender, EventArgs e)
         {
             if (progressBar.Value != progressBar.Maximum)
                 progressBar.SetPercent(progressBar.Value + 1, TimeSpan.FromSeconds(1));

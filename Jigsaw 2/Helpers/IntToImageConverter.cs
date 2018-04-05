@@ -11,7 +11,7 @@ namespace Jigsaw_2.Helpers
         private static IntToImageConverter instance = null;
         private static readonly object padlock = new object();
 
-        BitmapImage[] images;
+        private BitmapImage[] images;
 
         private IntToImageConverter()
         {

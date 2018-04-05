@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace Jigsaw_2.Games.Couplings
 {
-    class CouplingGenerator //TODO: Would be nice if i knew how to make a database :)
+    internal class CouplingGenerator //TODO: Would be nice if i knew how to make a database :)
     {
-        Dictionary<string, string> couplings;
-        string couplingText;
+        private Dictionary<string, string> couplings;
+        private string couplingText;
 
         public CouplingGenerator()
         {

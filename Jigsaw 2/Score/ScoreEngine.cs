@@ -7,7 +7,7 @@ namespace Jigsaw_2.Score
     /// </summary>
     public class ScoreEngine : Engine
     {
-        int score;
+        private int score;
 
         public ScoreEngine()
         {

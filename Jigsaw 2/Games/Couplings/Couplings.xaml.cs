@@ -1,5 +1,4 @@
-﻿
-namespace Jigsaw_2.Games.Couplings
+﻿namespace Jigsaw_2.Games.Couplings
 {
     /// <summary>
     /// Interaction logic for Couplings.xaml

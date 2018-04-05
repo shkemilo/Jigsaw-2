@@ -5,14 +5,14 @@ using System.Linq;
 namespace Jigsaw_2.Games.LetterOnLetter
 {
     /// <summary>
-    /// Singlton that is used for storing the Word List used for the Word on Word game.
+    /// Singleton that is used for storing the Word List used for the Word on Word game.
     /// </summary>
     public sealed class WordList //TODO: Save whole object and just load when game starts, to prevent high cpu usage.
-    { 
-        Random rnd;
+    {
+        private Random rnd;
 
-        string[] wordList;
-        List<string> WoWSeeds;
+        private string[] wordList;
+        private List<string> WoWSeeds;
 
         public WordList()
         {
@@ -27,7 +27,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
         /// <summary> Finds all words with 12 length. </summary>
         private void getWoWSeeds()
-        { 
+        {
             for (int i = 0; i < wordList.Length; i++)
                 if (wordList[i].Length == 12)
                     WoWSeeds.Add(wordList[i].ToUpper());

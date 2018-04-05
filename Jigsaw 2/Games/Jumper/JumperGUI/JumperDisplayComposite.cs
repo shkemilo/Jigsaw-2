@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Jigsaw_2.Abstracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Media.Imaging;
-using Jigsaw_2.Abstracts;
 
 namespace Jigsaw_2.Games.Jumper
 {
@@ -11,10 +11,10 @@ namespace Jigsaw_2.Games.Jumper
     /// </summary>
     public class JumperDisplayComposite : GUIElement
     {
-        List<JumperDisplayLeaf> elements;
+        private List<JumperDisplayLeaf> elements;
 
-        int numberOfElements;
-        int currentElementIndex;
+        private int numberOfElements;
+        private int currentElementIndex;
 
         public JumperDisplayComposite(List<JumperDisplayLeaf> elements, int numberOfElements = 4)
         {

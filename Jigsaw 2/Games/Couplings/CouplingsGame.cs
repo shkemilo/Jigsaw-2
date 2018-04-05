@@ -1,26 +1,26 @@
 ﻿using Jigsaw_2.Abstracts;
+using Jigsaw_2.Animators;
 using Jigsaw_2.Helpers;
+using Jigsaw_2.Score;
 using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using Jigsaw_2.Score;
-using Jigsaw_2.Animators;
 
 namespace Jigsaw_2.Games.Couplings
 {
     /// <summary>
     /// Represents the Couplings Game.
     /// </summary>
-    class CouplingsGame : Game
+    internal class CouplingsGame : Game
     {
-        CouplingsEngine engine;
-        CouplingsDisplay display;
+        private CouplingsEngine engine;
+        private CouplingsDisplay display;
 
-        int numberOfFields;
-        int currentFieldIndex;
+        private int numberOfFields;
+        private int currentFieldIndex;
 
-        int valueOfField;
+        private int valueOfField;
 
         public CouplingsGame(CouplingsEngine engine, Grid gameGrid, int numberOfFields = 8) : base(gameGrid, "couplings")
         {

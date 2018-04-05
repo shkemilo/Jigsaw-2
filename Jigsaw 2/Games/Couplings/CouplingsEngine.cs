@@ -9,14 +9,14 @@ namespace Jigsaw_2.Games.Couplings
     /// <summary>
     /// Engine class used for Game logic in the Couplings Game.
     /// </summary>
-    class CouplingsEngine : Engine
+    internal class CouplingsEngine : Engine
     {
-        int numberOfFields;
+        private int numberOfFields;
 
-        Dictionary<string, string> couplings;
-        string couplingText;
+        private Dictionary<string, string> couplings;
+        private string couplingText;
 
-        int[] offset;
+        private int[] offset;
 
         public CouplingsEngine(int numberOfFields = 8)
         {
@@ -31,7 +31,7 @@ namespace Jigsaw_2.Games.Couplings
         }
 
         /// <summary> Calculates how many positions did the elements move based on their original position. </summary>
-       private void setOffset(List<string> original, List<string> shuffled)
+        private void setOffset(List<string> original, List<string> shuffled)
         {
             for (int i = 0; i < numberOfFields; i++)
                 offset[i] = shuffled.IndexOf(original[i]) - i;
@@ -65,7 +65,7 @@ namespace Jigsaw_2.Games.Couplings
         }
 
         /// <summary> Shuffles and returns the Couplings as an array of Tuples. </summary>
-        public Tuple<string, string>[]  GetCouplings()
+        public Tuple<string, string>[] GetCouplings()
         {
             string[] tempValues = new string[numberOfFields];
             string[] tempKeys = new string[numberOfFields];

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Jigsaw_2.Abstracts;
+using System;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
-using Jigsaw_2.Abstracts;
 
 namespace Jigsaw_2.Games.Jumper
 {
@@ -10,10 +10,10 @@ namespace Jigsaw_2.Games.Jumper
     /// </summary>
     public class JumperDisplayLeaf : GUIElement
     {
-        Button field;
-        Image elementImage;
+        private Button field;
+        private Image elementImage;
 
-        BitmapImage source;
+        private BitmapImage source;
 
         public JumperDisplayLeaf(Button field)
         {
@@ -51,4 +51,3 @@ namespace Jigsaw_2.Games.Jumper
         }
     }
 }
-

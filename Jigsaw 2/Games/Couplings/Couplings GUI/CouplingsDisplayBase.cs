@@ -1,22 +1,22 @@
-﻿using System;
+﻿using Jigsaw_2.Abstracts;
+using System;
 using System.Windows.Controls;
 using System.Windows.Media;
-using Jigsaw_2.Abstracts;
 
 namespace Jigsaw_2.Games.Couplings
 {
     /// <summary>
     /// Represents the base GUI class used for the Couplings Game
     /// </summary>
-    class CouplingsDisplayBase : GUIElement
+    internal class CouplingsDisplayBase : GUIElement
     {
-        static SolidColorBrush rightColor = Brushes.DarkGreen;
-        static SolidColorBrush wrongColor = Brushes.DarkRed;
-        static SolidColorBrush defaultColor = Brushes.Gray;
+        private static SolidColorBrush rightColor = Brushes.DarkGreen;
+        private static SolidColorBrush wrongColor = Brushes.DarkRed;
+        private static SolidColorBrush defaultColor = Brushes.Gray;
 
-        Button match;
+        private Button match;
 
-        SolidColorBrush color;
+        private SolidColorBrush color;
 
         public CouplingsDisplayBase(Button match, string content)
         {
@@ -25,8 +25,7 @@ namespace Jigsaw_2.Games.Couplings
             match.Content = content.ToUpper();
             match.IsEnabled = false;
 
-            color = defaultColor;
-            Show();
+            match.Background = defaultColor;
         }
 
         /// <summary> Returns the button associated with the element. </summary>

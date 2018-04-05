@@ -1,14 +1,14 @@
+using Jigsaw_2.Abstracts;
+using Jigsaw_2.Helpers;
+using Jigsaw_2.Score;
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using Jigsaw_2.Abstracts;
-using Jigsaw_2.Helpers;
-using Jigsaw_2.Score;
-using MahApps.Metro.Controls.Dialogs;
-using MahApps.Metro.Controls;
 
 namespace Jigsaw_2.Games.LetterOnLetter
 {
@@ -17,24 +17,24 @@ namespace Jigsaw_2.Games.LetterOnLetter
     /// </summary>
     public class LoLGame : Game
     {
-        LoLEngine engine;
-        LoLDisplay mainDisp;
+        private LoLEngine engine;
+        private LoLDisplay mainDisp;
 
-        Button submit;
-        Button undo;
-        Button check;
+        private Button submit;
+        private Button undo;
+        private Button check;
 
-        List<Control> letterDisp;
-        List<Control> usedLetters;
+        private List<Control> letterDisp;
+        private List<Control> usedLetters;
 
-        Display currentWordDisplay;
-        Display longestWordDisplay;
+        private Display currentWordDisplay;
+        private Display longestWordDisplay;
 
-        TextBox checkBox;
+        private TextBox checkBox;
 
-        string answer;
+        private string answer;
 
-        string state;
+        private string state;
 
         public LoLGame(LoLEngine engine, Grid gameGrid) : base(gameGrid, "letteronletter")
         {
@@ -123,19 +123,19 @@ namespace Jigsaw_2.Games.LetterOnLetter
         /// <summary> Adds a letter to the answer. </summary>
         private void addToAnswer(object sender, RoutedEventArgs e)
         {
-                Button currentButton = sender as Button;
-               
-                answer += currentButton.Content;
-                currentWordDisplay.Update(answer);
+            Button currentButton = sender as Button;
 
-                currentButton.IsEnabled = false;
-                usedLetters.Add(currentButton);
+            answer += currentButton.Content;
+            currentWordDisplay.Update(answer);
 
-                checkBox.Text = "";
+            currentButton.IsEnabled = false;
+            usedLetters.Add(currentButton);
+
+            checkBox.Text = "";
         }
 
         /// <summary> Undos the last letter added to the answer. </summary>
-        void undoLastLetter(object sender, RoutedEventArgs e)
+        private void undoLastLetter(object sender, RoutedEventArgs e)
         {
             if (usedLetters.Count != 0)
             {
@@ -149,14 +149,14 @@ namespace Jigsaw_2.Games.LetterOnLetter
         }
 
         /// <summary> Gives information if the current word is a valid word. </summary>
-        void wordFeedback(object sender, RoutedEventArgs e)
+        private void wordFeedback(object sender, RoutedEventArgs e)
         {
             if (mainDisp.Finished())
-                checkBoxUpdate();    
+                checkBoxUpdate();
         }
 
         /// <summary> Handles the stopping and submiting. </summary>
-        void ssClick(object sender, RoutedEventArgs e)
+        private void ssClick(object sender, RoutedEventArgs e)
         {
             if (!mainDisp.Finished())
                 mainDisp.UncoverLetter();
@@ -199,7 +199,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
             longestWordDisplay.Update(engine.GetLongestWord());
             longestWordDisplay.Show();
 
-            if(checkBoxUpdate())
+            if (checkBoxUpdate())
                 Grader();
 
             GameManager.Instance.NextGame();

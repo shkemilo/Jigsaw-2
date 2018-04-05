@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Jigsaw_2.Abstracts;
+using System;
 using System.Collections.Generic;
 using System.Windows.Media.Imaging;
-using Jigsaw_2.Abstracts;
 
 namespace Jigsaw_2.Games.Jumper
 {
@@ -10,11 +10,11 @@ namespace Jigsaw_2.Games.Jumper
     /// </summary>
     public class JumperDisplay : GUIElement
     {
-        List<JumperDisplayComposite> displays;
-        List<JumperCheckerComposite> checkers;
+        private List<JumperDisplayComposite> displays;
+        private List<JumperCheckerComposite> checkers;
 
-        int numberOfRows;
-        int currentRow;
+        private int numberOfRows;
+        private int currentRow;
 
         public JumperDisplay(List<JumperDisplayComposite> displays, List<JumperCheckerComposite> checkers, int numberOfRows = 6)
         {

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 
-
 namespace Jigsaw_2.Abstracts
 {
     /// <summary>

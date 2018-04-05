@@ -5,7 +5,7 @@ namespace Jigsaw_2.Helpers
     /// <summary>
     /// Static class used for Shuffling elements of an array.
     /// </summary>
-    static class Shuffler
+    internal static class Shuffler
     {
         /// <summary> Shuffles the array. </summary>
         public static void Shuffle<T>(this Random rng, T[] array)

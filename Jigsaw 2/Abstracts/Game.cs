@@ -1,7 +1,7 @@
+using Jigsaw_2.Helpers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
-using Jigsaw_2.Helpers;
 
 namespace Jigsaw_2.Abstracts
 {
@@ -18,7 +18,7 @@ namespace Jigsaw_2.Abstracts
 
         protected int score;
 
-        string name;
+        private string name;
 
         public string Name { get => name; }
 

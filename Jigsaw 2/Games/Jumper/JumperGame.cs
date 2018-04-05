@@ -1,32 +1,32 @@
-using System.Collections.Generic;
-using System.Windows.Controls;
 using Jigsaw_2.Abstracts;
 using Jigsaw_2.Helpers;
 using Jigsaw_2.Score;
-using System.Windows.Shapes;
-using System.Windows;
+using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace Jigsaw_2.Games.Jumper
-{ 
+{
     /// <summary>
     /// Class used for representing the Jumper Game.
     /// </summary>
     public class JumperGame : Game
     {
-        JumperEngine engine;
-        JumperDisplay mainDisp;
+        private JumperEngine engine;
+        private JumperDisplay mainDisp;
 
-        JumperDisplayComposite correctCombinationDisplay;
+        private JumperDisplayComposite correctCombinationDisplay;
 
-        List<Control> userControls;
+        private List<Control> userControls;
 
-        Button nextRowButton;
+        private Button nextRowButton;
 
-        int numberOfRows;
+        private int numberOfRows;
 
-        int[] answer;
+        private int[] answer;
 
         public JumperGame(JumperEngine engine, Grid gameGrid, int numberOfRows = 6) : base(gameGrid, "jumper")
         {
@@ -72,7 +72,7 @@ namespace Jigsaw_2.Games.Jumper
         {
             List<JumperDisplayLeaf> temp = new List<JumperDisplayLeaf>();
 
-            foreach(Control c in Finder.FindElementsWithTag(allControls, tag))
+            foreach (Control c in Finder.FindElementsWithTag(allControls, tag))
             {
                 //(c as Button).Click += undo;
                 temp.Add(new JumperDisplayLeaf(c as Button));
@@ -94,16 +94,16 @@ namespace Jigsaw_2.Games.Jumper
             return new JumperCheckerComposite(temp);
         }
 
-        /// <summary> Sets the main dispaly of the game. </summary>
+        /// <summary> Sets the main display of the game. </summary>
         private void setMainDisp(List<Control> allControls)
         {
             List<JumperDisplayComposite> mainDispList = new List<JumperDisplayComposite>();
             List<JumperCheckerComposite> mainCheckList = new List<JumperCheckerComposite>();
 
             for (int i = 0; i < numberOfRows; i++)
-            { 
-                mainDispList.Add(getDisplayComponent( "JumperDisplay" + (i + 1).ToString() ) );
-                mainCheckList.Add(getCheckerComponent( "JumperFeedback" + (i + 1).ToString() ) );
+            {
+                mainDispList.Add(getDisplayComponent("JumperDisplay" + (i + 1).ToString()));
+                mainCheckList.Add(getCheckerComponent("JumperFeedback" + (i + 1).ToString()));
             }
 
             mainDisp = new JumperDisplay(mainDispList, mainCheckList);
@@ -207,10 +207,10 @@ namespace Jigsaw_2.Games.Jumper
 
             nextRowButton.IsEnabled = false;
 
-            if ( engine.Check(answer) || ( mainDisp.CurrentRow == (numberOfRows - 1) ) )
+            if (engine.Check(answer) || (mainDisp.CurrentRow == (numberOfRows - 1)))
                 GameOver();
             else
-            { 
+            {
                 answer = new int[] { 0, 0, 0, 0 };
 
                 mainDisp.NextRow();

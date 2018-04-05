@@ -1,7 +1,7 @@
+using Jigsaw_2.Abstracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Jigsaw_2.Abstracts;
 
 namespace Jigsaw_2.Games.Jumper
 {
@@ -10,10 +10,10 @@ namespace Jigsaw_2.Games.Jumper
     /// </summary>
     public class JumperEngine : Engine
     {
-        int numberOfFields;
-        int[] combination;
+        private int numberOfFields;
+        private int[] combination;
 
-        Random randomSeed;
+        private Random randomSeed;
 
         public JumperEngine(int numberOfFields = 4)
         {
@@ -25,10 +25,10 @@ namespace Jigsaw_2.Games.Jumper
 
             generateCombination();
 
-        #if DEBUG
+#if DEBUG
             for (int i = 0; i < numberOfFields; i++)
-            Console.WriteLine(combination[i]);
-        #endif
+                Console.WriteLine(combination[i]);
+#endif
         }
 
         /// <summary> Generates a combination to be found by the user. </summary>

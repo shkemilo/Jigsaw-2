@@ -1,23 +1,23 @@
 ﻿using Jigsaw_2.Abstracts;
 using System;
 using System.Collections.Generic;
-using System.Windows.Media;
 using System.Linq;
+using System.Windows.Media;
 
 namespace Jigsaw_2.Games.Couplings
 {
     /// <summary>
     /// Represents the Couplings GUI for the Couplings Game.
     /// </summary>
-    class CouplingsDisplay : GUIElement
+    internal class CouplingsDisplay : GUIElement
     {
-        static SolidColorBrush matchesActiveColor = Brushes.Goldenrod;
-        static SolidColorBrush matchTargetsActiveColor = Brushes.Gray;
+        private static SolidColorBrush matchesActiveColor = Brushes.Goldenrod;
+        private static SolidColorBrush matchTargetsActiveColor = Brushes.Gray;
 
-        Queue<CouplingsDisplayBase> matches;
-        List<CouplingsDisplayBase> matchTargets;
+        private Queue<CouplingsDisplayBase> matches;
+        private List<CouplingsDisplayBase> matchTargets;
 
-        int numberOfFields;
+        private int numberOfFields;
 
         public CouplingsDisplay(Queue<CouplingsDisplayBase> matches, List<CouplingsDisplayBase> matchTargets, int numberOfFields = 8)
         {
@@ -38,7 +38,7 @@ namespace Jigsaw_2.Games.Couplings
             matches.Peek().Update(Convert.ToBoolean(message));
         }
 
-        /// <summary> Updates the match target by interperting the message as a Tuple. </summary>
+        /// <summary> Updates the match target by interpreting the message as a Tuple. </summary>
         private void updateMatchTargets(object message)
         {
             Tuple<int, bool> temp = message as Tuple<int, bool>;
@@ -66,7 +66,7 @@ namespace Jigsaw_2.Games.Couplings
             matches.Peek().SetActive(matchesActiveColor);
         }
 
-        /// <summary> Sets all the colors that haven't been evalueted to the color which represent a wrong answer. </summary>
+        /// <summary> Sets all the colors that haven't been evaluated to the color which represent a wrong answer. </summary>
         public void SetAllColors()
         {
             foreach (CouplingsDisplayBase element in matches)

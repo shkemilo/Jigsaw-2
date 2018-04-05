@@ -1,14 +1,13 @@
-﻿using System;
-using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
-using MahApps.Metro.Controls;
-using MahApps.Metro;
+﻿using Jigsaw_2.Animators;
 using Jigsaw_2.Helpers;
 using Jigsaw_2.Score;
+using MahApps.Metro;
+using MahApps.Metro.Controls;
+using System;
+using System.Linq;
 using System.Threading;
-using Jigsaw_2.Animators;
-using Jigsaw_2.Games.Couplings;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Jigsaw_2
 {

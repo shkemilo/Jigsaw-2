@@ -28,9 +28,9 @@ namespace Jigsaw_2.Abstracts
     /// </summary>
     public class Display : GUIElement
     {
-        Control messageDisplay;
+        private Control messageDisplay;
 
-        string message;
+        private string message;
 
         public Display(Control messageDisplay)
         {
@@ -47,8 +47,8 @@ namespace Jigsaw_2.Abstracts
         /// <summary> Shows the current message. </summary>
         public override void Show()
         {
-            if(messageDisplay is TextBox)
+            if (messageDisplay is TextBox)
                 (messageDisplay as TextBox).Text = message.ToString();
         }
-    } 
+    }
 }

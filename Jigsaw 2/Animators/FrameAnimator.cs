@@ -1,23 +1,23 @@
 ﻿using System;
-using System.Windows;
 using System.Threading;
-using System.Windows.Threading;
+using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
 using System.Windows.Media.Animation;
+using System.Windows.Navigation;
+using System.Windows.Threading;
 
 namespace Jigsaw_2.Animators
 {
-    class FrameAnimator
+    internal class FrameAnimator
     {
-        bool allowDirectNavigation;
-        double oldValue;
+        private bool allowDirectNavigation;
+        private double oldValue;
 
-        NavigatingCancelEventArgs navArgs;
-        Duration duration;
+        private NavigatingCancelEventArgs navArgs;
+        private Duration duration;
 
-        Frame mainFrame;
-        DependencyProperty property;
+        private Frame mainFrame;
+        private DependencyProperty property;
 
         public FrameAnimator(Frame mainFrame, DependencyProperty property)
         {
@@ -62,12 +62,15 @@ namespace Jigsaw_2.Animators
                     else
                         mainFrame.Navigate(navArgs.Uri);
                     break;
+
                 case NavigationMode.Back:
                     mainFrame.GoBack();
                     break;
+
                 case NavigationMode.Forward:
                     mainFrame.GoForward();
                     break;
+
                 case NavigationMode.Refresh:
                     mainFrame.Refresh();
                     break;

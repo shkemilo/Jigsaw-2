@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Jigsaw_2.Abstracts;
+using System;
 using System.Collections.Generic;
-using Jigsaw_2.Abstracts;
 
 namespace Jigsaw_2.Games.Jumper
 {
@@ -9,9 +9,9 @@ namespace Jigsaw_2.Games.Jumper
     /// </summary>
     public class JumperCheckerComposite : GUIElement
     {
-        List<JumperCheckerLeaf> elements;
+        private List<JumperCheckerLeaf> elements;
 
-        int numberOfElements;
+        private int numberOfElements;
 
         public JumperCheckerComposite(List<JumperCheckerLeaf> elements, int numberOfElements = 4)
         {

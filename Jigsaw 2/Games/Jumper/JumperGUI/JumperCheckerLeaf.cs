@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Jigsaw_2.Abstracts;
+using System;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using Jigsaw_2.Abstracts;
 
 namespace Jigsaw_2.Games.Jumper
 {
@@ -10,9 +10,9 @@ namespace Jigsaw_2.Games.Jumper
     /// </summary>
     public class JumperCheckerLeaf : GUIElement
     {
-        Ellipse field;
+        private Ellipse field;
 
-        SolidColorBrush color;
+        private SolidColorBrush color;
 
         public JumperCheckerLeaf(Ellipse field)
         {

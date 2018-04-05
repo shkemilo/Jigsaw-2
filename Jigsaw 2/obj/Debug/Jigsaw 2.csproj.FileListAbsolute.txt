@@ -1,14 +1,25 @@
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Jigsaw 2.exe.config
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Jigsaw 2.exe
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Jigsaw 2.pdb
+C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Jigsaw 2.exe.CodeAnalysisLog.xml
+C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Jigsaw 2.exe.lastcodeanalysissucceeded
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\ControlzEx.dll
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\MahApps.Metro.dll
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Xamarin.Forms.Platform.dll
+C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Xamarin.Forms.Xaml.dll
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\ControlzEx.pdb
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\MahApps.Metro.pdb
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\MahApps.Metro.xml
+C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Xamarin.Forms.Core.pdb
+C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Xamarin.Forms.Platform.pdb
+C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Xamarin.Forms.Xaml.pdb
+C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Xamarin.Forms.Xaml.xml
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Resources\Icons.baml
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Resources\IconsNonShared.baml
+C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Games\Couplings\Couplings.g.cs
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Games\Jumper\Jumper.g.cs
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Games\LetterOnLetter\LetterOnLetter.g.cs
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\MainWindow.g.cs
@@ -17,6 +28,7 @@ C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2_MarkupCompile.cache
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2_MarkupCompile.lref
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\App.baml
+C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Games\Couplings\Couplings.baml
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Games\Jumper\Jumper.baml
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Games\LetterOnLetter\LetterOnLetter.baml
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\MainWindow.baml
@@ -25,14 +37,3 @@ C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.csproj.GenerateResource.Cache
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.exe
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.pdb
-C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Games\Couplings\Couplings.g.cs
-C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Xamarin.Forms.Core.dll
-C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Xamarin.Forms.Platform.dll
-C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Xamarin.Forms.Xaml.dll
-C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Xamarin.Forms.Core.pdb
-C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Xamarin.Forms.Core.xml
-C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Xamarin.Forms.Platform.pdb
-C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Xamarin.Forms.Xaml.pdb
-C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Xamarin.Forms.Xaml.xml
-C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Games\Couplings\Couplings.baml
-C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.csprojResolveAssemblyReference.cache

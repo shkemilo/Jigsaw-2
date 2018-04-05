@@ -1,12 +1,12 @@
-using System.Collections.Generic;
-using System.Windows.Controls;
-using System.Windows;
-using MahApps.Metro.Controls.Dialogs;
-using Jigsaw_2.Score;
 using Jigsaw_2.Abstracts;
-using Jigsaw_2.Helpers;
-using System.Linq;
 using Jigsaw_2.Games;
+using Jigsaw_2.Helpers;
+using Jigsaw_2.Score;
+using MahApps.Metro.Controls.Dialogs;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Jigsaw_2
 {
@@ -18,15 +18,15 @@ namespace Jigsaw_2
         private static GameManager instance = null;
         private static readonly object padlock = new object();
 
-        Queue<string> games;
+        private Queue<string> games;
 
-        GamePage currentGame;
+        private GamePage currentGame;
 
-        Control gameChanger;
+        private Control gameChanger;
 
-        MainWindow main;
+        private MainWindow main;
 
-        string username;
+        private string username;
 
         private GameManager()
         {
@@ -68,7 +68,7 @@ namespace Jigsaw_2
             }
         }
 
-        public string Username { get => username;  }
+        public string Username { get => username; }
 
         /// <summary> Checks if the username was correctly typed. </summary>
         private string badInput(string input)
@@ -76,7 +76,7 @@ namespace Jigsaw_2
             string message = string.Empty;
 
             if (input == string.Empty)
-                message = "Username musn't be blank. Try again.";
+                message = "Username mustn't be blank. Try again.";
             else if (input.Length > 16)
                 message = "Username too long. Try again";
 
@@ -107,10 +107,10 @@ namespace Jigsaw_2
         }
 
         public async void ShowInstructions()
-        { 
+        {
             await main.ShowMessageAsync("Instructions", GameFactory.GetInstructions(currentGame.Game.Name));
         }
-        
+
         /// <summary> Gets the users interface </summary>
         public async void SetUsername(string message = "Enter your username: ")
         {
