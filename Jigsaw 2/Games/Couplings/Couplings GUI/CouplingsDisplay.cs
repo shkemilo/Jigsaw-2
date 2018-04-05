@@ -61,7 +61,7 @@ namespace Jigsaw_2.Games.Couplings
         /// <summary> Removes and disables the current match then sets the next one active. </summary>
         public void NextMatch()
         {
-            matches.Dequeue().GetMatch().IsEnabled = false; ;
+            matches.Dequeue().GetMatch().IsEnabled = false;
 
             matches.Peek().SetActive(matchesActiveColor);
         }
