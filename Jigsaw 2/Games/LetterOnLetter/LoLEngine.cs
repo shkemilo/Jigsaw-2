@@ -9,6 +9,8 @@ namespace Jigsaw_2.Games.LetterOnLetter
     /// </summary>
     public class LoLEngine : Engine
     {
+        WordList words;
+
         int numberOfFields;
         string word;
         char[] letters;
@@ -19,7 +21,9 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
             letters = new char[numberOfFields];
 
-            word = WordList.Instance.GetWoWSeed();
+            words = new WordList();
+
+            word = words.GetWoWSeed();
 
             #if DEBUG
                 Console.WriteLine(word);
@@ -61,7 +65,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
         /// <summary> Check if the specified word is a viable word. </summary>
         public bool Check(string s)
         {
-            return WordList.Instance.Check(s);
+            return words.Check(s);
         }
     }
 }

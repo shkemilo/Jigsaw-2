@@ -14,6 +14,7 @@ namespace Jigsaw_2.Games.Couplings
         int numberOfFields;
 
         Dictionary<string, string> couplings;
+        string couplingText;
 
         int[] offset;
 
@@ -21,7 +22,10 @@ namespace Jigsaw_2.Games.Couplings
         {
             this.numberOfFields = numberOfFields;
 
-            couplings = new CouplingGenerator().GetCouplings();
+            CouplingGenerator couplingGenerator = new CouplingGenerator();
+
+            couplings = couplingGenerator.GetCouplings();
+            couplingText = couplingGenerator.GetCouplingText();
 
             offset = new int[numberOfFields];
         }
@@ -53,6 +57,11 @@ namespace Jigsaw_2.Games.Couplings
                 temp[i] = new Tuple<string, string>(array1[i], array2[i]);
 
             return temp;
+        }
+
+        public string GetCouplingText()
+        {
+            return couplingText;
         }
 
         /// <summary> Shuffles and returns the Couplings as an array of Tuples. </summary>

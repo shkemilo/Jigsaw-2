@@ -8,7 +8,7 @@
       xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
       mc:Ignorable="d" 
       d:DesignHeight="750" d:DesignWidth="1210"
-      Title="Couplings" Background="White">
+      Title="Couplings">
 
     <gamePage:GamePage.Resources>
         <ResourceDictionary>
@@ -21,23 +21,39 @@
     <Grid Name="CouplingsGrid">
         <!--<Line X1="0" X2="0" Y1="150" Y2="600" Stroke="Black" StrokeThickness="0.5" Margin="5,0,10,0"/>-->
 
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,100,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,160,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,220,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,280,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,340,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,400,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,460,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,520,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="750,100,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="750,160,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="750,220,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="750,280,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
-        <Button x:Name="test2" Content="" HorizontalAlignment="Left" Height="50" Margin="750,340,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="750,400,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="750,460,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
-        <Button x:Name="test1" Content="" HorizontalAlignment="Left" Height="50" Margin="750,520,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="15" Background="DimGray"/>
-        <Button Content="Start" HorizontalAlignment="Left" Height="50" Margin="500,10,0,0" VerticalAlignment="Top" Width="200" Tag="StartButton" mah:ButtonHelper.CornerRadius="15"/>
+        <Separator Margin="248,32,462,18" RenderTransformOrigin="0.5,0.5" Width="500" Height="700">
+            <Separator.LayoutTransform>
+                <RotateTransform Angle="90" />
+            </Separator.LayoutTransform>
+        </Separator>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="246,144,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="0" Background="DimGray" Style="{DynamicResource SquareButtonStyle}" mah:ControlsHelper.ContentCharacterCasing="Upper" IsEnabled="False"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="246,204,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="0" Background="DimGray" Style="{DynamicResource SquareButtonStyle}" mah:ControlsHelper.ContentCharacterCasing="Upper" IsEnabled="False"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="246,264,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="0" Background="DimGray" Style="{DynamicResource SquareButtonStyle}" mah:ControlsHelper.ContentCharacterCasing="Upper" IsEnabled="False"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="246,324,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="0" Background="DimGray" Style="{DynamicResource SquareButtonStyle}" mah:ControlsHelper.ContentCharacterCasing="Upper" IsEnabled="False"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="246,384,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="0" Background="DimGray" Style="{DynamicResource SquareButtonStyle}" mah:ControlsHelper.ContentCharacterCasing="Upper" IsEnabled="False"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="246,444,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="0" Background="DimGray" Style="{DynamicResource SquareButtonStyle}" mah:ControlsHelper.ContentCharacterCasing="Upper" IsEnabled="False"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="246,504,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="0" Background="DimGray" Style="{DynamicResource SquareButtonStyle}" mah:ControlsHelper.ContentCharacterCasing="Upper" IsEnabled="False"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="246,564,0,0" VerticalAlignment="Top" Width="200" Tag="Match" mah:ButtonHelper.CornerRadius="0" Background="DimGray" Style="{DynamicResource SquareButtonStyle}" mah:ControlsHelper.ContentCharacterCasing="Upper" IsEnabled="False"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="746,144,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="0" Background="DimGray" Style="{DynamicResource SquareButtonStyle}" mah:ControlsHelper.ContentCharacterCasing="Upper" IsEnabled="False"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="746,204,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="0" Background="DimGray" Style="{DynamicResource SquareButtonStyle}" mah:ControlsHelper.ContentCharacterCasing="Upper" IsEnabled="False"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="746,264,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="0" Background="DimGray" Style="{DynamicResource SquareButtonStyle}" mah:ControlsHelper.ContentCharacterCasing="Upper" IsEnabled="False"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="746,324,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="0" Background="DimGray" Style="{DynamicResource SquareButtonStyle}" mah:ControlsHelper.ContentCharacterCasing="Upper" IsEnabled="False"/>
+        <Button x:Name="test2" Content="" HorizontalAlignment="Left" Height="50" Margin="746,384,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="0" Background="DimGray" mah:ControlsHelper.ContentCharacterCasing="Upper" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="746,444,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="0" Background="DimGray" Style="{DynamicResource SquareButtonStyle}" mah:ControlsHelper.ContentCharacterCasing="Upper" IsEnabled="False"/>
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="746,504,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="0" Background="DimGray" Style="{DynamicResource SquareButtonStyle}" mah:ControlsHelper.ContentCharacterCasing="Upper" IsEnabled="False"/>
+        <Button x:Name="test1" Content="" HorizontalAlignment="Left" Height="50" Margin="746,564,0,0" VerticalAlignment="Top" Width="200" Tag="MatchTarget" mah:ButtonHelper.CornerRadius="0" Background="DimGray" Style="{DynamicResource SquareButtonStyle}" mah:ControlsHelper.ContentCharacterCasing="Upper" IsEnabled="False"/>
+        <Button HorizontalAlignment="Left" Height="85" Margin="246,22,0,0" VerticalAlignment="Top" Width="92" Tag="StartButton" BorderThickness="3" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalContentAlignment="Center" BorderBrush="#FF9B9B9B" VerticalContentAlignment="Center" Padding="10,1,0,1">
+            <Rectangle Width="40"
+                Height="50"
+                Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" Tag="NextRowImage" RenderTransformOrigin="2.967,0.55">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_control_play}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+        </Button>
+        <TextBox HorizontalAlignment="Left" Height="85" Margin="416,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" FontSize="16" TextAlignment="Center" Tag="CouplingText" BorderThickness="5" BorderBrush="#FF9B9B9B" Padding="2" IsEnabled="False"/>
+        <TextBlock HorizontalAlignment="Left" Height="52" Margin="855,22,0,0" TextWrapping="Wrap" Text="Couplings Game" VerticalAlignment="Top" Width="261" FontSize="30"/>
+        <Image HorizontalAlignment="Left" Height="64" Margin="1082,10,0,0" VerticalAlignment="Top" Width="64" Source="/Jigsaw 2;component/Resources/Graphics/Jumper/Logo64.png"/>
 
 
 

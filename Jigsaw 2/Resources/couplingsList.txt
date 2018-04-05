@@ -1,37 +1,4 @@
-eduard mane 
-51
-pablo pikaso 
-91
-rafael 
-37
-piter pol rubens 
-62
-jan vermer 
-42
-teodor zeriko 
-32
-djura jaksic 
-48
-francisko goja 
-82
-
-bernardo 
-bertoluci
-akira 
-kurosava
-nikita 
-mihalkov
-zan luk 
-godar
-vim 
-venders
-fatih 
-akin
-verner 
-hercog
-alfred 
-hickok
-
+Spojite lekove sa grupom kojoj pripadaju.
 morfijum 
 analgetik
 diazepam 
@@ -49,6 +16,7 @@ laksativ
 pirantel 
 antelmintik
 
+Spojite zivotinje sa vrstama kojim pripadaju.
 golub 
 niski visokoletac
 govedo 
@@ -66,6 +34,7 @@ nubijska
 macka 
 sfinks
 
+Spojite alkoholna pica sa zemljom iz koje poticu.
 titova vodka 
 sad
 kraljevska vodka 
@@ -83,6 +52,7 @@ poljska
 princ igor 
 kanada
 
+Spojite banke sa zemljama iz kojih poticu.
 raiffeisenbank 
 austrija
 allianz 
@@ -100,6 +70,7 @@ italija
 atlantico 
 spanija
 
+Spojite imena biljaka.
 panciceva 
 omorika
 hajducka 
@@ -116,3 +87,129 @@ majcina
 dusica
 lepljiva 
 ruza 
+
+Spojite jezera sa drzavama u kojima se nalaze.
+viktorijino jezero 
+tanzanija
+jezero nikaragva 
+nikaragva
+jezero ontario 
+kanada
+ladoga 
+rusija
+jezero ejr 
+australija
+venern 
+svedska
+jezero urmija 
+iran
+jezero mveru 
+zambija
+
+Spojite imena nagrada sa poljima u kojim se dodeljuju.
+diskobolos 
+radio i televizija
+ranko radovic 
+arhitektura
+lazar komarcic 
+naucna fantastika
+nikola burzan 
+fotografija
+pavle vuisic 
+gluma (zivotno delo)
+disova nagrada 
+poezija
+ninova nagrada 
+roman godine
+zlatni osmeh 
+karikatura
+
+Spojite imena poznatih licnosti sa njihovim zanimanjima.
+maks plank 
+fizicar
+huan domingo peron 
+politicar
+ernest hemingvej 
+pisac
+oskar kokoska 
+slikar
+aleksandar fleming 
+mikrobiolog
+mikis teodorakis 
+kompozitor
+dzejms votson 
+geneticar
+karl jung 
+psihijatar
+
+Spojite imena rasa pasa.
+sibirski 
+haski
+zlatni 
+retriver
+patuljasti 
+snaucer
+kineski 
+pekinezer
+vojvodjanski 
+pulin
+irski 
+seter
+nemacki 
+bokser
+jorksirski 
+terijer
+
+Spojite gradove sa pozivnim brojevima.
+cacak 
+032
+sombor 
+025
+pristina 
+038
+raska 
+036
+vrsac 
+013
+becej 
+021
+jagodina 
+035
+prizren 
+029
+
+Spojite pesme sa grupama koje ih izvode.
+hipnotisana gomila 
+partibrejkersi
+plava 
+tap 011
+dodirni mi kolena 
+zana
+vesela pesma 
+bajaga i instruktori
+ja nisam odavle 
+zabranjeno pusenje
+napile se ulice 
+bjelo dugme
+zikino kolo 
+vatreni poljubac
+ti si mi bila naj 
+indexi
+
+Spojite drzave koje se granice.
+andora 
+spanija
+luksemburg 
+belgija
+grcka 
+makedonija
+estonija 
+letonija
+irska 
+velika britanija
+ceska republika 
+austrija
+moldavija 
+ukrajina
+svedska 
+norveska

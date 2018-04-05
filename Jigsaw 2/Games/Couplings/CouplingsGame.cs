@@ -154,6 +154,8 @@ namespace Jigsaw_2.Games.Couplings
         {
             setDisplay(engine.GetCouplings());
 
+            (Finder.FindElementWithTag(allControls, "CouplingText") as TextBox).Text = engine.GetCouplingText();
+
             foreach (CouplingsDisplayBase element in display.GetMatchTargets())
             {
                 element.GetMatch().Click += couple;
@@ -183,6 +185,7 @@ namespace Jigsaw_2.Games.Couplings
             ScoreInterface.Instance.StopTimeControler();
 
             display.SetAllColors();
+            display.Show();
 
             orderCouplings();
 

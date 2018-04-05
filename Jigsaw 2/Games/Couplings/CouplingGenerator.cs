@@ -6,6 +6,7 @@ namespace Jigsaw_2.Games.Couplings
     class CouplingGenerator //TODO: Would be nice if i knew how to make a database :)
     {
         Dictionary<string, string> couplings;
+        string couplingText;
 
         public CouplingGenerator()
         {
@@ -17,9 +18,11 @@ namespace Jigsaw_2.Games.Couplings
             Random rnd = new Random();
             string[] currentCoupling = allCouplings[rnd.Next(allCouplings.Length)].Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
 
+            couplingText = currentCoupling[0];
+
             try
             {
-                for (int i = 0; i < currentCoupling.Length; i += 2)
+                for (int i = 1; i < currentCoupling.Length; i += 2)
                     couplings.Add(currentCoupling[i + 1], currentCoupling[i]);
             }
             catch (Exception)
@@ -37,6 +40,11 @@ namespace Jigsaw_2.Games.Couplings
         public Dictionary<string, string> GetCouplings()
         {
             return couplings;
+        }
+
+        public string GetCouplingText()
+        {
+            return couplingText;
         }
     }
 }

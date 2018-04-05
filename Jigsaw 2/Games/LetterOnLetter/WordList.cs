@@ -8,16 +8,13 @@ namespace Jigsaw_2.Games.LetterOnLetter
     /// Singlton that is used for storing the Word List used for the Word on Word game.
     /// </summary>
     public sealed class WordList //TODO: Save whole object and just load when game starts, to prevent high cpu usage.
-    {
-        private static WordList instance = null;
-        private static readonly object padlock = new object();
-
+    { 
         Random rnd;
 
         string[] wordList;
         List<string> WoWSeeds;
 
-        private WordList()
+        public WordList()
         {
             wordList = (Properties.Resources.WordList).Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
 
@@ -26,21 +23,6 @@ namespace Jigsaw_2.Games.LetterOnLetter
             getWoWSeeds();
 
             rnd = new Random(Guid.NewGuid().GetHashCode());
-        }
-
-        public static WordList Instance
-        {
-            get
-            {
-                lock (padlock)
-                {
-                    if (instance == null)
-                    {
-                        instance = new WordList();
-                    }
-                    return instance;
-                }
-            }
         }
 
         /// <summary> Finds all words with 12 length. </summary>

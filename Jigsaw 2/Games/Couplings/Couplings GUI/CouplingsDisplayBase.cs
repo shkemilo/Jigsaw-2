@@ -10,6 +10,10 @@ namespace Jigsaw_2.Games.Couplings
     /// </summary>
     class CouplingsDisplayBase : GUIElement
     {
+        static SolidColorBrush rightColor = Brushes.DarkGreen;
+        static SolidColorBrush wrongColor = Brushes.DarkRed;
+        static SolidColorBrush defaultColor = Brushes.Gray;
+
         Button match;
 
         SolidColorBrush color;
@@ -21,7 +25,7 @@ namespace Jigsaw_2.Games.Couplings
             match.Content = content.ToUpper();
             match.IsEnabled = false;
 
-            color = Brushes.DimGray;
+            color = defaultColor;
             Show();
         }
 
@@ -49,9 +53,9 @@ namespace Jigsaw_2.Games.Couplings
         public void SetColor(bool correct)
         {
             if (correct)
-                color = Brushes.DarkGreen;
+                color = rightColor;
             else
-                color = Brushes.Red;
+                color = wrongColor;
 
             match.IsEnabled = false;
         }
@@ -59,7 +63,7 @@ namespace Jigsaw_2.Games.Couplings
         /// <summary> Checks whether the element was coupled. </summary>
         public bool IsEvaluated()
         {
-            if ((color == Brushes.DarkGreen) || (color == Brushes.Red))
+            if ((color == rightColor) || (color == wrongColor))
                 return true;
             else
                 return false;

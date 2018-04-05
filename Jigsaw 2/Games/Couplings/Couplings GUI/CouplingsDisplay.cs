@@ -11,6 +11,9 @@ namespace Jigsaw_2.Games.Couplings
     /// </summary>
     class CouplingsDisplay : GUIElement
     {
+        static SolidColorBrush matchesActiveColor = Brushes.Goldenrod;
+        static SolidColorBrush matchTargetsActiveColor = Brushes.Gray;
+
         Queue<CouplingsDisplayBase> matches;
         List<CouplingsDisplayBase> matchTargets;
 
@@ -24,9 +27,9 @@ namespace Jigsaw_2.Games.Couplings
             this.numberOfFields = numberOfFields;
 
             foreach (CouplingsDisplayBase element in matchTargets)
-                element.SetActive(Brushes.White);
+                element.SetActive(matchTargetsActiveColor);
 
-            matches.Peek().SetActive(Brushes.Goldenrod);
+            matches.Peek().SetActive(matchesActiveColor);
         }
 
         /// <summary> Updates the active match by converting a object to a boolean. </summary>
@@ -60,7 +63,7 @@ namespace Jigsaw_2.Games.Couplings
         {
             matches.Dequeue().GetMatch().IsEnabled = false; ;
 
-            matches.Peek().SetActive(Brushes.Goldenrod);
+            matches.Peek().SetActive(matchesActiveColor);
         }
 
         /// <summary> Sets all the colors that haven't been evalueted to the color which represent a wrong answer. </summary>
