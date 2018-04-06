@@ -75,6 +75,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Abstracts\IAnimateable.cs" />
+    <Compile Include="Abstracts\IObserver.cs" />
+    <Compile Include="Abstracts\ISubject.cs" />
     <Compile Include="Animators\ControlMove.cs" />
     <Compile Include="Animators\FrameAnimator.cs" />
     <Compile Include="Animators\SmoothProgressBar.cs" />
@@ -86,6 +89,7 @@
     </Compile>
     <Compile Include="Games\Couplings\CouplingsEngine.cs" />
     <Compile Include="Games\Couplings\CouplingsGame.cs" />
+    <Compile Include="Games\Display.cs" />
     <Compile Include="Games\GameFactory.cs" />
     <Compile Include="Games\GamePage.cs" />
     <Compile Include="Games\Jumper\Jumper.xaml.cs">
@@ -126,10 +130,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Abstracts\Engine.cs" />
+    <Compile Include="Abstracts\Engine.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Abstracts\Game.cs" />
     <Compile Include="Abstracts\GUI.cs" />
-    <Compile Include="Abstracts\ObserverPattern.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>

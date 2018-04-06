@@ -10,13 +10,23 @@ namespace Jigsaw_2.Games.Couplings
     /// </summary>
     internal class CouplingsDisplayBase : GUIElement
     {
-        private static SolidColorBrush rightColor = Brushes.DarkGreen;
-        private static SolidColorBrush wrongColor = Brushes.DarkRed;
-        private static SolidColorBrush defaultColor = Brushes.Gray;
+        #region Private Static ReadOnly Fields
+
+        private static readonly SolidColorBrush rightColor = Brushes.DarkGreen;
+        private static readonly SolidColorBrush wrongColor = Brushes.DarkRed;
+        private static readonly SolidColorBrush defaultColor = Brushes.Gray;
+
+        #endregion Private Static ReadOnly Fields
+
+        #region Private Fields
 
         private Button match;
 
         private SolidColorBrush color;
+
+        #endregion Private Fields
+
+        #region Constructors
 
         public CouplingsDisplayBase(Button match, string content)
         {
@@ -27,6 +37,10 @@ namespace Jigsaw_2.Games.Couplings
 
             match.Background = defaultColor;
         }
+
+        #endregion Constructors
+
+        #region Public Methods
 
         /// <summary> Returns the button associated with the element. </summary>
         public Button GetMatch()
@@ -68,6 +82,10 @@ namespace Jigsaw_2.Games.Couplings
                 return false;
         }
 
+        #endregion Public Methods
+
+        #region Public Override Methods
+
         /// <summary> Sets its new background color. </summary>
         public override void Show()
         {
@@ -82,5 +100,7 @@ namespace Jigsaw_2.Games.Couplings
             else
                 throw new Exception("Invalid function call.");
         }
+
+        #endregion Public Override Methods
     }
 }

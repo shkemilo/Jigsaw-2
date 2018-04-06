@@ -1,8 +1,6 @@
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Jigsaw 2.exe.config
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Jigsaw 2.exe
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Jigsaw 2.pdb
-C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Jigsaw 2.exe.CodeAnalysisLog.xml
-C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\Jigsaw 2.exe.lastcodeanalysissucceeded
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\ControlzEx.dll
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\MahApps.Metro.dll
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\bin\Debug\System.Windows.Interactivity.dll
@@ -37,3 +35,4 @@ C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.csproj.GenerateResource.Cache
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.exe
 C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.pdb
+C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.csprojResolveAssemblyReference.cache

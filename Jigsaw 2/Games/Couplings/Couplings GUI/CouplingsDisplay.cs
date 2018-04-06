@@ -11,13 +11,23 @@ namespace Jigsaw_2.Games.Couplings
     /// </summary>
     internal class CouplingsDisplay : GUIElement
     {
-        private static SolidColorBrush matchesActiveColor = Brushes.Goldenrod;
-        private static SolidColorBrush matchTargetsActiveColor = Brushes.Gray;
+        #region Private Static ReadOnly Fields
+
+        private static readonly SolidColorBrush matchesActiveColor = Brushes.Goldenrod;
+        private static readonly SolidColorBrush matchTargetsActiveColor = Brushes.Transparent;
+
+        #endregion Private Static ReadOnly Fields
+
+        #region Private Fields
 
         private Queue<CouplingsDisplayBase> matches;
         private List<CouplingsDisplayBase> matchTargets;
 
         private int numberOfFields;
+
+        #endregion Private Fields
+
+        #region Constructors
 
         public CouplingsDisplay(Queue<CouplingsDisplayBase> matches, List<CouplingsDisplayBase> matchTargets, int numberOfFields = 8)
         {
@@ -32,19 +42,9 @@ namespace Jigsaw_2.Games.Couplings
             matches.Peek().SetActive(matchesActiveColor);
         }
 
-        /// <summary> Updates the active match by converting a object to a boolean. </summary>
-        private void updateMatches(object message)
-        {
-            matches.Peek().Update(Convert.ToBoolean(message));
-        }
+        #endregion Constructors
 
-        /// <summary> Updates the match target by interpreting the message as a Tuple. </summary>
-        private void updateMatchTargets(object message)
-        {
-            Tuple<int, bool> temp = message as Tuple<int, bool>;
-
-            matchTargets.ElementAt(temp.Item1).Update(temp.Item2);
-        }
+        #region Public Methods
 
         /// <summary> Returns the current match. </summary>
         public CouplingsDisplayBase CurrentMatch()
@@ -69,13 +69,24 @@ namespace Jigsaw_2.Games.Couplings
         /// <summary> Sets all the colors that haven't been evaluated to the color which represent a wrong answer. </summary>
         public void SetAllColors()
         {
-            foreach (CouplingsDisplayBase element in matches)
-                if (!element.IsEvaluated())
-                    element.SetColor(false);
+            setAllWrong(matches);
 
-            foreach (CouplingsDisplayBase element in matchTargets)
-                if (!element.IsEvaluated())
-                    element.SetColor(false);
+            setAllWrong(matchTargets);
+        }
+
+        #endregion Public Methods
+
+        #region Public Override Methods
+
+        /// <summary> Updates the matches or match targets based on the message. </summary>
+        public override void Update<T>(T message)
+        {
+            if (message is bool)
+                updateMatches(message);
+            else if (message is Tuple<int, bool>)
+                updateMatchTargets(message);
+            else
+                throw new Exception("Invalid function call.");
         }
 
         /// <summary> Shows all the fields. </summary>
@@ -88,15 +99,31 @@ namespace Jigsaw_2.Games.Couplings
                 element.Show();
         }
 
-        /// <summary> Updates the matches or match targets based on the message. </summary>
-        public override void Update<T>(T message)
+        #endregion Public Override Methods
+
+        #region Private Methods
+
+        private void setAllWrong(IEnumerable<CouplingsDisplayBase> elements)
         {
-            if (message is bool)
-                updateMatches(message);
-            else if (message is Tuple<int, bool>)
-                updateMatchTargets(message);
-            else
-                throw new Exception("Invalid function call.");
+            foreach (CouplingsDisplayBase element in elements)
+                if (!element.IsEvaluated())
+                    element.SetColor(false);
         }
+
+        /// <summary> Updates the active match by converting a object to a boolean. </summary>
+        private void updateMatches(object message)
+        {
+            matches.Peek().Update(Convert.ToBoolean(message));
+        }
+
+        /// <summary> Updates the match target by interpreting the message as a Tuple. </summary>
+        private void updateMatchTargets(object message)
+        {
+            Tuple<int, bool> temp = message as Tuple<int, bool>;
+
+            matchTargets.ElementAt(temp.Item1).Update(temp.Item2);
+        }
+
+        #endregion Private Methods
     }
 }

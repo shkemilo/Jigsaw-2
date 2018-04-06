@@ -16,11 +16,13 @@ namespace Jigsaw_2
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        #region Constructors
+
         public MainWindow()
         {
             InitializeComponent();
 
-            Thread.Sleep(2000); //prevents random bugs when reseting the application
+            Thread.Sleep(2000); // prevents random bugs when reseting the application
 
             Finder.SetAllControls(Finder.FindVisualChildren<Control>(MainWindowGrid).ToList());
 
@@ -31,14 +33,12 @@ namespace Jigsaw_2
             FrameAnimator anim = new FrameAnimator(MainFrame, WidthProperty);
         }
 
-        /// <summary> Sets the theme of the application. </summary>
-        private void setAppStyle(Accent style, AppTheme theme)
-        {
-            ThemeManager.ChangeAppStyle(Application.Current, style, theme);
-        }
+        #endregion Constructors
 
-        /// <summary> Shows the dropdown settings menu. </summary>
-        private void SettingsMenu(object sender, RoutedEventArgs e)
+        #region Events
+
+        /// <summary> Shows the drop down settings menu. </summary>
+        private void settingsMenu(object sender, RoutedEventArgs e)
         {
             (sender as Button).ContextMenu.IsEnabled = true;
             (sender as Button).ContextMenu.PlacementTarget = (sender as Button);
@@ -47,7 +47,7 @@ namespace Jigsaw_2
         }
 
         /// <summary> Changes the color theme of the application. </summary>
-        private void SelectColor(object sender, SelectionChangedEventArgs e)
+        private void selectColor(object sender, SelectionChangedEventArgs e)
         {
             Tuple<AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);
             string selectedColor = (ColorSelecter.SelectedItem as ComboBoxItem).Content.ToString();
@@ -56,7 +56,7 @@ namespace Jigsaw_2
         }
 
         /// <summary> Activates night mode. </summary>
-        private void NightMode(object sender, RoutedEventArgs e)
+        private void nightMode(object sender, RoutedEventArgs e)
         {
             Tuple<AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);
 
@@ -64,14 +64,14 @@ namespace Jigsaw_2
         }
 
         /// <summary> Activates light mode. </summary>
-        private void LightMode(object sender, RoutedEventArgs e)
+        private void lightMode(object sender, RoutedEventArgs e)
         {
             Tuple<AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);
 
             setAppStyle(appStyle.Item2, ThemeManager.GetAppTheme("BaseLight"));
         }
 
-        /// <summary> Function used for perserving the aspect ratio while resizing. </summary>
+        /// <summary> Function used for preserving the aspect ratio while resizing. </summary>
         protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
         {
             double aspectRatio = 1.5;
@@ -87,9 +87,21 @@ namespace Jigsaw_2
             base.OnRenderSizeChanged(sizeInfo);
         }
 
-        private void ShowInstructions(object sender, RoutedEventArgs e)
+        #endregion Events
+
+        #region PrivateMethods
+
+        private void showInstructions(object sender, RoutedEventArgs e)
         {
             GameManager.Instance.ShowInstructions();
         }
+
+        /// <summary> Sets the theme of the application. </summary>
+        private void setAppStyle(Accent style, AppTheme theme)
+        {
+            ThemeManager.ChangeAppStyle(Application.Current, style, theme);
+        }
+
+        #endregion PrivateMethods
     }
 }

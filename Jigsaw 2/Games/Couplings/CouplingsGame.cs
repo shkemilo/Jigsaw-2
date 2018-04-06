@@ -14,6 +14,8 @@ namespace Jigsaw_2.Games.Couplings
     /// </summary>
     internal class CouplingsGame : Game
     {
+        #region Private Fields
+
         private CouplingsEngine engine;
         private CouplingsDisplay display;
 
@@ -21,6 +23,10 @@ namespace Jigsaw_2.Games.Couplings
         private int currentFieldIndex;
 
         private int valueOfField;
+
+        #endregion Private Fields
+
+        #region Constructors
 
         public CouplingsGame(CouplingsEngine engine, Grid gameGrid, int numberOfFields = 8) : base(gameGrid, "couplings")
         {
@@ -33,6 +39,69 @@ namespace Jigsaw_2.Games.Couplings
 
             (Finder.FindElementWithTag(allControls, "StartButton") as Button).Click += start;
         }
+
+        #endregion Constructors
+
+        #region Public Override Methods
+
+        /// <summary> When all the matches have been evaluated or time has ran out. </summary>
+        public override void GameOver()
+        {
+            ScoreInterface.Instance.StopTimeControler();
+
+            display.SetAllColors();
+            display.Show();
+
+            orderCouplings();
+
+            GUIElements.Remove(display);
+
+            GameManager.Instance.NextGame();
+        }
+
+        /// <summary> Adds points if the couple was correct. </summary>
+        public override void Grader()
+        {
+            ScoreInterface.Instance.ScoreEngine.ChangePoints(valueOfField);
+        }
+
+        #endregion Public Override Methods
+
+        #region Events
+
+        /// <summary> Event which starts the game. </summary>
+        private void start(object sender, RoutedEventArgs e)
+        {
+            setDisplay(engine.GetCouplings());
+
+            (Finder.FindElementWithTag(allControls, "CouplingText") as TextBox).Text = engine.GetCouplingText();
+
+            foreach (CouplingsDisplayBase element in display.GetMatchTargets())
+            {
+                element.GetMatch().Click += couple;
+            }
+
+            GUIElements.Add(display);
+
+            ScoreInterface.Instance.StartTimeControler();
+
+            (sender as Button).IsEnabled = false;
+        }
+
+        /// <summary> Event which couples two words together. </summary>
+        private void couple(object sender, RoutedEventArgs e)
+        {
+            int buttonIndex = getIndexOfButton(sender as Button);
+            bool correct = check(display.CurrentMatch().GetContent(), (sender as Button).Content.ToString());
+
+            update(correct, buttonIndex);
+
+            nextCoupling();
+        }
+
+        #endregion Events
+
+        #region Private Methods
 
         /// <summary> Gets all the matches from the GUI. </summary>
         private Queue<CouplingsDisplayBase> getMatches(string[] content)
@@ -131,7 +200,7 @@ namespace Jigsaw_2.Games.Couplings
                 else
                     i++;
 
-            throw new Exception("Button does not exsist.");
+            throw new Exception("Button does not exist.");
         }
 
         /// <summary> Animates and orders the couplings in the correct order when the game ends. </summary>
@@ -143,61 +212,12 @@ namespace Jigsaw_2.Games.Couplings
             foreach (CouplingsDisplayBase element in display.GetMatchTargets())
             {
                 double xPos = element.GetMatch().Margin.Left;
-                double yPos = element.GetMatch().Margin.Top + offset[z++] * 60;
+                double yPos = element.GetMatch().Margin.Top + (offset[z++] * 60);
 
                 element.GetMatch().MoveTo(xPos, yPos);
             }
         }
 
-        /// <summary> Event which starts the game. </summary>
-        private void start(object sender, RoutedEventArgs e)
-        {
-            setDisplay(engine.GetCouplings());
-
-            (Finder.FindElementWithTag(allControls, "CouplingText") as TextBox).Text = engine.GetCouplingText();
-
-            foreach (CouplingsDisplayBase element in display.GetMatchTargets())
-            {
-                element.GetMatch().Click += couple;
-            }
-
-            GUIElements.Add(display);
-
-            ScoreInterface.Instance.StartTimeControler();
-
-            (sender as Button).IsEnabled = false;
-        }
-
-        /// <summary> Evenet which couples two words togeather. </summary>
-        private void couple(object sender, RoutedEventArgs e)
-        {
-            int buttonIndex = getIndexOfButton(sender as Button);
-            bool correct = check(display.CurrentMatch().GetContent(), (sender as Button).Content.ToString());
-
-            update(correct, buttonIndex);
-
-            nextCoupling();
-        }
-
-        /// <summary> When all the matches have been evalueted or time has ran out. </summary>
-        public override void GameOver()
-        {
-            ScoreInterface.Instance.StopTimeControler();
-
-            display.SetAllColors();
-            display.Show();
-
-            orderCouplings();
-
-            GUIElements.Remove(display);
-
-            GameManager.Instance.NextGame();
-        }
-
-        /// <summary> Adds points if the couple was correct. </summary>
-        public override void Grader()
-        {
-            ScoreInterface.Instance.ScoreEngine.ChangePoints(valueOfField);
-        }
+        #endregion Private Methods
     }
 }

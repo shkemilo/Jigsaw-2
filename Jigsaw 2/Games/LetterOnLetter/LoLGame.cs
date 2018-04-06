@@ -13,10 +13,12 @@ using System.Windows.Shapes;
 namespace Jigsaw_2.Games.LetterOnLetter
 {
     /// <summary>
-    /// Class used for controling a Letter on Letter Game.
+    /// Class used for controlling a Letter on Letter Game.
     /// </summary>
-    public class LoLGame : Game
+    public class LoLGame : Game // TODO: Needs major refactoring.
     {
+        #region Private Fields
+
         private LoLEngine engine;
         private LoLDisplay mainDisp;
 
@@ -35,6 +37,10 @@ namespace Jigsaw_2.Games.LetterOnLetter
         private string answer;
 
         private string state;
+
+        #endregion Private Fields
+
+        #region Constructors
 
         public LoLGame(LoLEngine engine, Grid gameGrid) : base(gameGrid, "letteronletter")
         {
@@ -74,12 +80,117 @@ namespace Jigsaw_2.Games.LetterOnLetter
             undo.Click += undoLastLetter;
             undo.IsEnabled = false;
 
-            answer = "";
+            answer = string.Empty;
 
             state = "stop";
 
             engine.Broadcast(engine.GetLetters());
         }
+
+        #endregion Constructors
+
+        #region Public Override Methods
+
+        /// <summary> Finishes the game. </summary>
+        public override void GameOver()
+        {
+            ScoreInterface.Instance.StopTimeControler();
+
+            checkBox.Text = string.Empty;
+
+            check.IsEnabled = false;
+            submit.IsEnabled = false;
+            undo.IsEnabled = false;
+
+            setLetterDisplayEnabled(false);
+
+            longestWordDisplay.Update(engine.GetLongestWord());
+            longestWordDisplay.Show();
+
+            if (checkBoxUpdate())
+                Grader();
+
+            GameManager.Instance.NextGame();
+        }
+
+        /// <summary> Gives points based on the length of the word. </summary>
+        public override void Grader()
+        {
+            score += answer.Length * 2;
+
+            if (answer.Length == engine.GetLongestWord().Length)
+                score += 6;
+
+            ScoreInterface.Instance.ScoreEngine.ChangePoints(score);
+        }
+
+        #endregion Public Override Methods
+
+        #region Events
+
+        /// <summary> Adds a letter to the answer. </summary>
+        private void addToAnswer(object sender, RoutedEventArgs e)
+        {
+            Button currentButton = sender as Button;
+
+            answer += currentButton.Content;
+            currentWordDisplay.Update(answer);
+
+            currentButton.IsEnabled = false;
+            usedLetters.Add(currentButton);
+
+            checkBox.Text = string.Empty;
+        }
+
+        /// <summary> Undoes the last letter added to the answer. </summary>
+        private void undoLastLetter(object sender, RoutedEventArgs e)
+        {
+            if (usedLetters.Count != 0)
+            {
+                usedLetters.Last().IsEnabled = true;
+                usedLetters.RemoveAt(usedLetters.Count - 1);
+                answer = answer.Remove(answer.Length - 1);
+
+                currentWordDisplay.Update(answer);
+                checkBox.Text = string.Empty;
+            }
+        }
+
+        /// <summary> Gives information if the current word is a valid word. </summary>
+        private void wordFeedback(object sender, RoutedEventArgs e)
+        {
+            if (mainDisp.Finished())
+                checkBoxUpdate();
+        }
+
+        /// <summary> Handles the stopping and submitting. </summary>
+        private void ssClick(object sender, RoutedEventArgs e)
+        {
+            if (!mainDisp.Finished())
+                mainDisp.UncoverLetter();
+
+            if (mainDisp.Finished())
+                if (state == "stop")
+                    startWordOnWord();
+                else if (state == "submit")
+                    submitConfirm();
+        }
+
+        #endregion Events
+
+        #region Async
+
+        private async void submitConfirm()
+        {
+            MessageDialogResult exitResult = await (Application.Current.MainWindow as MetroWindow).ShowMessageAsync("Jigsaw", "Are you sure you want to submit your current word?", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { NegativeButtonText = "No", AffirmativeButtonText = "Yes" });
+
+            if (exitResult == MessageDialogResult.Affirmative)
+                GameOver();
+        }
+
+        #endregion Async
+
+        #region Private Methods
 
         private void changeSSImage()
         {
@@ -112,62 +223,6 @@ namespace Jigsaw_2.Games.LetterOnLetter
             }
         }
 
-        private async void submitConfirm()
-        {
-            MessageDialogResult exitResult = await (Application.Current.MainWindow as MetroWindow).ShowMessageAsync("Jigsaw", "Are you sure you want to submit your current word?", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { NegativeButtonText = "No", AffirmativeButtonText = "Yes" });
-
-            if (exitResult == MessageDialogResult.Affirmative)
-                GameOver();
-        }
-
-        /// <summary> Adds a letter to the answer. </summary>
-        private void addToAnswer(object sender, RoutedEventArgs e)
-        {
-            Button currentButton = sender as Button;
-
-            answer += currentButton.Content;
-            currentWordDisplay.Update(answer);
-
-            currentButton.IsEnabled = false;
-            usedLetters.Add(currentButton);
-
-            checkBox.Text = "";
-        }
-
-        /// <summary> Undos the last letter added to the answer. </summary>
-        private void undoLastLetter(object sender, RoutedEventArgs e)
-        {
-            if (usedLetters.Count != 0)
-            {
-                usedLetters.Last().IsEnabled = true;
-                usedLetters.RemoveAt(usedLetters.Count - 1);
-                answer = answer.Remove(answer.Length - 1);
-
-                currentWordDisplay.Update(answer);
-                checkBox.Text = "";
-            }
-        }
-
-        /// <summary> Gives information if the current word is a valid word. </summary>
-        private void wordFeedback(object sender, RoutedEventArgs e)
-        {
-            if (mainDisp.Finished())
-                checkBoxUpdate();
-        }
-
-        /// <summary> Handles the stopping and submiting. </summary>
-        private void ssClick(object sender, RoutedEventArgs e)
-        {
-            if (!mainDisp.Finished())
-                mainDisp.UncoverLetter();
-
-            if (mainDisp.Finished())
-                if (state == "stop")
-                    startWordOnWord();
-                else if (state == "submit")
-                    submitConfirm();
-        }
-
         /// <summary> Starts the game. </summary>
         private void startWordOnWord()
         {
@@ -183,38 +238,6 @@ namespace Jigsaw_2.Games.LetterOnLetter
             undo.IsEnabled = true;
         }
 
-        /// <summary> Finishes the game. </summary>
-        public override void GameOver()
-        {
-            ScoreInterface.Instance.StopTimeControler();
-
-            checkBox.Text = "";
-
-            check.IsEnabled = false;
-            submit.IsEnabled = false;
-            undo.IsEnabled = false;
-
-            setLetterDisplayEnabled(false);
-
-            longestWordDisplay.Update(engine.GetLongestWord());
-            longestWordDisplay.Show();
-
-            if (checkBoxUpdate())
-                Grader();
-
-            GameManager.Instance.NextGame();
-        }
-
-        /// <summary> Gives points based on the length of the word. </summary>
-        public override void Grader()
-        {
-            score += answer.Length * 2;
-
-            if (answer.Length == engine.GetLongestWord().Length)
-                score += 6;
-
-            ScoreInterface.Instance.ScoreEngine.ChangePoints(score);
-            //ScoreInterface.Instance.DrawScoreInterface();
-        }
+        #endregion Private Methods
     }
 }

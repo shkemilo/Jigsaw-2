@@ -3,17 +3,24 @@ using System.Collections.Generic;
 
 namespace Jigsaw_2.Games.Couplings
 {
-    internal class CouplingGenerator //TODO: Would be nice if i knew how to make a database :)
+    // TODO: Would be nice if i knew how to make a database :)
+    internal class CouplingGenerator
     {
+        #region Private Fields
+
         private Dictionary<string, string> couplings;
         private string couplingText;
+
+        #endregion Private Fields
+
+        #region Constructors
 
         public CouplingGenerator()
         {
             couplings = new Dictionary<string, string>();
 
             string[] allCouplings;
-            allCouplings = (Properties.Resources.CouplingsList).Split(new string[] { "\r\n\r\n" }, StringSplitOptions.None);
+            allCouplings = Properties.Resources.CouplingsList.Split(new string[] { "\r\n\r\n" }, StringSplitOptions.None);
 
             Random rnd = new Random();
             string[] currentCoupling = allCouplings[rnd.Next(allCouplings.Length)].Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
@@ -37,6 +44,10 @@ namespace Jigsaw_2.Games.Couplings
                 Console.WriteLine(s.ToString());
         }
 
+        #endregion Constructors
+
+        #region Public Methods
+
         public Dictionary<string, string> GetCouplings()
         {
             return couplings;
@@ -46,5 +57,7 @@ namespace Jigsaw_2.Games.Couplings
         {
             return couplingText;
         }
+
+        #endregion Public Methods
     }
 }

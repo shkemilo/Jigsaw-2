@@ -10,11 +10,17 @@ namespace Jigsaw_2.Games.Jumper
     /// </summary>
     public class JumperDisplay : GUIElement
     {
+        #region Private Fields
+
         private List<JumperDisplayComposite> displays;
         private List<JumperCheckerComposite> checkers;
 
         private int numberOfRows;
         private int currentRow;
+
+        #endregion Private Fields
+
+        #region Constuctors
 
         public JumperDisplay(List<JumperDisplayComposite> displays, List<JumperCheckerComposite> checkers, int numberOfRows = 6)
         {
@@ -26,7 +32,15 @@ namespace Jigsaw_2.Games.Jumper
             currentRow = 0;
         }
 
+        #endregion Constuctors
+
+        #region Public Properties
+
         public int CurrentRow { get => currentRow; }
+
+        #endregion Public Properties
+
+        #region Public Methods
 
         public void NextRow()
         {
@@ -51,6 +65,10 @@ namespace Jigsaw_2.Games.Jumper
             return displays[currentRow];
         }
 
+        #endregion Public Methods
+
+        #region Public Override Methods
+
         /// <summary> Shows the displays and checkers. </summary>
         public override void Show()
         {
@@ -68,5 +86,7 @@ namespace Jigsaw_2.Games.Jumper
             else
                 throw new Exception("This function only accepts Images of Color arrays");
         }
+
+        #endregion Public Override Methods
     }
 }

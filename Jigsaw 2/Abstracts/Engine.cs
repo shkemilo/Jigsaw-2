@@ -5,29 +5,41 @@ namespace Jigsaw_2.Abstracts
     /// <summary>
     /// Superclass for engine-type classes, used for making calculations for the game.
     /// </summary>
-    public abstract class Engine : Subject
+    public abstract class Engine : ISubject
     {
-        protected List<Observer> observers;
+        #region Private Fields
+
+        private List<IObserver> observers;
+
+        #endregion Private Fields
+
+        #region Constructors
 
         public Engine()
         {
-            observers = new List<Observer>();
+            observers = new List<IObserver>();
         }
 
-        public void Subscribe(Observer o)
+        #endregion Constructors
+
+        #region Public Methods
+
+        public void Subscribe(IObserver o)
         {
             observers.Add(o);
         }
 
-        public void Unsubscribe(Observer o)
+        public void Unsubscribe(IObserver o)
         {
             observers.Remove(o);
         }
 
         public void Broadcast<T>(T message)
         {
-            foreach (Observer o in observers)
+            foreach (IObserver o in observers)
                 o.Update(message);
         }
+
+        #endregion Public Methods
     }
 }

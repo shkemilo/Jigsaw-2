@@ -15,18 +15,19 @@ namespace Jigsaw_2.Games.Jumper
     /// </summary>
     public class JumperGame : Game
     {
-        private JumperEngine engine;
-        private JumperDisplay mainDisp;
-
-        private JumperDisplayComposite correctCombinationDisplay;
-
-        private List<Control> userControls;
-
-        private Button nextRowButton;
-
-        private int numberOfRows;
+        #region Private Fields
 
         private int[] answer;
+        private JumperDisplayComposite correctCombinationDisplay;
+        private JumperEngine engine;
+        private JumperDisplay mainDisp;
+        private Button nextRowButton;
+        private int numberOfRows;
+        private List<Control> userControls;
+
+        #endregion Private Fields
+
+        #region Constructors
 
         public JumperGame(JumperEngine engine, Grid gameGrid, int numberOfRows = 6) : base(gameGrid, "jumper")
         {
@@ -55,30 +56,129 @@ namespace Jigsaw_2.Games.Jumper
             GUIElements.Add(mainDisp);
         }
 
-        /// <summary> Sets the display of the correct combination. </summary>
-        private void setCorrectCombinationDisplay(List<Control> allControls)
+        #endregion Constructors
+
+        #region Public Override Methods
+
+        /// <summary> Finishes the game. </summary>
+        public override void GameOver()
         {
-            List<Control> tempElements = Finder.FindElementsWithTag(allControls, "CorrectCombination");
-            List<JumperDisplayLeaf> elementHolder = new List<JumperDisplayLeaf>();
+            ScoreInterface.Instance.StopTimeControler();
 
-            foreach (Control c in tempElements)
-                elementHolder.Add(new JumperDisplayLeaf(c as Button));
+            setUserControlsEnabled(false);
 
-            correctCombinationDisplay = new JumperDisplayComposite(elementHolder);
+            GUIElements.Remove(mainDisp);
+
+            showCorrectCombinationDisplay();
+
+            Grader();
+
+            GameManager.Instance.NextGame();
         }
 
-        /// <summary> Sets a JumperDisplayComponent by its tag. </summary>
-        private JumperDisplayComposite getDisplayComponent(string tag)
+        /// <summary> Gives points depending on when the combination was solved. </summary>
+        public override void Grader()
         {
-            List<JumperDisplayLeaf> temp = new List<JumperDisplayLeaf>();
+            if (engine.Check(answer))
+                ScoreInterface.Instance.ScoreEngine.ChangePoints((numberOfRows - mainDisp.CurrentRow) * 5);
+        }
 
-            foreach (Control c in Finder.FindElementsWithTag(allControls, tag))
+        #endregion Public Override Methods
+
+        #region Events
+
+        /// <summary> Adds a element to the answer. </summary>
+        private void addToAnswer(object sender, RoutedEventArgs e)
+        {
+            if (mainDisp.GetCurrentRow().CurrentElementIndex != 3)
             {
-                //(c as Button).Click += undo;
-                temp.Add(new JumperDisplayLeaf(c as Button));
+                disableField();
+
+                mainDisp.GetCurrentRow().NextElement();
+
+                changeAnswer(userControls.IndexOf(sender as Control) + 1);
+
+                enableField();
             }
 
-            return new JumperDisplayComposite(temp);
+            if (mainDisp.GetCurrentRow().CurrentElementIndex == 3)
+                nextRowButton.IsEnabled = true;
+        }
+
+        /// <summary> Changes to the next row. </summary>
+        private void nextRow(object sender, RoutedEventArgs e)
+        {
+            mainDisp.GetActiveElement().GetField().Click -= undo;
+
+            engine.Broadcast(engine.CheckFeedback(answer));
+            mainDisp.Show();
+
+            nextRowButton.IsEnabled = false;
+
+            if (engine.Check(answer) || (mainDisp.CurrentRow == (numberOfRows - 1)))
+                GameOver();
+            else
+            {
+                answer = new int[] { 0, 0, 0, 0 };
+
+                mainDisp.NextRow();
+                mainDisp.SetActiveRowVisual();
+            }
+        }
+
+        /// <summary> Starts the game when the button is clicked. </summary>
+        private void startGame(object sender, RoutedEventArgs e)
+        {
+            ScoreInterface.Instance.StartTimeControler();
+
+            Finder.FindVisualChildren<Rectangle>(sender as Button).First().OpacityMask = new VisualBrush() { Visual = (Visual)ResourceDictionaryManager.GetResources()["appbar_navigate_next"] };
+
+            setUserControlsEnabled(true);
+
+            nextRowButton.Click -= startGame;
+            nextRowButton.Click += nextRow;
+            nextRowButton.IsEnabled = false;
+
+            mainDisp.SetActiveRowVisual();
+        }
+
+        /// <summary> Undo the last operation. </summary>
+        private void undo(object sender, RoutedEventArgs e)
+        {
+            disableField();
+
+            changeAnswer(0);
+
+            mainDisp.GetCurrentRow().PreviousElement();
+
+            enableField();
+
+            nextRowButton.IsEnabled = false;
+        }
+
+        #endregion Events
+
+        #region Private Methods
+
+        /// <summary> Updates the answer. </summary>
+        private void changeAnswer(int newElement)
+        {
+            answer[mainDisp.GetCurrentRow().CurrentElementIndex] = newElement;
+            engine.Broadcast(IntToImageConverter.Instance.Convert(answer[mainDisp.GetCurrentRow().CurrentElementIndex]));
+        }
+
+        /// <summary> Disables the current field. </summary>
+        private void disableField()
+        {
+            if (mainDisp.GetCurrentRow().CurrentElementIndex != -1)
+                mainDisp.GetActiveElement().GetField().Click -= undo;
+        }
+
+        /// <summary> Enables the current field. </summary>
+        private void enableField()
+        {
+            if (mainDisp.GetCurrentRow().CurrentElementIndex != -1)
+                mainDisp.GetActiveElement().GetField().Click += undo;
         }
 
         /// <summary> Sets a JumperCheckerComponent by its tag. </summary>
@@ -92,6 +192,29 @@ namespace Jigsaw_2.Games.Jumper
                         temp.Add(new JumperCheckerLeaf(e));
 
             return new JumperCheckerComposite(temp);
+        }
+
+        /// <summary> Sets a JumperDisplayComponent by its tag. </summary>
+        private JumperDisplayComposite getDisplayComponent(string tag)
+        {
+            List<JumperDisplayLeaf> temp = new List<JumperDisplayLeaf>();
+
+            foreach (Control c in Finder.FindElementsWithTag(allControls, tag))
+                temp.Add(new JumperDisplayLeaf(c as Button));
+
+            return new JumperDisplayComposite(temp);
+        }
+
+        /// <summary> Sets the display of the correct combination. </summary>
+        private void setCorrectCombinationDisplay(List<Control> allControls)
+        {
+            List<Control> tempElements = Finder.FindElementsWithTag(allControls, "CorrectCombination");
+            List<JumperDisplayLeaf> elementHolder = new List<JumperDisplayLeaf>();
+
+            foreach (Control c in tempElements)
+                elementHolder.Add(new JumperDisplayLeaf(c as Button));
+
+            correctCombinationDisplay = new JumperDisplayComposite(elementHolder);
         }
 
         /// <summary> Sets the main display of the game. </summary>
@@ -116,27 +239,6 @@ namespace Jigsaw_2.Games.Jumper
                 c.IsEnabled = b;
         }
 
-        /// <summary> Disables the current field. </summary>
-        private void disableField()
-        {
-            if (mainDisp.GetCurrentRow().CurrentElementIndex != -1)
-                mainDisp.GetActiveElement().GetField().Click -= undo;
-        }
-
-        /// <summary> Enables the current field. </summary>
-        private void enableField()
-        {
-            if (mainDisp.GetCurrentRow().CurrentElementIndex != -1)
-                mainDisp.GetActiveElement().GetField().Click += undo;
-        }
-
-        /// <summary> Updates the answer. </summary>
-        private void changeAnswer(int newElement)
-        {
-            answer[mainDisp.GetCurrentRow().CurrentElementIndex] = newElement;
-            engine.Broadcast(IntToImageConverter.Instance.Convert(answer[mainDisp.GetCurrentRow().CurrentElementIndex]));
-        }
-
         /// <summary> Shows the correct combination. </summary>
         private void showCorrectCombinationDisplay()
         {
@@ -149,96 +251,6 @@ namespace Jigsaw_2.Games.Jumper
             }
         }
 
-        /// <summary> Starts the game when the button is clicked. </summary>
-        private void startGame(object sender, RoutedEventArgs e)
-        {
-            ScoreInterface.Instance.StartTimeControler();
-
-            Finder.FindVisualChildren<Rectangle>(sender as Button).First().OpacityMask = new VisualBrush() { Visual = (Visual)ResourceDictionaryManager.GetResources()["appbar_navigate_next"] };
-
-            setUserControlsEnabled(true);
-
-            nextRowButton.Click -= startGame;
-            nextRowButton.Click += nextRow;
-            nextRowButton.IsEnabled = false;
-
-            mainDisp.SetActiveRowVisual();
-        }
-
-        /// <summary> Adds a element to the answer. </summary>
-        private void addToAnswer(object sender, RoutedEventArgs e)
-        {
-            if (mainDisp.GetCurrentRow().CurrentElementIndex != 3)
-            {
-                disableField();
-
-                mainDisp.GetCurrentRow().NextElement();
-
-                changeAnswer(userControls.IndexOf((sender as Control)) + 1);
-
-                enableField();
-            }
-
-            if (mainDisp.GetCurrentRow().CurrentElementIndex == 3)
-                nextRowButton.IsEnabled = true;
-        }
-
-        /// <summary> Undo the last operation. </summary>
-        private void undo(object sender, RoutedEventArgs e)
-        {
-            disableField();
-
-            changeAnswer(0);
-
-            mainDisp.GetCurrentRow().PreviousElement();
-
-            enableField();
-
-            nextRowButton.IsEnabled = false;
-        }
-
-        /// <summary> Changes to the next row. </summary>
-        private void nextRow(object sender, RoutedEventArgs e)
-        {
-            mainDisp.GetActiveElement().GetField().Click -= undo;
-
-            engine.Broadcast(engine.CheckFeedback(answer));
-            mainDisp.Show();
-
-            nextRowButton.IsEnabled = false;
-
-            if (engine.Check(answer) || (mainDisp.CurrentRow == (numberOfRows - 1)))
-                GameOver();
-            else
-            {
-                answer = new int[] { 0, 0, 0, 0 };
-
-                mainDisp.NextRow();
-                mainDisp.SetActiveRowVisual();
-            }
-        }
-
-        /// <summary> Finishes the game. </summary>
-        public override void GameOver()
-        {
-            ScoreInterface.Instance.StopTimeControler();
-
-            setUserControlsEnabled(false);
-
-            GUIElements.Remove(mainDisp);
-
-            showCorrectCombinationDisplay();
-
-            Grader();
-
-            GameManager.Instance.NextGame();
-        }
-
-        /// <summary> Gives points depending on when the combination was solved. </summary>
-        public override void Grader()
-        {
-            if (engine.Check(answer))
-                ScoreInterface.Instance.ScoreEngine.ChangePoints((numberOfRows - mainDisp.CurrentRow) * 5);
-        }
+        #endregion Private Methods
     }
 }

@@ -6,13 +6,19 @@ using System.Windows.Shapes;
 namespace Jigsaw_2.Games.Jumper
 {
     /// <summary>
-    /// GUIElement used for representing a field of a cheker used for displaying the validity of a element of the answer in the Jumper Game.
+    /// GUIElement used for representing a field of a checker used for displaying the validity of a element of the answer in the Jumper Game.
     /// </summary>
     public class JumperCheckerLeaf : GUIElement
     {
+        #region Private Fields
+
         private Ellipse field;
 
         private SolidColorBrush color;
+
+        #endregion Private Fields
+
+        #region Constructors
 
         public JumperCheckerLeaf(Ellipse field)
         {
@@ -22,6 +28,10 @@ namespace Jigsaw_2.Games.Jumper
 
             field.Fill = color;
         }
+
+        #endregion Constructors
+
+        #region Public Override Methods
 
         /// <summary> Shows the element. </summary>
         public override void Show()
@@ -37,5 +47,7 @@ namespace Jigsaw_2.Games.Jumper
             else
                 throw new Exception("This function only accepts Colors");
         }
+
+        #endregion Public Override Methods
     }
 }

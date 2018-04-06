@@ -10,17 +10,25 @@ namespace Jigsaw_2.Abstracts
     /// </summary>
     public abstract class Game
     {
+        #region Protected Fields
+
         protected Grid gameGrid;
         protected List<Control> allControls;
 
         protected List<GUIElement> GUIElements;
-        protected List<Animateable> anims;
+        protected List<IAnimateable> anims;
 
         protected int score;
 
+        #endregion Protected Fields
+
+        #region Private Fields
+
         private string name;
 
-        public string Name { get => name; }
+        #endregion Private Fields
+
+        #region Constructor
 
         public Game(Grid gameGrid, string name)
         {
@@ -28,14 +36,24 @@ namespace Jigsaw_2.Abstracts
             allControls = Finder.FindVisualChildren<Control>(gameGrid).ToList();
 
             GUIElements = new List<GUIElement>();
-            anims = new List<Animateable>();
+            anims = new List<IAnimateable>();
 
             score = 0;
 
             this.name = name;
         }
 
-        public List<Animateable> ToAnimate()
+        #endregion Constructor
+
+        #region Public Properties
+
+        public string Name { get => name; }
+
+        #endregion Public Properties
+
+        #region Public Methods
+
+        public List<IAnimateable> ToAnimate()
         {
             return anims;
         }
@@ -50,8 +68,14 @@ namespace Jigsaw_2.Abstracts
             return score;
         }
 
+        #endregion Public Methods
+
+        #region Public Abstract Methods
+
         public abstract void Grader();
 
         public abstract void GameOver();
+
+        #endregion Public Abstract Methods
     }
 }

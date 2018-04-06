@@ -10,6 +10,8 @@ namespace Jigsaw_2.Animators
 {
     internal class FrameAnimator
     {
+        #region Private Fields
+
         private bool allowDirectNavigation;
         private double oldValue;
 
@@ -18,6 +20,10 @@ namespace Jigsaw_2.Animators
 
         private Frame mainFrame;
         private DependencyProperty property;
+
+        #endregion Private Fields
+
+        #region Constructors
 
         public FrameAnimator(Frame mainFrame, DependencyProperty property)
         {
@@ -32,6 +38,10 @@ namespace Jigsaw_2.Animators
             mainFrame.Navigating += OnNavigating;
         }
 
+        #endregion Constructors
+
+        #region Events
+
         public void OnNavigating(object sender, NavigatingCancelEventArgs e)
         {
             if (mainFrame.Content != null && !allowDirectNavigation)
@@ -41,10 +51,12 @@ namespace Jigsaw_2.Animators
                 navArgs = e;
                 oldValue = mainFrame.ActualWidth;
 
-                DoubleAnimation animation0 = new DoubleAnimation();
-                animation0.From = mainFrame.ActualWidth;
-                animation0.To = 0;
-                animation0.Duration = duration;
+                DoubleAnimation animation0 = new DoubleAnimation()
+                {
+                    From = mainFrame.ActualWidth,
+                    To = 0,
+                    Duration = duration
+                };
                 animation0.Completed += SlideCompleted;
                 mainFrame.BeginAnimation(property, animation0);
             }
@@ -77,14 +89,18 @@ namespace Jigsaw_2.Animators
             }
 
             Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Loaded,
-                (ThreadStart)delegate ()
+            (ThreadStart)delegate ()
                 {
-                    DoubleAnimation animation0 = new DoubleAnimation();
-                    animation0.From = 0;
-                    animation0.To = oldValue;
-                    animation0.Duration = duration;
+                    DoubleAnimation animation0 = new DoubleAnimation()
+                    {
+                        From = 0,
+                        To = oldValue,
+                        Duration = duration
+                    };
                     mainFrame.BeginAnimation(property, animation0);
                 });
         }
+
+        #endregion Events
     }
 }

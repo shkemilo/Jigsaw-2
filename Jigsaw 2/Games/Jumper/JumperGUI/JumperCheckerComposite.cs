@@ -9,9 +9,15 @@ namespace Jigsaw_2.Games.Jumper
     /// </summary>
     public class JumperCheckerComposite : GUIElement
     {
+        #region Private Fields
+
         private List<JumperCheckerLeaf> elements;
 
         private int numberOfElements;
+
+        #endregion Private Fields
+
+        #region Constructors
 
         public JumperCheckerComposite(List<JumperCheckerLeaf> elements, int numberOfElements = 4)
         {
@@ -19,6 +25,10 @@ namespace Jigsaw_2.Games.Jumper
 
             this.numberOfElements = numberOfElements;
         }
+
+        #endregion Constructors
+
+        #region Public Methods
 
         public void SetActive()
         {
@@ -29,14 +39,18 @@ namespace Jigsaw_2.Games.Jumper
             Update(activeColors);
         }
 
-        /// <summary> Shows the whole componenet. </summary>
+        #endregion Public Methods
+
+        #region Public Override Methods
+
+        /// <summary> Shows the whole component. </summary>
         public override void Show()
         {
             foreach (JumperCheckerLeaf element in elements)
                 element.Show();
         }
 
-        /// <summary> Set the colors of every element in the comonenet. </summary>
+        /// <summary> Set the colors of every element in the component. </summary>
         public override void Update<T>(T message)
         {
             if (message is string[])
@@ -49,5 +63,7 @@ namespace Jigsaw_2.Games.Jumper
             else
                 throw new Exception("This function only accepts Brush arrays");
         }
+
+        #endregion Public Override Methods
     }
 }

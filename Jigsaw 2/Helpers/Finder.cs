@@ -10,13 +10,23 @@ namespace Jigsaw_2.Helpers
     /// </summary>
     public static class Finder
     {
+        #region Private Static Fields
+
         private static List<Control> allControls;
+
+        #endregion Private Static Fields
+
+        #region Setters
 
         /// <summary> Sets the All Controls filed so that the class has a reference to all the elements of a Windows form. </summary>
         public static void SetAllControls(List<Control> newControls)
         {
             allControls = newControls;
         }
+
+        #endregion Setters
+
+        #region Public Static Methods
 
         /// <summary> Finds and returns a Control in the whole Windows form by it's tag. Returns null if not found. </summary>
         public static Control FindElementWithTag(string tag)
@@ -92,5 +102,7 @@ namespace Jigsaw_2.Helpers
                 }
             }
         }
+
+        #endregion Public Static Methods
     }
 }

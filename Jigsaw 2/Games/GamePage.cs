@@ -11,9 +11,15 @@ namespace Jigsaw_2.Games
     /// </summary>
     public class GamePage : Page
     {
+        #region Private Fields
+
         private DispatcherTimer drawTimer;
 
         private Game game;
+
+        #endregion Private Fields
+
+        #region Constructors
 
         public GamePage()
         {
@@ -24,7 +30,15 @@ namespace Jigsaw_2.Games
             drawTimer.Tick += drawTick;
         }
 
+        #endregion Constructors
+
+        #region Public Properties
+
         public Game Game { get => game; }
+
+        #endregion Public Properties
+
+        #region Protected Methods
 
         /// <summary> Sets the game associated with the page </summary>
         protected void SetGame(Game game)
@@ -34,18 +48,24 @@ namespace Jigsaw_2.Games
             drawTimer.Start();
         }
 
+        #endregion Protected Methods
+
+        #region Events
+
         /// <summary> Timer for drawing and animating the game. </summary>
         private void drawTick(object sender, EventArgs e)
         {
             ScoreInterface.Instance.DrawScoreInterface();
 
             if (game.ToAnimate() != null)
-                foreach (Animateable a in game.ToAnimate())
+                foreach (IAnimateable a in game.ToAnimate())
                     a.Animate();
 
             if (game.ToDraw() != null)
                 foreach (GUIElement g in game.ToDraw())
                     g.Show();
         }
+
+        #endregion Events
     }
 }

@@ -8,7 +8,13 @@ namespace Jigsaw_2.Games
     /// </summary>
     public static class GameFactory
     {
+        #region Private Static Fields
+
         private static Dictionary<string, string> instructions;
+
+        #endregion Private Static Fields
+
+        #region Constructors
 
         static GameFactory()
         {
@@ -19,6 +25,10 @@ namespace Jigsaw_2.Games
                 { "couplings", "In this game the goal is to match the words on screen by following the displayed rule. \nGood Luck!" }
             };
         }
+
+        #endregion Constructors
+
+        #region Public Static Methods
 
         /// <summary> Creates and returns a GamePage based on the games name. </summary>
         public static GamePage GetGame(string s)
@@ -43,5 +53,7 @@ namespace Jigsaw_2.Games
             else
                 throw new Exception("Game does not exist. (yet");
         }
+
+        #endregion Public Static Methods
     }
 }

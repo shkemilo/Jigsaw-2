@@ -11,10 +11,16 @@ namespace Jigsaw_2.Games.Jumper
     /// </summary>
     public class JumperDisplayComposite : GUIElement
     {
+        #region Private Fields
+
         private List<JumperDisplayLeaf> elements;
 
         private int numberOfElements;
         private int currentElementIndex;
+
+        #endregion Private Fields
+
+        #region Constructors
 
         public JumperDisplayComposite(List<JumperDisplayLeaf> elements, int numberOfElements = 4)
         {
@@ -24,8 +30,16 @@ namespace Jigsaw_2.Games.Jumper
             currentElementIndex = -1;
         }
 
+        #endregion Constructors
+
+        #region Public Properties
+
         public int CurrentElementIndex { get => currentElementIndex; }
         public int NumberOfElements { get => numberOfElements; }
+
+        #endregion Public Properties
+
+        #region Public Methods
 
         public void PreviousElement()
         {
@@ -60,6 +74,10 @@ namespace Jigsaw_2.Games.Jumper
             throw new Exception("No such element exists.");
         }
 
+        #endregion Public Methods
+
+        #region Public Override Methods
+
         /// <summary> Shows all the elements in row. </summary>
         public override void Show()
         {
@@ -75,5 +93,7 @@ namespace Jigsaw_2.Games.Jumper
             else
                 throw new Exception("This function only accepts BitmapImages");
         }
+
+        #endregion Public Override Methods
     }
 }

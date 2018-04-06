@@ -9,11 +9,17 @@ namespace Jigsaw_2.Games.LetterOnLetter
     /// </summary>
     public class LoLEngine : Engine
     {
+        #region Private Fields
+
         private WordList words;
 
         private int numberOfFields;
         private string word;
         private char[] letters;
+
+        #endregion Private Fields
+
+        #region Constructors
 
         public LoLEngine(int numberOfFields)
         {
@@ -31,6 +37,32 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
             generateLetters();
         }
+
+        #endregion Constructors
+
+        #region Public Methods
+
+        /// <summary> Returns the longest word that can be made with the current letters. </summary>
+        public string GetLongestWord()
+        {
+            return word;
+        }
+
+        /// <summary> Returns the letters that the user will combine. </summary>
+        public char[] GetLetters()
+        {
+            return letters;
+        }
+
+        /// <summary> Check if the specified word is a viable word. </summary>
+        public bool Check(string s)
+        {
+            return words.Check(s);
+        }
+
+        #endregion Public Methods
+
+        #region Private Methods
 
         /// <summary> Generates the letters that the user will combine. </summary>
         private void generateLetters()
@@ -50,22 +82,6 @@ namespace Jigsaw_2.Games.LetterOnLetter
             letters = wordArray;
         }
 
-        /// <summary> Returns the longest word that can be made with the current letters. </summary>
-        public string GetLongestWord()
-        {
-            return word;
-        }
-
-        /// <summary> Returns the letters that the user will combine. </summary>
-        public char[] GetLetters()
-        {
-            return letters;
-        }
-
-        /// <summary> Check if the specified word is a viable word. </summary>
-        public bool Check(string s)
-        {
-            return words.Check(s);
-        }
+        #endregion Private Methods
     }
 }

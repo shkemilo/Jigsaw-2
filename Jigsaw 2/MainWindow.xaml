@@ -23,7 +23,7 @@
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
 
-            <Button Click="SettingsMenu">
+            <Button Click="settingsMenu">
 
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="30"
@@ -43,9 +43,9 @@
                 <Button.ContextMenu>
                     <ContextMenu BorderThickness="1">
                         <MenuItem Header="Style: ">
-                            <CheckBox Content=" Night mode " FontSize ="14" Checked ="NightMode" Unchecked="LightMode" IsChecked="False"></CheckBox>
+                            <CheckBox Content="Night mode " FontSize ="14" Checked ="nightMode" Unchecked="lightMode" IsChecked="False"></CheckBox>
                             <MenuItem Header="Color: " FontSize ="14" IsEnabled="False"></MenuItem>
-                            <ComboBox Name="ColorSelecter" SelectionChanged="SelectColor" SelectedIndex="8">
+                            <ComboBox Name="ColorSelecter" SelectionChanged="selectColor" SelectedIndex="8">
                                 <ComboBoxItem Content="Blue"></ComboBoxItem>
                                 <ComboBoxItem Content="Red"></ComboBoxItem>
                                 <ComboBoxItem Content="Green"></ComboBoxItem>
@@ -74,7 +74,7 @@
                 </Button.ContextMenu>
             </Button>
 
-            <Button Click="ShowInstructions">
+            <Button Click="showInstructions">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20"
                     Height="30"

@@ -1,4 +1,4 @@
-using Jigsaw_2.Abstracts;
+using Jigsaw_2.Games;
 using Jigsaw_2.Animators;
 using Jigsaw_2.Helpers;
 using System;
@@ -12,8 +12,14 @@ namespace Jigsaw_2.Score
     /// </summary>
     public sealed class ScoreInterface
     {
+        #region Private Static Fields
+
         private static ScoreInterface instance = null;
         private static readonly object padlock = new object();
+
+        #endregion Private Static Fields
+
+        #region Private Fields
 
         private ScoreEngine scoreEngine;
         public ScoreEngine ScoreEngine { get => scoreEngine; }
@@ -23,6 +29,10 @@ namespace Jigsaw_2.Score
         private ProgressBar progressBar;
 
         private DispatcherTimer timeControler;
+
+        #endregion Private Fields
+
+        #region Constructors
 
         private ScoreInterface()
         {
@@ -35,10 +45,17 @@ namespace Jigsaw_2.Score
 
             scoreEngine.Broadcast(scoreEngine.GetScore());
 
-            timeControler = new DispatcherTimer();
-            timeControler.Interval = TimeSpan.FromSeconds(1);
+            timeControler = new DispatcherTimer()
+            {
+                Interval = TimeSpan.FromSeconds(1)
+            };
+
             timeControler.Tick += timeControlerTick;
         }
+
+        #endregion Constructors
+
+        #region Public Static Properties
 
         public static ScoreInterface Instance
         {
@@ -54,6 +71,38 @@ namespace Jigsaw_2.Score
                 }
             }
         }
+
+        #endregion Public Static Properties
+
+        #region Public Methods
+
+        /// <summary> Draws the score interface GUI elements. </summary>
+        public void DrawScoreInterface()
+        {
+            scoreDisplay.Show();
+        }
+
+        /// <summary> Starts time. </summary>
+        public void StartTimeControler()
+        {
+            timeControler.Start();
+        }
+
+        /// <summary> Stops time. </summary>
+        public void StopTimeControler()
+        {
+            timeControler.Stop();
+        }
+
+        /// <summary> Resets the time bar to 0. </summary>
+        public void ResetTimeBar()
+        {
+            progressBar.SetPercent(0, TimeSpan.FromSeconds(3));
+        }
+
+        #endregion Public Methods
+
+        #region Private Methods
 
         /// <summary> When time is up stop the current game. </summary>
         private void stopCurrentGame()
@@ -73,28 +122,6 @@ namespace Jigsaw_2.Score
             }
         }
 
-        /// <summary> Draws the score interface GUI elements. </summary>
-        public void DrawScoreInterface()
-        {
-            scoreDisplay.Show();
-        }
-
-        /// <summary> Startstime. </summary>
-        public void StartTimeControler()
-        {
-            timeControler.Start();
-        }
-
-        /// <summary> Stops time. </summary>
-        public void StopTimeControler()
-        {
-            timeControler.Stop();
-        }
-
-        /// <summary> Resets the time bar to 0. </summary>
-        public void ResetTimeBar()
-        {
-            progressBar.SetPercent(0, TimeSpan.FromSeconds(3));
-        }
+        #endregion Private Methods
     }
 }

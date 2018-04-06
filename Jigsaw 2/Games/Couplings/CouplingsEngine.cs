@@ -11,12 +11,18 @@ namespace Jigsaw_2.Games.Couplings
     /// </summary>
     internal class CouplingsEngine : Engine
     {
+        #region Private Fields
+
         private int numberOfFields;
 
         private Dictionary<string, string> couplings;
         private string couplingText;
 
         private int[] offset;
+
+        #endregion Private Fields
+
+        #region Constructors
 
         public CouplingsEngine(int numberOfFields = 8)
         {
@@ -30,34 +36,9 @@ namespace Jigsaw_2.Games.Couplings
             offset = new int[numberOfFields];
         }
 
-        /// <summary> Calculates how many positions did the elements move based on their original position. </summary>
-        private void setOffset(List<string> original, List<string> shuffled)
-        {
-            for (int i = 0; i < numberOfFields; i++)
-                offset[i] = shuffled.IndexOf(original[i]) - i;
-        }
+        #endregion Constructors
 
-        /// <summary> Converts a dictionary to 2 arrays, one containing the keys, and other the values. </summary>
-        private void dictionaryToArrays(ref string[] keys, ref string[] vals)
-        {
-            int z = 0;
-            foreach (KeyValuePair<string, string> pair in couplings)
-            {
-                vals[z] = pair.Value;
-                keys[z++] = pair.Key;
-            }
-        }
-
-        /// <summary> Merges 2 arrays into a array of tuples. </summary>
-        private Tuple<string, string>[] arraysToTupleArray(string[] array1, string[] array2)
-        {
-            Tuple<string, string>[] temp = new Tuple<string, string>[numberOfFields];
-
-            for (int i = 0; i < numberOfFields; i++) //Organizes the keys and values into tuples
-                temp[i] = new Tuple<string, string>(array1[i], array2[i]);
-
-            return temp;
-        }
+        #region Public Methods
 
         public string GetCouplingText()
         {
@@ -93,5 +74,40 @@ namespace Jigsaw_2.Games.Couplings
 
             return false;
         }
+
+        #endregion Public Methods
+
+        #region Private Methods
+
+        /// <summary> Calculates how many positions did the elements move based on their original position. </summary>
+        private void setOffset(List<string> original, List<string> shuffled)
+        {
+            for (int i = 0; i < numberOfFields; i++)
+                offset[i] = shuffled.IndexOf(original[i]) - i;
+        }
+
+        /// <summary> Converts a dictionary to 2 arrays, one containing the keys, and other the values. </summary>
+        private void dictionaryToArrays(ref string[] keys, ref string[] vals)
+        {
+            int z = 0;
+            foreach (KeyValuePair<string, string> pair in couplings)
+            {
+                vals[z] = pair.Value;
+                keys[z++] = pair.Key;
+            }
+        }
+
+        /// <summary> Merges 2 arrays into a array of tuples. </summary>
+        private Tuple<string, string>[] arraysToTupleArray(string[] array1, string[] array2)
+        {
+            Tuple<string, string>[] temp = new Tuple<string, string>[numberOfFields];
+
+            for (int i = 0; i < numberOfFields; i++) // Organizes the keys and values into tuples
+                temp[i] = new Tuple<string, string>(array1[i], array2[i]);
+
+            return temp;
+        }
+
+        #endregion Private Methods
     }
 }

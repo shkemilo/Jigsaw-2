@@ -1,54 +1,18 @@
-using System.Windows.Controls;
-
 namespace Jigsaw_2.Abstracts
 {
     /// <summary>
     /// Superclass for GUI elements.
     /// </summary>
-    public abstract class GUIElement : Observer
+    public abstract class GUIElement : IObserver
     {
+        #region Public Abstract Methods
+
         /// <summary> Shows the GUI element's message to display. </summary>
         public abstract void Show();
 
         /// <summary> Updates the GUI element of a change of it's message to display. </summary>
         public abstract void Update<T>(T message);
-    }
 
-    /// <summary>
-    /// Extension for Animated GUI elements.
-    /// </summary>
-    public interface Animateable
-    {
-        /// <summary> Animates the GUI element. </summary>
-        void Animate();
-    }
-
-    /// <summary>
-    /// Simple display used for displaying a message.
-    /// </summary>
-    public class Display : GUIElement
-    {
-        private Control messageDisplay;
-
-        private string message;
-
-        public Display(Control messageDisplay)
-        {
-            message = "";
-            this.messageDisplay = messageDisplay;
-        }
-
-        /// <summary> Updates the message to be shown. </summary>
-        public override void Update<T>(T message)
-        {
-            this.message = message.ToString();
-        }
-
-        /// <summary> Shows the current message. </summary>
-        public override void Show()
-        {
-            if (messageDisplay is TextBox)
-                (messageDisplay as TextBox).Text = message.ToString();
-        }
+        #endregion Public Abstract Methods
     }
 }

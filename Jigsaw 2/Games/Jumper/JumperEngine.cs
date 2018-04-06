@@ -10,10 +10,16 @@ namespace Jigsaw_2.Games.Jumper
     /// </summary>
     public class JumperEngine : Engine
     {
+        #region Private Fields
+
         private int numberOfFields;
         private int[] combination;
 
         private Random randomSeed;
+
+        #endregion Private Fields
+
+        #region Constructors
 
         public JumperEngine(int numberOfFields = 4)
         {
@@ -31,21 +37,9 @@ namespace Jigsaw_2.Games.Jumper
 #endif
         }
 
-        /// <summary> Generates a combination to be found by the user. </summary>
-        private void generateCombination()
-        {
-            for (int i = 0; i < numberOfFields; i++)
-                combination[i] = randomSeed.Next(1, 7);
-        }
+        #endregion Constructors
 
-        /// <summary> Helper function. Adds a specifed color to a list n times. </summary>
-        private void addColors(ref List<string> list, int n, string c)
-        {
-            int currentListLength = list.Count;
-
-            for (int i = currentListLength; i < n + currentListLength; i++)
-                list.Add(c);
-        }
+        #region Public Methods
 
         /// <summary> Returns the generated combination. </summary>
         public int[] GetCombination()
@@ -102,5 +96,27 @@ namespace Jigsaw_2.Games.Jumper
 
             return goodAnswer;
         }
+
+        #endregion Public Methods
+
+        #region Private Methods
+
+        /// <summary> Generates a combination to be found by the user. </summary>
+        private void generateCombination()
+        {
+            for (int i = 0; i < numberOfFields; i++)
+                combination[i] = randomSeed.Next(1, 7);
+        }
+
+        /// <summary> Helper function. Adds a specified color to a list n times. </summary>
+        private void addColors(ref List<string> list, int n, string c)
+        {
+            int currentListLength = list.Count;
+
+            for (int i = currentListLength; i < n + currentListLength; i++)
+                list.Add(c);
+        }
+
+        #endregion Private Methods
     }
 }

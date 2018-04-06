@@ -3,7 +3,7 @@ using System;
 namespace Jigsaw_2.Helpers
 {
     /// <summary>
-    /// Static class used for Shuffling elements of an array.
+    /// Extension used for Shuffling elements of an array.
     /// </summary>
     internal static class Shuffler
     {

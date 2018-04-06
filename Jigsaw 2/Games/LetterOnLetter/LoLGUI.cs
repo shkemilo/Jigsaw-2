@@ -7,8 +7,10 @@ namespace Jigsaw_2.Games.LetterOnLetter
     /// <summary>
     /// Display for the user input GUI of Letter on Letter Game.
     /// </summary>
-    public class LoLDisplay : GUIElement, Animateable
+    public class LoLDisplay : GUIElement, IAnimateable
     {
+        #region Private Fields
+
         private Control[] fields;
 
         private int numberOfFields;
@@ -16,6 +18,10 @@ namespace Jigsaw_2.Games.LetterOnLetter
         private char[] lettersToShow;
         private char[] letters;
         private Random rnd;
+
+        #endregion Private Fields
+
+        #region Constructors
 
         public LoLDisplay(Control[] fields, int numberOfFields)
         {
@@ -28,27 +34,15 @@ namespace Jigsaw_2.Games.LetterOnLetter
             rnd = new Random(Guid.NewGuid().GetHashCode());
         }
 
-        /// <summary> Updates the display of the letters to be shown. </summary>
-        public override void Update<T>(T message)
-        {
-            if (message is char[])
-                letters = message as char[];
-            else
-                throw new Exception("This function only accepts char[]");
-        }
+        #endregion Constructors
+
+        #region Public Methods
 
         /// <summary> Animates a field of the main display. </summary>
         public void Animate()
         {
             if (shownLetters < numberOfFields)
                 lettersToShow[shownLetters] = (char)('A' + rnd.Next(0, 26));
-        }
-
-        /// <summary> Show the letter on the current field. </summary>
-        public override void Show()
-        {
-            if (shownLetters < numberOfFields)
-                (fields[shownLetters] as Button).Content = lettersToShow[shownLetters].ToString();
         }
 
         /// <summary> Stops animating the current letter, and a </summary>
@@ -63,6 +57,8 @@ namespace Jigsaw_2.Games.LetterOnLetter
             }
         }
 
+        #endregion Public Methods
+
         /// <summary> Return true if the display has shown all letters. </summary>
         public bool Finished()
         {
@@ -71,5 +67,25 @@ namespace Jigsaw_2.Games.LetterOnLetter
             else
                 return false;
         }
+
+        #region Public Override Methods
+
+        /// <summary> Updates the display of the letters to be shown. </summary>
+        public override void Update<T>(T message)
+        {
+            if (message is char[])
+                letters = message as char[];
+            else
+                throw new Exception("This function only accepts char[]");
+        }
+
+        /// <summary> Show the letter on the current field. </summary>
+        public override void Show()
+        {
+            if (shownLetters < numberOfFields)
+                (fields[shownLetters] as Button).Content = lettersToShow[shownLetters].ToString();
+        }
+
+        #endregion Public Override Methods
     }
 }

@@ -10,10 +10,16 @@ namespace Jigsaw_2.Games.Jumper
     /// </summary>
     public class JumperDisplayLeaf : GUIElement
     {
+        #region Private Fields
+
         private Button field;
         private Image elementImage;
 
         private BitmapImage source;
+
+        #endregion Private Fields
+
+        #region Constructors
 
         public JumperDisplayLeaf(Button field)
         {
@@ -21,6 +27,10 @@ namespace Jigsaw_2.Games.Jumper
 
             elementImage = field.Content as Image;
         }
+
+        #endregion Constructors
+
+        #region Public Methods
 
         /// <summary> Changes the controls enabled state. </summary>
         public void SetEnabled(bool b)
@@ -32,6 +42,10 @@ namespace Jigsaw_2.Games.Jumper
         {
             return field;
         }
+
+        #endregion Public Methods
+
+        #region Public Override Methods
 
         /// <summary> Draws this element. </summary>
         public override void Show()
@@ -49,5 +63,7 @@ namespace Jigsaw_2.Games.Jumper
             else
                 throw new Exception("This function only accepts BitmapImages");
         }
+
+        #endregion Public Override Methods
     }
 }
