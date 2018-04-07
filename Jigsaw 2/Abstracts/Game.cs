@@ -8,7 +8,7 @@ namespace Jigsaw_2.Abstracts
     /// <summary>
     /// Superclass for various sub-games.
     /// </summary>
-    public abstract class Game
+    public abstract class Game : IGame
     {
         #region Protected Fields
 

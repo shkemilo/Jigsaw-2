@@ -32,6 +32,9 @@ namespace Jigsaw_2
 
         private MainWindow main;
 
+        private AbstractFactory gameFactory;
+        private AbstractFactory instructionFactory;
+
         private string username;
 
         #endregion Private Fields
@@ -41,6 +44,9 @@ namespace Jigsaw_2
         private GameManager()
         {
             games = new Queue<string>();
+
+            gameFactory = FactoryProducer.GetFactory("game");
+            instructionFactory = FactoryProducer.GetFactory("instruction");
 
             /*games.Enqueue("letteronletter");
              games.Enqueue("letteronletter");
@@ -106,7 +112,7 @@ namespace Jigsaw_2
 
         public async void ShowInstructions()
         {
-            await main.ShowMessageAsync("Instructions", GameFactory.GetInstructions(currentGame.Game.Name));
+            await main.ShowMessageAsync("Instructions", instructionFactory.GetInstructions(currentGame.Game.Name));
         }
 
         /// <summary> Gets the users interface </summary>
@@ -160,7 +166,7 @@ namespace Jigsaw_2
             {
                 gameChanger.IsEnabled = true;
 
-                currentGame = GameFactory.GetGame(games.Dequeue());
+                currentGame = gameFactory.GetGame(games.Dequeue());
             }
         }
 

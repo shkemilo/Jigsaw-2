@@ -75,7 +75,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Abstracts\AbstractFactory.cs" />
     <Compile Include="Abstracts\IAnimateable.cs" />
+    <Compile Include="Abstracts\IGame.cs" />
     <Compile Include="Abstracts\IObserver.cs" />
     <Compile Include="Abstracts\ISubject.cs" />
     <Compile Include="Animators\ControlMove.cs" />
@@ -90,7 +92,8 @@
     <Compile Include="Games\Couplings\CouplingsEngine.cs" />
     <Compile Include="Games\Couplings\CouplingsGame.cs" />
     <Compile Include="Games\Display.cs" />
-    <Compile Include="Games\GameFactory.cs" />
+    <Compile Include="Helpers\FactoryProducer.cs" />
+    <Compile Include="Helpers\GameFactory.cs" />
     <Compile Include="Games\GamePage.cs" />
     <Compile Include="Games\Jumper\Jumper.xaml.cs">
       <DependentUpon>Jumper.xaml</DependentUpon>
@@ -105,6 +108,7 @@
     <Compile Include="Games\LetterOnLetter\LetterOnLetter.xaml.cs">
       <DependentUpon>LetterOnLetter.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\InstructionFactory.cs" />
     <Compile Include="Helpers\IntToImageConverter.cs" />
     <Compile Include="Helpers\ResourceDictionaryManager.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
