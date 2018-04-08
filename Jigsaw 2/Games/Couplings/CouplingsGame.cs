@@ -1,6 +1,7 @@
 ﻿using Jigsaw_2.Abstracts;
 using Jigsaw_2.Animators;
 using Jigsaw_2.Helpers;
+using Jigsaw_2.MainPage;
 using Jigsaw_2.Score;
 using System;
 using System.Collections.Generic;

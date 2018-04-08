@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         GlowBrush="{DynamicResource AccentColorBrush}"
         BorderThickness="2"
-        Title="Jigsaw" Height="1000" Width="1500" Icon="./Resources/Graphics/Logo32.png" ShowIconOnTitleBar="True" ResizeMode="CanResizeWithGrip">
+        Title="Jigsaw" Height="1000" Width="1500" Icon="C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\Resources\Graphics\Logo32.png" ShowIconOnTitleBar="True" ResizeMode="CanResizeWithGrip">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -17,8 +17,6 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-
-
 
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
@@ -37,7 +35,6 @@
                     <TextBlock Margin="6 0 0 0"
                    VerticalAlignment="Center"
                    Text="Settings" FontSize="20" />
-
                 </StackPanel>
 
                 <Button.ContextMenu>
@@ -90,7 +87,7 @@
                 </StackPanel>
             </Button>
 
-            <Button >
+            <Button>
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="30"
                     Height="30"
@@ -103,17 +100,15 @@
                     <TextBlock Margin="6 0 0 0"
                    VerticalAlignment="Center"
                    Text="" FontSize="20" Tag="CurrentUser" />
-
                 </StackPanel>
             </Button>
-
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
-    <Viewbox Stretch="Uniform" >
+    <Viewbox Stretch="Uniform">
         <Grid Name="MainWindowGrid">
-            <TextBox HorizontalAlignment="Right" Height="30" Margin="0,15,1039,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" IsEnabled="False" Tag="ScoreDisplay" FontSize="20" FontWeight="SemiBold"/>
-            <ProgressBar HorizontalAlignment="Left" Height="30" Margin="185,15,0,0" VerticalAlignment="Top" Width="1034" Tag="TimeBar" SmallChange="1"/>
-            <Button HorizontalAlignment="Left" Height="60" Margin="1149,50,0,0" VerticalAlignment="Top" Width="70" Style="{DynamicResource SquareButtonStyle}" Controls:ButtonHelper.PreserveTextCase="True" Tag="GameChanger">
+            <TextBox HorizontalAlignment="Right" Height="30" Margin="0,15,1039,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" IsEnabled="False" Tag="ScoreDisplay" FontSize="20" FontWeight="SemiBold" />
+            <ProgressBar HorizontalAlignment="Left" Height="30" Margin="185,15,0,0" VerticalAlignment="Top" Width="1034" Tag="TimeBar" SmallChange="1" />
+            <Button x:Name="StartButton" HorizontalAlignment="Left" Height="60" Margin="1149,50,0,0" VerticalAlignment="Top" Width="70" Style="{DynamicResource SquareButtonStyle}" Controls:ButtonHelper.PreserveTextCase="True" Tag="GameChanger" Click="startCurrentGame">
                 <Rectangle Width="50"
                     Height="50"
                     Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
@@ -122,8 +117,8 @@
                     </Rectangle.OpacityMask>
                 </Rectangle>
             </Button>
-            <Frame x:Name="MainFrame" Content="" HorizontalAlignment="Left" Height="730" Margin="33,140,0,0" VerticalAlignment="Top" Width="1176" NavigationUIVisibility="Hidden"/>
-            <Label Content="Current score:" HorizontalAlignment="Left" Margin="-42,15,0,0" VerticalAlignment="Top" Height="30" Width="117" FontSize="16"/>
+            <Frame x:Name="MainFrame" Content="" HorizontalAlignment="Left" Height="730" Margin="33,140,0,0" VerticalAlignment="Top" Width="1176" NavigationUIVisibility="Hidden" />
+            <Label Content="Current score:" HorizontalAlignment="Left" Margin="-42,15,0,0" VerticalAlignment="Top" Height="30" Width="117" FontSize="16" />
         </Grid>
     </Viewbox>
 </Controls:MetroWindow>

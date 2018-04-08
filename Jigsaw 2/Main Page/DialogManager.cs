@@ -1,38 +1,25 @@
-using Jigsaw_2.Abstracts;
-using Jigsaw_2.Games;
+﻿using Jigsaw_2.Abstracts;
 using Jigsaw_2.Helpers;
 using Jigsaw_2.Score;
 using MahApps.Metro.Controls.Dialogs;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Jigsaw_2
+namespace Jigsaw_2.MainPage
 {
-    /// <summary>
-    /// Singleton that is used for navigating through multiple Games.
-    /// </summary>
-    public sealed class GameManager
+    internal sealed class DialogManager
     {
         #region Private Static Fields
 
-        private static GameManager instance = null;
+        private static DialogManager instance = null;
         private static readonly object padlock = new object();
 
         #endregion Private Static Fields
 
         #region Private Fields
 
-        private Queue<string> games;
-
-        private GamePage currentGame;
-
-        private Control gameChanger;
-
         private MainWindow main;
 
-        private AbstractFactory gameFactory;
         private AbstractFactory instructionFactory;
 
         private string username;
@@ -41,39 +28,20 @@ namespace Jigsaw_2
 
         #region Constructors
 
-        private GameManager()
+        private DialogManager()
         {
-            games = new Queue<string>();
-
-            gameFactory = FactoryProducer.GetFactory("game");
-            instructionFactory = FactoryProducer.GetFactory("instruction");
-
-            /*games.Enqueue("letteronletter");
-             games.Enqueue("letteronletter");
-
-             games.Enqueue("jumper");
-             games.Enqueue("jumper");*/
-
-            games.Enqueue("couplings");
-            games.Enqueue("couplings");
-
-            gameChanger = Finder.FindElementWithTag("GameChanger");
-
-            (gameChanger as Button).Click += StartCurrentGame;
-
             main = Application.Current.MainWindow as MainWindow;
 
-            username = string.Empty;
+            instructionFactory = FactoryProducer.GetFactory("instruction");
 
-            NextGame();
+            string username = string.Empty;
         }
 
         #endregion Constructors
 
-        #region Public Static Methods
+        #region Public Static Properties
 
-        /// <summary> Returns the Instance of the GameManager Singleton. </summary>
-        public static GameManager Instance
+        public static DialogManager Instance
         {
             get
             {
@@ -81,38 +49,20 @@ namespace Jigsaw_2
                 {
                     if (instance == null)
                     {
-                        instance = new GameManager();
+                        instance = new DialogManager();
                     }
                     return instance;
                 }
             }
         }
 
-        #endregion Public Static Methods
-
-        #region Getters
-
-        public string Username { get => username; }
-
-        /// <summary> Returns the current game in play. </summary>
-        public Game GetCurrentGame()
-        {
-            return currentGame.Game;
-        }
-
-        /// <summary> Returns the current page that is being shown. </summary>
-        public GamePage GetCurrentPage()
-        {
-            return currentGame;
-        }
-
-        #endregion Getters
+        #endregion Public Static Properties
 
         #region Async
 
-        public async void ShowInstructions()
+        public async void ShowInstructions(string gameName)
         {
-            await main.ShowMessageAsync("Instructions", instructionFactory.GetInstructions(currentGame.Game.Name));
+            await main.ShowMessageAsync("Instructions", instructionFactory.GetInstructions(gameName));
         }
 
         /// <summary> Gets the users interface </summary>
@@ -139,45 +89,8 @@ namespace Jigsaw_2
             }
         }
 
-        #endregion Async
-
-        #region Events
-
-        /// <summary> Starts the current game to be played. </summary>
-        public void StartCurrentGame(object sender, RoutedEventArgs e)
-        {
-            Finder.FindVisualChildren<Frame>(main).ToList().First().Navigate(currentGame);
-
-            gameChanger.IsEnabled = false;
-        }
-
-        #endregion Events
-
-        #region Public Methods
-
-        /// <summary> Changes to the next game. </summary>
-        public void NextGame()
-        {
-            ScoreInterface.Instance.ResetTimeBar();
-
-            if (games.Count == 0)
-                theEnd();
-            else
-            {
-                gameChanger.IsEnabled = true;
-
-                currentGame = gameFactory.GetGame(games.Dequeue());
-            }
-        }
-
-        #endregion Public Methods
-
-        #region Private Methods
-
-        #region Async
-
         /// <summary> Set of commands to be run when there are no games left. </summary>
-        private async void theEnd()
+        public async void TheEnd()
         {
             MessageDialogResult exitResult = await main.ShowMessageAsync("Jigsaw", "Your score is: " + ScoreInterface.Instance.ScoreEngine.Score + "\n Play Again?", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { NegativeButtonText = "No", AffirmativeButtonText = "Yes" });
 
@@ -199,6 +112,8 @@ namespace Jigsaw_2
         }
 
         #endregion Async
+
+        #region Private Methods
 
         /// <summary> Checks if the username was correctly typed. </summary>
         private string badInput(string input)

@@ -1,5 +1,6 @@
 using Jigsaw_2.Abstracts;
 using Jigsaw_2.Helpers;
+using Jigsaw_2.MainPage;
 using Jigsaw_2.Score;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;

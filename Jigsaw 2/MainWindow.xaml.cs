@@ -1,7 +1,9 @@
-﻿using Jigsaw_2.Animators;
+﻿using Jigsaw_2.Abstracts;
+using Jigsaw_2.Animators;
 using Jigsaw_2.Helpers;
+using Jigsaw_2.MainPage;
+using Jigsaw_2.MainPage.Commands;
 using Jigsaw_2.Score;
-using MahApps.Metro;
 using MahApps.Metro.Controls;
 using System;
 using System.Linq;
@@ -16,21 +18,38 @@ namespace Jigsaw_2
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        private readonly ICommand nightModeCommand;
+        private readonly ICommand lightModeCommand;
+        private readonly ICommand instructionCommand;
+        private readonly ICommand startCurrentGameCommand;
+
+        private ICommand settingsCommand;
+        private ICommand colorSelectCommand;
+
+        private MainPageControler mainPageControler;
+
         #region Constructors
 
         public MainWindow()
         {
+            mainPageControler = new MainPageControler();
+
             InitializeComponent();
 
             Thread.Sleep(2000); // prevents random bugs when reseting the application
 
             Finder.SetAllControls(Finder.FindVisualChildren<Control>(MainWindowGrid).ToList());
 
-            GameManager.Instance.SetUsername();
+            DialogManager.Instance.SetUsername();
 
             ScoreInterface.Instance.DrawScoreInterface();
 
             FrameAnimator anim = new FrameAnimator(MainFrame, WidthProperty);
+
+            nightModeCommand = new NightModeCommand(mainPageControler);
+            lightModeCommand = new LightModeCommand(mainPageControler);
+            instructionCommand = new InstructionsCommand(mainPageControler);
+            startCurrentGameCommand = new StartCurrentGameCommand(mainPageControler, MainFrame, StartButton);
         }
 
         #endregion Constructors
@@ -40,35 +59,39 @@ namespace Jigsaw_2
         /// <summary> Shows the drop down settings menu. </summary>
         private void settingsMenu(object sender, RoutedEventArgs e)
         {
-            (sender as Button).ContextMenu.IsEnabled = true;
-            (sender as Button).ContextMenu.PlacementTarget = (sender as Button);
-            (sender as Button).ContextMenu.Placement = System.Windows.Controls.Primitives.PlacementMode.Bottom;
-            (sender as Button).ContextMenu.IsOpen = true;
+            settingsCommand = new SettingsCommand(mainPageControler, sender as Button);
+
+            settingsCommand.Execute();
         }
 
         /// <summary> Changes the color theme of the application. </summary>
         private void selectColor(object sender, SelectionChangedEventArgs e)
         {
-            Tuple<AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);
-            string selectedColor = (ColorSelecter.SelectedItem as ComboBoxItem).Content.ToString();
+            colorSelectCommand = new ColorSelectCommand(mainPageControler, ColorSelecter.SelectedItem as ComboBoxItem);
 
-            setAppStyle(ThemeManager.GetAccent(selectedColor), appStyle.Item1);
+            colorSelectCommand.Execute();
         }
 
         /// <summary> Activates night mode. </summary>
         private void nightMode(object sender, RoutedEventArgs e)
         {
-            Tuple<AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);
-
-            setAppStyle(appStyle.Item2, ThemeManager.GetAppTheme("BaseDark"));
+            nightModeCommand.Execute();
         }
 
         /// <summary> Activates light mode. </summary>
         private void lightMode(object sender, RoutedEventArgs e)
         {
-            Tuple<AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);
+            lightModeCommand.Execute();
+        }
 
-            setAppStyle(appStyle.Item2, ThemeManager.GetAppTheme("BaseLight"));
+        private void showInstructions(object sender, RoutedEventArgs e)
+        {
+            instructionCommand.Execute();
+        }
+
+        private void startCurrentGame(object sender, RoutedEventArgs e)
+        {
+            startCurrentGameCommand.Execute();
         }
 
         /// <summary> Function used for preserving the aspect ratio while resizing. </summary>
@@ -88,20 +111,5 @@ namespace Jigsaw_2
         }
 
         #endregion Events
-
-        #region PrivateMethods
-
-        private void showInstructions(object sender, RoutedEventArgs e)
-        {
-            GameManager.Instance.ShowInstructions();
-        }
-
-        /// <summary> Sets the theme of the application. </summary>
-        private void setAppStyle(Accent style, AppTheme theme)
-        {
-            ThemeManager.ChangeAppStyle(Application.Current, style, theme);
-        }
-
-        #endregion PrivateMethods
     }
 }

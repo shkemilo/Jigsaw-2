@@ -77,6 +77,7 @@
     </ApplicationDefinition>
     <Compile Include="Abstracts\AbstractFactory.cs" />
     <Compile Include="Abstracts\IAnimateable.cs" />
+    <Compile Include="Abstracts\ICommand.cs" />
     <Compile Include="Abstracts\IGame.cs" />
     <Compile Include="Abstracts\IObserver.cs" />
     <Compile Include="Abstracts\ISubject.cs" />
@@ -111,6 +112,15 @@
     <Compile Include="Helpers\InstructionFactory.cs" />
     <Compile Include="Helpers\IntToImageConverter.cs" />
     <Compile Include="Helpers\ResourceDictionaryManager.cs" />
+    <Compile Include="Main Page\Commands\ColorSelectCommand.cs" />
+    <Compile Include="Main Page\Commands\InstructionsCommand.cs" />
+    <Compile Include="Main Page\Commands\LightModeCommand.cs" />
+    <Compile Include="Main Page\Commands\NightModeCommand.cs" />
+    <Compile Include="Main Page\Commands\SettingsCommand.cs" />
+    <Compile Include="Main Page\Commands\StartCurrentGameCommand.cs" />
+    <Compile Include="Main Page\DialogManager.cs" />
+    <Compile Include="Main Page\IMainPageBehavior.cs" />
+    <Compile Include="Main Page\MainPageControler.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -143,7 +153,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GameManager.cs" />
+    <Compile Include="Main Page\GameManager.cs" />
     <Compile Include="Games\LetterOnLetter\LoLEngine.cs" />
     <Compile Include="Games\LetterOnLetter\LoLGame.cs" />
     <Compile Include="Games\LetterOnLetter\LoLGUI.cs" />

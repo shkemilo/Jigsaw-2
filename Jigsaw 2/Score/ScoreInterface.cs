@@ -4,6 +4,7 @@ using Jigsaw_2.Helpers;
 using System;
 using System.Windows.Controls;
 using System.Windows.Threading;
+using Jigsaw_2.MainPage;
 
 namespace Jigsaw_2.Score
 {
