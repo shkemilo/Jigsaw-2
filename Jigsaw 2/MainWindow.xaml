@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         GlowBrush="{DynamicResource AccentColorBrush}"
         BorderThickness="2"
-        Title="Jigsaw" Height="1000" Width="1500" Icon="C:\Users\matej\Documents\Visual Studio 2017\Projects\Jigsaw 2\Jigsaw 2\Resources\Graphics\Logo32.png" ShowIconOnTitleBar="True" ResizeMode="CanResizeWithGrip">
+        Title="Jigsaw" Height="1000" Width="1500"  Icon ="/Jigsaw 2;component/Resources/Graphics/Logo64.png" ShowIconOnTitleBar="True" ResizeMode="CanResizeWithGrip">
 
     <Window.Resources>
         <ResourceDictionary>

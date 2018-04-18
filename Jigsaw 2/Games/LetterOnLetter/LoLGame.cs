@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 
 namespace Jigsaw_2.Games.LetterOnLetter
 {
+
     /// <summary>
     /// Class used for controlling a Letter on Letter Game.
     /// </summary>
@@ -37,7 +38,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
         private string answer;
 
-        private string state;
+        private LoLState state;
 
         #endregion Private Fields
 
@@ -83,7 +84,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
             answer = string.Empty;
 
-            state = "stop";
+            state = LoLState.Stop;
 
             engine.Broadcast(engine.GetLetters());
         }
@@ -171,9 +172,9 @@ namespace Jigsaw_2.Games.LetterOnLetter
                 mainDisp.UncoverLetter();
 
             if (mainDisp.Finished())
-                if (state == "stop")
+                if (state == LoLState.Stop)
                     startWordOnWord();
-                else if (state == "submit")
+                else if (state == LoLState.Submit)
                     submitConfirm();
         }
 
@@ -229,7 +230,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
         {
             ScoreInterface.Instance.StartTimeControler();
 
-            state = "submit";
+            state = LoLState.Submit;
 
             changeSSImage();
 

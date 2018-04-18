@@ -1,5 +1,7 @@
 using Jigsaw_2.Abstracts;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Controls;
 
 namespace Jigsaw_2.Games.LetterOnLetter
@@ -37,6 +39,11 @@ namespace Jigsaw_2.Games.LetterOnLetter
         #endregion Constructors
 
         #region Public Methods
+
+        public List<Control> GetFields()
+        {
+            return fields.ToList();
+        }
 
         /// <summary> Animates a field of the main display. </summary>
         public void Animate()

@@ -82,7 +82,7 @@ namespace Jigsaw_2.Helpers
                 return tList;
         }
 
-        /// <summary> Finds and returns a list of all visual childrens of an object. </summary>
+        /// <summary> Finds and returns a list of all visual children of an object. </summary>
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
         {
             if (depObj != null)
@@ -101,6 +101,30 @@ namespace Jigsaw_2.Helpers
                     }
                 }
             }
+        }
+
+        public static IEnumerable<T> FindVisualChildrenWithTag<T>(DependencyObject depObj, string tag) where T : FrameworkElement
+        {
+            List<T> tempList = new List<T>();
+
+            foreach (T element in FindVisualChildren<T>(depObj))
+            {
+                if (element.Tag.ToString() == tag)
+                    tempList.Add(element);
+            }
+
+            return tempList;
+        }
+
+        public static T FindVisualChildWithTag<T>(DependencyObject depObj, string tag) where T : FrameworkElement
+        {
+            foreach (T element in FindVisualChildren<T>(depObj))
+            {
+                if (element.Tag.ToString() == tag)
+                    return element;
+            }
+
+            return null;
         }
 
         #endregion Public Static Methods

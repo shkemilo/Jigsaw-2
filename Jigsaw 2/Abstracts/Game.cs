@@ -77,5 +77,11 @@ namespace Jigsaw_2.Abstracts
         public abstract void GameOver();
 
         #endregion Public Abstract Methods
+
+        protected void disableAllControls()
+        {
+            foreach (Control control in allControls)
+                control.IsEnabled = false;
+        }
     }
 }
