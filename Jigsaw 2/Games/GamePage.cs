@@ -13,7 +13,7 @@ namespace Jigsaw_2.Games
     {
         #region Private Fields
 
-        private DispatcherTimer drawTimer;
+        private readonly DispatcherTimer drawTimer;
 
         private Game game;
 
@@ -58,12 +58,28 @@ namespace Jigsaw_2.Games
             ScoreInterface.Instance.DrawScoreInterface();
 
             if (game.ToAnimate() != null)
-                foreach (IAnimateable a in game.ToAnimate())
+            {
+                foreach (IAnimatable a in game.ToAnimate())
+                {
                     a.Animate();
+                }
+            }
 
             if (game.ToDraw() != null)
+            {
                 foreach (GUIElement g in game.ToDraw())
+                {
                     g.Show();
+                }
+            }
+
+            if (game.ToRender() != null)
+            {
+                foreach (IGraphic g in game.ToRender())
+                {
+                    g.Print();
+                }
+            }
         }
 
         #endregion Events

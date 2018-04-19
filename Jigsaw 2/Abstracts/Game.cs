@@ -16,7 +16,8 @@ namespace Jigsaw_2.Abstracts
         protected List<Control> allControls;
 
         protected List<GUIElement> GUIElements;
-        protected List<IAnimateable> anims;
+        protected List<IAnimatable> anims;
+        protected List<IGraphic> graphicalElements;
 
         protected int score;
 
@@ -24,19 +25,20 @@ namespace Jigsaw_2.Abstracts
 
         #region Private Fields
 
-        private string name;
+        private readonly string name;
 
         #endregion Private Fields
 
         #region Constructor
 
-        public Game(Grid gameGrid, string name)
+        protected Game(Grid gameGrid, string name)
         {
             this.gameGrid = gameGrid;
             allControls = Finder.FindVisualChildren<Control>(gameGrid).ToList();
 
             GUIElements = new List<GUIElement>();
-            anims = new List<IAnimateable>();
+            anims = new List<IAnimatable>();
+            graphicalElements = new List<IGraphic>();
 
             score = 0;
 
@@ -53,7 +55,7 @@ namespace Jigsaw_2.Abstracts
 
         #region Public Methods
 
-        public List<IAnimateable> ToAnimate()
+        public List<IAnimatable> ToAnimate()
         {
             return anims;
         }
@@ -61,6 +63,11 @@ namespace Jigsaw_2.Abstracts
         public List<GUIElement> ToDraw()
         {
             return GUIElements;
+        }
+
+        public List<IGraphic> ToRender()
+        {
+            return graphicalElements;
         }
 
         public int GetScore()

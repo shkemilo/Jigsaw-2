@@ -5,7 +5,7 @@ namespace Jigsaw_2.Games
 {
     internal class CommandManager
     {
-        private Stack<IUndoable> commandStack = new Stack<IUndoable>();
+        private readonly Stack<IUndoable> commandStack = new Stack<IUndoable>();
 
         public void ExecuteCommand(ICommand command)
         {

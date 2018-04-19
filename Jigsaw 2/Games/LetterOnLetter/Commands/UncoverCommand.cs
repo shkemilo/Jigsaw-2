@@ -6,7 +6,7 @@ namespace Jigsaw_2.Games.LetterOnLetter.Commands
     {
         private static int count;
 
-        private ILoLGameBehavior lolGameBehavior;
+        private readonly ILoLGameBehavior lolGameBehavior;
 
         public UncoverCommand(ILoLGameBehavior lolGameBehavior)
         {

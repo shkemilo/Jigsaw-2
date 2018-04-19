@@ -13,15 +13,15 @@ namespace Jigsaw_2.Games.LetterOnLetter
 {
     internal class LoLGameControler : Game, ILoLGameBehavior
     {
-        private LoLEngine engine;
-        private LoLDisplay mainDisplay;
+        private readonly LoLEngine engine;
+        private readonly LoLGUI mainDisplay;
 
-        private Display wordDisplay;
-        private TextBox checkDisplay;
+        private readonly Display wordDisplay;
+        private readonly TextBox checkDisplay;
 
         private string answer;
 
-        public LoLGameControler(LoLDisplay mainDisplay, LoLEngine engine, Grid gameGrid) : base(gameGrid, "letteronletter")
+        public LoLGameControler(LoLGUI mainDisplay, LoLEngine engine, Grid gameGrid) : base(gameGrid, "letteronletter")
         {
             this.engine = engine;
             this.mainDisplay = mainDisplay;
@@ -34,7 +34,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
             wordDisplay = new Display(Finder.FindElementWithTag(allControls, "CurrentWord"));
             checkDisplay = Finder.FindElementWithTag(allControls, "CheckFeedback") as TextBox;
 
-            GUIElements.Add(mainDisplay);
+            graphicalElements.Add(mainDisplay);
             GUIElements.Add(wordDisplay);
             anims.Add(mainDisplay);
         }
@@ -83,12 +83,12 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
         public void Uncover()
         {
-            mainDisplay.UncoverLetter();
+            mainDisplay.Next();
         }
 
         public async void Confirm()
         {
-            MessageDialogResult exitResult = await (Application.Current.MainWindow as MetroWindow).ShowMessageAsync("Jigsaw", "Are you sure you want to submit your current word?", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { NegativeButtonText = "No", AffirmativeButtonText = "Yes" });
+            MessageDialogResult exitResult = await (Application.Current.MainWindow as MetroWindow)?.ShowMessageAsync("Jigsaw", "Are you sure you want to submit your current word?", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { NegativeButtonText = "No", AffirmativeButtonText = "Yes" });
 
             if (exitResult == MessageDialogResult.Affirmative)
                 GameOver();
@@ -123,8 +123,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
         private void setLetterDisplayEnabled(bool isEnabled)
         {
-            foreach (Control c in mainDisplay.GetFields())
-                c.IsEnabled = isEnabled;
+            mainDisplay.Enable(isEnabled);
         }
 
         private void changeSSImage()

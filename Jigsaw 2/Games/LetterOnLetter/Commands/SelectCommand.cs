@@ -5,9 +5,9 @@ namespace Jigsaw_2.Games.LetterOnLetter.Commands
 {
     internal class SelectCommand : ICommand, IUndoable
     {
-        private ILoLGameBehavior lolGameBehavior;
+        private readonly ILoLGameBehavior lolGameBehavior;
 
-        private Button selecter;
+        private readonly Button selecter;
 
         public SelectCommand(ILoLGameBehavior lolGameBehavior, Button selecter)
         {

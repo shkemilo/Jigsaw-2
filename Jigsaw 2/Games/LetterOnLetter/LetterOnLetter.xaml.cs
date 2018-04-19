@@ -1,7 +1,7 @@
 ﻿using Jigsaw_2.Abstracts;
 using Jigsaw_2.Games.LetterOnLetter.Commands;
 using Jigsaw_2.Helpers;
-using System.Linq;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -22,9 +22,9 @@ namespace Jigsaw_2.Games.LetterOnLetter
         private readonly ICommand startCommand;
         private readonly ICommand confirmCommand;
 
-        private LoLState state;
+        private readonly int numberOfFields;
 
-        private int numberOfFields;
+        private LoLState state;
 
         public LetterOnLetter()
         {
@@ -32,14 +32,14 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
             numberOfFields = 12;
 
+            List<IAnimatableGUI> tempList = new List<IAnimatableGUI>();
             foreach (Button b in Finder.FindVisualChildrenWithTag<Button>(LetterOnLetterGrid, "CharacterDisplayButton"))
             {
                 b.Click += selectHandler;
+                tempList.Add(new AnimatableDisplay(b));
             }
 
-            LoLDisplay display = new LoLDisplay(Finder.FindVisualChildrenWithTag<Control>(LetterOnLetterGrid, "CharacterDisplayButton").ToArray(), numberOfFields);
-
-            lolGameBehavior = new LoLGameControler(display, new LoLEngine(numberOfFields), LetterOnLetterGrid);
+            lolGameBehavior = new LoLGameControler(new LoLGUI(tempList), new LoLEngine(numberOfFields), LetterOnLetterGrid);
 
             SetGame(lolGameBehavior as Game);
 
@@ -64,14 +64,13 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
         private void startStopSubmitHandler(object sender, RoutedEventArgs e)
         {
-            switch(state)
+            if (state == LoLState.Stop)
             {
-                case LoLState.Stop:
-                    uncover();
-                    break;
-                case LoLState.Submit:
-                    confirm();
-                    break;
+                uncover();
+            }
+            else if (state == LoLState.Submit)
+            {
+                confirm();
             }
         }
 
@@ -106,6 +105,5 @@ namespace Jigsaw_2.Games.LetterOnLetter
         {
             commandManager.ExecuteCommand(confirmCommand);
         }
-
     }
 }

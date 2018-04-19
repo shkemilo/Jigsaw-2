@@ -4,7 +4,7 @@ namespace Jigsaw_2.Games.LetterOnLetter.Commands
 {
     internal class StartCommand : ICommand
     {
-        private ILoLGameBehavior lolGameBehavior;
+        private readonly ILoLGameBehavior lolGameBehavior;
 
         public StartCommand(ILoLGameBehavior lolGameBehavior)
         {

@@ -77,9 +77,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Abstracts\AbstractFactory.cs" />
-    <Compile Include="Abstracts\IAnimateable.cs" />
+    <Compile Include="Abstracts\IAnimatable.cs" />
+    <Compile Include="Abstracts\IAnimatableGUI.cs" />
     <Compile Include="Abstracts\ICommand.cs" />
+    <Compile Include="Abstracts\IEnableable.cs" />
     <Compile Include="Abstracts\IGame.cs" />
+    <Compile Include="Abstracts\IGraphic.cs" />
     <Compile Include="Abstracts\IObserver.cs" />
     <Compile Include="Abstracts\ISubject.cs" />
     <Compile Include="Abstracts\IUndoable.cs" />
@@ -87,6 +90,7 @@
     <Compile Include="Animators\FrameAnimator.cs" />
     <Compile Include="Animators\SmoothProgressBar.cs" />
     <Compile Include="Games\CommandManager.cs" />
+    <Compile Include="Games\CompositeGraphic.cs" />
     <Compile Include="Games\Couplings\CouplingGenerator.cs" />
     <Compile Include="Games\Couplings\Couplings GUI\CouplingsDisplay.cs" />
     <Compile Include="Games\Couplings\Couplings GUI\CouplingsDisplayBase.cs" />
@@ -96,13 +100,15 @@
     <Compile Include="Games\Couplings\CouplingsEngine.cs" />
     <Compile Include="Games\Couplings\CouplingsGame.cs" />
     <Compile Include="Games\Display.cs" />
+    <Compile Include="Games\LetterOnLetter\GUI\AnimatableDisplay.cs" />
     <Compile Include="Games\LetterOnLetter\Commands\ConfirmCommand.cs" />
     <Compile Include="Games\LetterOnLetter\Commands\FeedbackCommand.cs" />
     <Compile Include="Games\LetterOnLetter\Commands\SelectCommand.cs" />
     <Compile Include="Games\LetterOnLetter\Commands\StartCommand.cs" />
     <Compile Include="Games\LetterOnLetter\Commands\UncoverCommand.cs" />
-    <Compile Include="Games\LetterOnLetter\ILoLGameBehavior.cs" />
-    <Compile Include="Games\LetterOnLetter\LoLGameControler.cs" />
+    <Compile Include="Games\LetterOnLetter\Controlers\ILoLGameBehavior.cs" />
+    <Compile Include="Games\LetterOnLetter\Controlers\LoLGameControler.cs" />
+    <Compile Include="Games\LetterOnLetter\GUI\LoLGUI.cs" />
     <Compile Include="Helpers\FactoryProducer.cs" />
     <Compile Include="Helpers\GameFactory.cs" />
     <Compile Include="Games\GamePage.cs" />
@@ -164,10 +170,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Main Page\GameManager.cs" />
-    <Compile Include="Games\LetterOnLetter\LoLEngine.cs" />
-    <Compile Include="Games\LetterOnLetter\LoLGame.cs" />
-    <Compile Include="Games\LetterOnLetter\LoLGUI.cs" />
-    <Compile Include="Games\LetterOnLetter\WordList.cs" />
+    <Compile Include="Games\LetterOnLetter\Logic\LoLEngine.cs" />
+    <Compile Include="Games\LetterOnLetter\Logic\WordList.cs" />
     <Compile Include="Helpers\ArrayShuffler.cs" />
     <Compile Include="Helpers\Finder.cs" />
     <Compile Include="MainWindow.xaml.cs">

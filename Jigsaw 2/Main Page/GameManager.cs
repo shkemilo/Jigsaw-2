@@ -21,15 +21,15 @@ namespace Jigsaw_2.MainPage
 
         #region Private Fields
 
-        private Queue<string> games;
+        private readonly Queue<string> games;
 
         private GamePage currentGame;
 
-        private Control gameChanger;
+        private readonly Control gameChanger;
 
-        private AbstractFactory gameFactory;
+        private readonly AbstractFactory gameFactory;
 
-        private string username;
+        private readonly string username;
 
         #endregion Private Fields
 
@@ -81,7 +81,7 @@ namespace Jigsaw_2.MainPage
 
         #region Getters
 
-        public string Username { get => username; }
+        public string Username => username;
 
         public string GetCurrentGameName()
         {
@@ -110,7 +110,9 @@ namespace Jigsaw_2.MainPage
             ScoreInterface.Instance.ResetTimeBar();
 
             if (games.Count == 0)
+            {
                 DialogManager.Instance.TheEnd();
+            }
             else
             {
                 gameChanger.IsEnabled = true;

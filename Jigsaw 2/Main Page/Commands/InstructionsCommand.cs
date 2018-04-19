@@ -4,7 +4,7 @@ namespace Jigsaw_2.MainPage.Commands
 {
     internal class InstructionsCommand : ICommand
     {
-        private IMainPageBehavior mainPageBehavior;
+        private readonly IMainPageBehavior mainPageBehavior;
 
         public InstructionsCommand(IMainPageBehavior mainPageBehavior)
         {

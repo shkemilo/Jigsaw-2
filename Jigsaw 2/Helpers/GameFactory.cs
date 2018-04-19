@@ -32,7 +32,9 @@ namespace Jigsaw_2.Helpers
                 return new Couplings();
             }
             else
+            {
                 return null;
+            }
         }
 
         public override string GetInstructions(string game)
