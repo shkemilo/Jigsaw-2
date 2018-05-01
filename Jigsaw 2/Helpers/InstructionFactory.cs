@@ -7,7 +7,7 @@ namespace Jigsaw_2.Helpers
 {
     internal class InstructionFactory : AbstractFactory
     {
-        private Dictionary<string, string> instructions;
+        private readonly Dictionary<string, string> instructions;
 
         public InstructionFactory()
         {

@@ -2,7 +2,7 @@
 
 namespace Jigsaw_2.Games.LetterOnLetter
 {
-    internal interface ILoLGameBehavior
+    public interface ILoLGameBehavior
     {
         void Select(Button button);
 

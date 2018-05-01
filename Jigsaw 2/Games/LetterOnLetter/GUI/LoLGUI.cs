@@ -18,7 +18,16 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
         public void Next()
         {
-            animatableDisplays.Dequeue();
+            animatableDisplays.Peek().AnimationStop();
+            animatableDisplays.Dequeue().Print();
+        }
+
+        public void AnimationStop()
+        {
+            foreach (IAnimatableGUI element in animatableDisplaysCopy)
+            {
+                element.AnimationStop();
+            }
         }
 
         public void Print()

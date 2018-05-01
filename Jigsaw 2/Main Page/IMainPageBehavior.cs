@@ -4,7 +4,7 @@ namespace Jigsaw_2.MainPage
 {
     internal interface IMainPageBehavior
     {
-        void Settings(Button settingsButton);
+        void Settings(Button contextButton);
 
         void ColorSelect(ComboBoxItem comboBoxItem);
 

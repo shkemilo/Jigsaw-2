@@ -7,5 +7,7 @@
     {
         /// <summary> Animates the GUI element. </summary>
         void Animate();
+
+        void AnimationStop();
     }
 }

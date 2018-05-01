@@ -77,6 +77,11 @@ namespace Jigsaw_2.Score
 
         #region Public Methods
 
+        public void SetTimeControlerInterval(TimeSpan time)
+        {
+            timeControler.Interval = time;
+        }
+
         /// <summary> Draws the score interface GUI elements. </summary>
         public void DrawScoreInterface()
         {
@@ -115,7 +120,7 @@ namespace Jigsaw_2.Score
         private void timeControlerTick(object sender, EventArgs e)
         {
             if (progressBar.Value != progressBar.Maximum)
-                progressBar.SetPercent(progressBar.Value + 1, TimeSpan.FromSeconds(1));
+                progressBar.SetPercent(progressBar.Value + 1, timeControler.Interval);
             else
             {
                 stopCurrentGame();

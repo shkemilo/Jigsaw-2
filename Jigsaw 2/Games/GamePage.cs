@@ -57,11 +57,11 @@ namespace Jigsaw_2.Games
         {
             ScoreInterface.Instance.DrawScoreInterface();
 
-            if (game.ToAnimate() != null)
+            if (game.ToRender() != null)
             {
-                foreach (IAnimatable a in game.ToAnimate())
+                foreach (IGraphic g in game.ToRender())
                 {
-                    a.Animate();
+                    g.Print();
                 }
             }
 
@@ -73,13 +73,13 @@ namespace Jigsaw_2.Games
                 }
             }
 
-            if (game.ToRender() != null)
+            if (game.ToAnimate() != null)
             {
-                foreach (IGraphic g in game.ToRender())
+                foreach (IAnimatable a in game.ToAnimate())
                 {
-                    g.Print();
+                    a.Animate();
                 }
-            }
+            }    
         }
 
         #endregion Events

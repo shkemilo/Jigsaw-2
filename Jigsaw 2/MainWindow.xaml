@@ -110,8 +110,8 @@
             <ProgressBar HorizontalAlignment="Left" Height="30" Margin="185,15,0,0" VerticalAlignment="Top" Width="1034" Tag="TimeBar" SmallChange="1" />
             <Button x:Name="StartButton" HorizontalAlignment="Left" Height="60" Margin="1149,50,0,0" VerticalAlignment="Top" Width="70" Style="{DynamicResource SquareButtonStyle}" Controls:ButtonHelper.PreserveTextCase="True" Tag="GameChanger" Click="startCurrentGame">
                 <Rectangle Width="50"
-                    Height="50"
-                    Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                Height="50"
+                Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" Tag="NextRowImage">
                     <Rectangle.OpacityMask>
                         <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_control_play}" />
                     </Rectangle.OpacityMask>

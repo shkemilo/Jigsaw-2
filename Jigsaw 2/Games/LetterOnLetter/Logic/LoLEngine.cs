@@ -21,7 +21,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
         #region Constructors
 
-        public LoLEngine(int numberOfFields)
+        public LoLEngine(int numberOfFields = 12)
         {
             this.numberOfFields = numberOfFields;
 

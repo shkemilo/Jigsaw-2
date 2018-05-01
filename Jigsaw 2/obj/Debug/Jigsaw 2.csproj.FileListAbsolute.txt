@@ -116,3 +116,5 @@ C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw_2.Pr
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2.csproj.GenerateResource.cache
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2.csproj.CoreCompileInputs.cache
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2.csproj.CopyComplete
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Games\WhoKnowsKnows\WhoKnowsKnows.g.cs
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Games\WhoKnowsKnows\WhoKnowsKnows.baml

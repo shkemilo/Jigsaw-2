@@ -90,5 +90,11 @@ namespace Jigsaw_2.Abstracts
             foreach (Control control in allControls)
                 control.IsEnabled = false;
         }
+
+        protected void enableAllControls()
+        {
+            foreach (Control control in allControls)
+                control.IsEnabled = true;
+        }
     }
 }

@@ -83,6 +83,7 @@
     <Compile Include="Abstracts\IEnableable.cs" />
     <Compile Include="Abstracts\IGame.cs" />
     <Compile Include="Abstracts\IGraphic.cs" />
+    <Compile Include="Abstracts\IGUI.cs" />
     <Compile Include="Abstracts\IObserver.cs" />
     <Compile Include="Abstracts\ISubject.cs" />
     <Compile Include="Abstracts\IUndoable.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Games\Couplings\CouplingGenerator.cs" />
     <Compile Include="Games\Couplings\Couplings GUI\CouplingsDisplay.cs" />
     <Compile Include="Games\Couplings\Couplings GUI\CouplingsDisplayBase.cs" />
+    <Compile Include="Games\Couplings\Couplings GUI\CouplingsLeaf.cs" />
     <Compile Include="Games\Couplings\Couplings.xaml.cs">
       <DependentUpon>Couplings.xaml</DependentUpon>
     </Compile>
@@ -109,6 +111,18 @@
     <Compile Include="Games\LetterOnLetter\Controlers\ILoLGameBehavior.cs" />
     <Compile Include="Games\LetterOnLetter\Controlers\LoLGameControler.cs" />
     <Compile Include="Games\LetterOnLetter\GUI\LoLGUI.cs" />
+    <Compile Include="Games\LetterOnLetter\LoLControlerFactory.cs" />
+    <Compile Include="Games\WhoKnowsKnows\Logic\Question.cs" />
+    <Compile Include="Games\WhoKnowsKnows\GUI\QuestionComposite.cs" />
+    <Compile Include="Games\WhoKnowsKnows\GUI\QuestionDisplay.cs" />
+    <Compile Include="Games\WhoKnowsKnows\QuestionGenerator.cs" />
+    <Compile Include="Games\WhoKnowsKnows\Controlers\IWKKBehavior.cs" />
+    <Compile Include="Games\WhoKnowsKnows\Commands\SubmitCommand.cs" />
+    <Compile Include="Games\WhoKnowsKnows\WhoKnowsKnows.xaml.cs">
+      <DependentUpon>WhoKnowsKnows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Games\WhoKnowsKnows\Controlers\WKKControler.cs" />
+    <Compile Include="Games\WhoKnowsKnows\Logic\WKKEngine.cs" />
     <Compile Include="Helpers\FactoryProducer.cs" />
     <Compile Include="Helpers\GameFactory.cs" />
     <Compile Include="Games\GamePage.cs" />
@@ -153,6 +167,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Games\LetterOnLetter\LetterOnLetter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Games\WhoKnowsKnows\WhoKnowsKnows.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -239,6 +257,7 @@
   <ItemGroup>
     <None Include="Resources\couplingsList.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.224\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.224\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

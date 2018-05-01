@@ -11,7 +11,7 @@ using System.Windows.Shapes;
 
 namespace Jigsaw_2.Games.LetterOnLetter
 {
-    internal class LoLGameControler : Game, ILoLGameBehavior
+    public class LoLGameControler : Game, ILoLGameBehavior
     {
         private readonly LoLEngine engine;
         private readonly LoLGUI mainDisplay;

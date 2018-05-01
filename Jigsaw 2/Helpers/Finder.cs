@@ -109,7 +109,7 @@ namespace Jigsaw_2.Helpers
 
             foreach (T element in FindVisualChildren<T>(depObj))
             {
-                if (element.Tag.ToString() == tag)
+                if (element.Tag?.ToString() == tag)
                     tempList.Add(element);
             }
 
@@ -120,7 +120,7 @@ namespace Jigsaw_2.Helpers
         {
             foreach (T element in FindVisualChildren<T>(depObj))
             {
-                if (element.Tag.ToString() == tag)
+                if (element.Tag?.ToString() == tag)
                     return element;
             }
 

@@ -36,10 +36,9 @@ namespace Jigsaw_2.Games.LetterOnLetter
             foreach (Button b in Finder.FindVisualChildrenWithTag<Button>(LetterOnLetterGrid, "CharacterDisplayButton"))
             {
                 b.Click += selectHandler;
-                tempList.Add(new AnimatableDisplay(b));
             }
 
-            lolGameBehavior = new LoLGameControler(new LoLGUI(tempList), new LoLEngine(numberOfFields), LetterOnLetterGrid);
+            lolGameBehavior = new LoLControlerFactory(LetterOnLetterGrid).GetControler();
 
             SetGame(lolGameBehavior as Game);
 
