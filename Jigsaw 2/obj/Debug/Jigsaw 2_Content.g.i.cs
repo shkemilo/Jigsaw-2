@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/couplingslist.txt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("jigsawdatabase.mdf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("jigsawdatabase_log.ldf")]
 
 

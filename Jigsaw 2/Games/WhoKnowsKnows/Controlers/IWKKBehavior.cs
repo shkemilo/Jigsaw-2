@@ -3,7 +3,5 @@
     internal interface IWKKBehavior
     {
         void Submit(string answer);
-
-        void Next();
     }
 }

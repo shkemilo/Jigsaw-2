@@ -11,7 +11,7 @@ namespace Jigsaw_2.Games.WhoKnowsKnows
     internal class WKKControler : Game, IWKKBehavior
     {
         private readonly WKKEngine engine;
-        private readonly QuestionComposite display;
+        private readonly IGUI display;
 
         private readonly TextBox questionDisplay;
 
@@ -19,7 +19,7 @@ namespace Jigsaw_2.Games.WhoKnowsKnows
 
         private DispatcherTimer timeOutTimer;
 
-        public WKKControler(QuestionComposite display, WKKEngine engine, Grid gameGrid) : base(gameGrid, "whoknowsknows")
+        public WKKControler(IGUI display, WKKEngine engine, Grid gameGrid) : base(gameGrid, "whoknowsknows")
         {
             this.engine = engine;
             this.display = display;
@@ -40,12 +40,12 @@ namespace Jigsaw_2.Games.WhoKnowsKnows
             questionDisplay = Finder.FindVisualChildWithTag<TextBox>(gameGrid, "QuestionDisplay");
 
             ScoreInterface.Instance.SetTimeControlerInterval(TimeSpan.FromSeconds(0.1));
-            Next();
+            next();
         }
 
         private void onTimedEvent(object sender, EventArgs e)
         {
-            Next();
+            next();
 
             timeOutTimer.Stop();
         }
@@ -57,27 +57,6 @@ namespace Jigsaw_2.Games.WhoKnowsKnows
             Grader();
 
             GameOver();
-        }
-
-        public void Next()
-        {
-            answer = string.Empty;
-
-            engine.Next();
-            if (!engine.Empty)
-            {
-                ScoreInterface.Instance.StartTimeControler();
-
-                engine.Broadcast(engine.Question);
-
-                display.Enable(true);
-
-                questionDisplay.Text = engine.Question.QuestionText;
-            }
-            else
-            {
-                endGame();
-            }
         }
 
         public override void Grader()
@@ -103,7 +82,7 @@ namespace Jigsaw_2.Games.WhoKnowsKnows
             engine.Broadcast(engine.GetAnswers());
 
             display.Enable(false);
-            timeOutTimer.Start();  
+            timeOutTimer.Start();
         }
 
         private void endGame()
@@ -113,6 +92,32 @@ namespace Jigsaw_2.Games.WhoKnowsKnows
             ScoreInterface.Instance.SetTimeControlerInterval(TimeSpan.FromSeconds(1));
 
             GameManager.Instance.NextGame();
+        }
+
+        private void next()
+        {
+            answer = string.Empty;
+
+            engine.Next();
+            if (!engine.Empty)
+            {
+                nextQuestion();
+            }
+            else
+            {
+                endGame();
+            }
+        }
+
+        private void nextQuestion()
+        {
+            ScoreInterface.Instance.StartTimeControler();
+
+            engine.Broadcast(engine.Question);
+
+            display.Enable(true);
+
+            questionDisplay.Text = engine.Question.QuestionText;
         }
     }
 }

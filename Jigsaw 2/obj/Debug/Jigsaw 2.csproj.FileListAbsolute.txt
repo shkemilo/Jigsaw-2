@@ -76,19 +76,6 @@ D:\Work\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.csproj.CoreCompileInputs.cache
 D:\Work\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.csproj.CopyComplete
 D:\Work\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.exe
 D:\Work\Jigsaw 2\Jigsaw 2\obj\Debug\Jigsaw 2.pdb
-C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2.csprojResolveAssemblyReference.cache
-C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Resources\Icons.baml
-C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Resources\IconsNonShared.baml
-C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Games\Couplings\Couplings.g.cs
-C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Games\Jumper\Jumper.g.cs
-C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Games\LetterOnLetter\LetterOnLetter.g.cs
-C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\MainWindow.g.cs
-C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\App.g.cs
-C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2_MarkupCompile.cache
-C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2_MarkupCompile.lref
-C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2.exe
-C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2.pdb
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\Jigsaw 2.exe.config
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\Jigsaw 2.exe
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\Jigsaw 2.pdb
@@ -106,15 +93,31 @@ C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\Xamarin.For
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\Xamarin.Forms.Platform.pdb
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\Xamarin.Forms.Xaml.pdb
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2.csprojResolveAssemblyReference.cache
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Resources\Icons.baml
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Resources\IconsNonShared.baml
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Games\Couplings\Couplings.g.cs
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Games\Jumper\Jumper.g.cs
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Games\LetterOnLetter\LetterOnLetter.g.cs
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Games\WhoKnowsKnows\WhoKnowsKnows.g.cs
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\MainWindow.g.cs
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\App.g.cs
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2_MarkupCompile.cache
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2_MarkupCompile.lref
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\App.baml
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Games\Couplings\Couplings.baml
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Games\Jumper\Jumper.baml
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Games\LetterOnLetter\LetterOnLetter.baml
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Games\WhoKnowsKnows\WhoKnowsKnows.baml
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\MainWindow.baml
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2.g.resources
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw_2.Properties.Resources.resources
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2.csproj.GenerateResource.cache
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2.csproj.CoreCompileInputs.cache
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2.csproj.CopyComplete
-C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Games\WhoKnowsKnows\WhoKnowsKnows.g.cs
-C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Games\WhoKnowsKnows\WhoKnowsKnows.baml
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2.exe
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2.pdb
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2_Content.g.cs
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\JigsawDatabase.mdf
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\JigsawDatabase_log.ldf

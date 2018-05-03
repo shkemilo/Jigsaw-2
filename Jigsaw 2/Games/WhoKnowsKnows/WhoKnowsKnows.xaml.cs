@@ -1,6 +1,5 @@
 ﻿using Jigsaw_2.Abstracts;
 using Jigsaw_2.Helpers;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -17,16 +16,12 @@ namespace Jigsaw_2.Games.WhoKnowsKnows
         {
             InitializeComponent();
 
-            IEnumerable<Button> questionButtons = Finder.FindVisualChildrenWithTag<Button>(WKKGrid, "QuestionButton");
-            List<IGUI> tempGUIs = new List<IGUI>();
-            foreach (Button element in questionButtons)
+            foreach (Button element in Finder.FindVisualChildrenWithTag<Button>(WKKGrid, "QuestionButton"))
             {
                 element.Click += submitHandler;
-
-                tempGUIs.Add(new QuestionDisplay(element));
             }
 
-            wkkBehavior = new WKKControler(new QuestionComposite(tempGUIs), new WKKEngine(), WKKGrid);
+            wkkBehavior = new WKKControlerFactory(WKKGrid).GetControler();
 
             SetGame(wkkBehavior as Game);
         }

@@ -1,19 +1,15 @@
 using System;
-using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Jigsaw_2.Games.LetterOnLetter
 {
-    /// <summary>
-    /// Singleton that is used for storing the Word List used for the Word on Word game.
-    /// </summary>
-    public sealed class WordList // TODO: Save whole object and just load when game starts, to prevent high cpu usage.
+    public sealed class WordList
     {
         #region Private Fields
 
-        private readonly Random rnd;
-
-        private readonly string[] wordList;
-        private readonly List<string> WoWSeeds;
+        private string connectionString;
 
         #endregion Private Fields
 
@@ -21,58 +17,44 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
         public WordList()
         {
-            wordList = Properties.Resources.WordList.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
-
-            WoWSeeds = new List<string>();
-
-            getWoWSeeds();
-
-            rnd = new Random(Guid.NewGuid().GetHashCode());
+            connectionString = ConfigurationManager.ConnectionStrings["Jigsaw_2.Properties.Settings.JigsawDatabaseConnectionString"].ConnectionString;
         }
 
         #endregion Constructors
 
         #region Public Methods
 
-        /// <summary> Returns a random 12 letter word. </summary>
         public string GetWoWSeed()
         {
-            return WoWSeeds[rnd.Next(0, WoWSeeds.Count - 1)];
+            //string query = "SELECT word FROM Words WHERE LEN(word) = 12"; //this would be a by the book way to write the query.
+            string query = "SELECT word FROM TwelveLetterWords"; //but this query should be faster idk.
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+            {
+                DataTable dataTable = new DataTable();
+
+                int dataLength = adapter.Fill(dataTable);
+
+                Console.WriteLine(dataLength);
+
+                return dataTable.Select()[new Random().Next(dataLength)][0].ToString().ToUpper();
+            }
         }
 
-        /// <summary> Check if the word is inside the Word list. </summary>
         public bool Check(string s)
         {
-            if (s != string.Empty)
-            {
-                for (int i = 0; i < wordList.Length; i++)
-                {
-                    if (s.Equals(wordList[i], StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        return true;
-                    }
-                }
-            }
+            string query = "SELECT word FROM Words WHERE word = " + "'" + s.ToLower() + "'"; //looks a bit weird but it works.
 
-            return false;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+            {
+                DataTable dataTable = new DataTable();
+
+                return adapter.Fill(dataTable) != 0;
+            }
         }
 
         #endregion Public Methods
-
-        #region Private Methods
-
-        /// <summary> Finds all words with 12 length. </summary>
-        private void getWoWSeeds()
-        {
-            for (int i = 0; i < wordList.Length; i++)
-            {
-                if (wordList[i].Length == 12)
-                {
-                    WoWSeeds.Add(wordList[i].ToUpper());
-                }
-            }
-        }
-
-        #endregion Private Methods
     }
 }
