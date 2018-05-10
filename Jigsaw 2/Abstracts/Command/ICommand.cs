@@ -1,6 +1,6 @@
 ﻿namespace Jigsaw_2.Abstracts
 {
-    interface ICommand
+    internal interface ICommand
     {
         void Execute();
     }

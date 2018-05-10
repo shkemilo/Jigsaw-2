@@ -13,7 +13,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
         private WordList words;
 
-        private int numberOfFields;
+        private readonly int numberOfFields;
         private string word;
         private char[] letters;
 

@@ -64,13 +64,11 @@ namespace Jigsaw_2.Games.Couplings
         /// <summary> Checks if the Coupling was pair correctly. </summary>
         public bool Check(string hit, string target)
         {
-            Console.WriteLine(hit + " " + target);
             return couplings[target.ToLower()] == hit.ToLower();
         }
 
         public int GetIndexOfTarget(string target)
         {
-            Console.WriteLine(target);
             for (int i = 0; i < numberOfFields; i++)
             {
                 if (target.Equals(shownCouples[i].Item2, StringComparison.InvariantCultureIgnoreCase))

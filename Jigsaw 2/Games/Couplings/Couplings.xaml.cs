@@ -12,6 +12,8 @@ namespace Jigsaw_2.Games.Couplings
     {
         private readonly ICouplingsBehavior couplingsBehavior;
 
+        private readonly ICommand startCommand;
+
         public Couplings()
         {
             InitializeComponent();
@@ -24,6 +26,8 @@ namespace Jigsaw_2.Games.Couplings
             {
                 b.Click += coupleHandler;
             }
+
+            startCommand = new StartCommand(couplingsBehavior);
         }
 
         private void coupleHandler(object sender, RoutedEventArgs e)
@@ -38,7 +42,7 @@ namespace Jigsaw_2.Games.Couplings
                 b.IsEnabled = true;
             }
 
-            new StartCommand(couplingsBehavior).Execute();
+            startCommand.Execute();
 
             (sender as Button).IsEnabled = false;
         }

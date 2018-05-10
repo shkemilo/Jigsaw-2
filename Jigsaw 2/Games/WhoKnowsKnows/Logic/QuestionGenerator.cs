@@ -12,13 +12,13 @@ namespace Jigsaw_2.Games.WhoKnowsKnows
 
             List<string> question = new List<string>()
             {
+                "Ne",
                 "Da",
                 "Ne",
-                "Mozda",
-                "Nzm"
+                "Ne"
             };
 
-            string questionText = "Da li je kristina peder?";
+            string questionText = "Neko bezveze pitanje?";
 
             int correctIndex = 1;
 

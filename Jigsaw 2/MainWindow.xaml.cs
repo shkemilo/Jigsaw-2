@@ -95,7 +95,7 @@ namespace Jigsaw_2
         }
 
         /// <summary> Function used for preserving the aspect ratio while resizing. </summary>
-        protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
+        /*protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
         {
             double aspectRatio = 1.5;
 
@@ -108,6 +108,20 @@ namespace Jigsaw_2
                 Width = sizeInfo.NewSize.Height * aspectRatio;
 
             base.OnRenderSizeChanged(sizeInfo);
+        }*/
+
+        protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
+        {
+            double aspect = 1.5;
+
+            if (sizeInfo.WidthChanged)
+            {
+                Width = sizeInfo.NewSize.Height * aspect;
+            }
+            else
+            {
+                Height = sizeInfo.NewSize.Width / aspect;
+            }
         }
 
         #endregion Events

@@ -120,3 +120,20 @@ C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2.cs
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2.exe
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2.pdb
 C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2.csprojAssemblyReference.cache
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\obj\Debug\Jigsaw 2.exe.config
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\System.Data.Common.dll
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\System.Diagnostics.StackTrace.dll
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\System.Diagnostics.Tracing.dll
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\System.Globalization.Extensions.dll
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\System.IO.Compression.dll
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\System.Net.Http.dll
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\System.Net.Sockets.dll
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\System.Runtime.Serialization.Primitives.dll
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\System.Security.Cryptography.Algorithms.dll
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\System.Security.SecureString.dll
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\System.Threading.Overlapped.dll
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\System.Xml.XPath.XDocument.dll
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\Microsoft.Windows.Design.Extensibility.dll
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\Xamarin.Forms.Core.Design.dll
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\Xamarin.Forms.Xaml.Design.dll
+C:\Users\matej\OneDrive\Documents\GitHub\Jigsaw-2\Jigsaw 2\bin\Debug\en\Microsoft.Windows.Design.Extensibility.resources.dll

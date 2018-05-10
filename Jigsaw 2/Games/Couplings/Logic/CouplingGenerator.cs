@@ -1,19 +1,17 @@
-﻿using System;
+﻿using Jigsaw_2.Abstracts;
+using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
 namespace Jigsaw_2.Games.Couplings
 {
-    internal class CouplingGenerator
+    internal class CouplingGenerator : Generator
     {
         #region Private Fields
 
         private Dictionary<string, string> couplings;
         private string couplingText;
-
-        private string connectionString;
 
         #endregion Private Fields
 
@@ -22,8 +20,6 @@ namespace Jigsaw_2.Games.Couplings
         public CouplingGenerator()
         {
             couplings = new Dictionary<string, string>();
-
-            connectionString = ConfigurationManager.ConnectionStrings["Jigsaw_2.Properties.Settings.JigsawDatabaseConnectionString"].ConnectionString;
 
             setCouplings();
 
@@ -53,7 +49,7 @@ namespace Jigsaw_2.Games.Couplings
         {
             string query = "SELECT cc1.Couple1, cc1.Couple2, cc1.Couple3, cc1.Couple4, cc1.Couple5, cc1.Couple6, cc1.Couple7, cc1.Couple8, cc2.Couple1, cc2.Couple2, cc2.Couple3, cc2.Couple4, cc2.Couple5, cc2.Couple6, cc2.Couple7, cc2.Couple8 FROM Couplings c INNER JOIN CouplesColumn1 cc1 ON c.CoupleColumn1Id = cc1.Id INNER JOIN CouplesColumn2 cc2 ON c.CoupleColumn2Id = cc2.Id;";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (connection = new SqlConnection(connectionString))
             using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
             {
                 DataTable dataTable = new DataTable();
@@ -77,7 +73,7 @@ namespace Jigsaw_2.Games.Couplings
         {
             string query = "SELECT CoupleText FROM Couplings;";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (connection = new SqlConnection(connectionString))
             using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
             {
                 DataTable dataTable = new DataTable();

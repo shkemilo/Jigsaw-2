@@ -19,7 +19,7 @@ namespace Jigsaw_2.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -61,40 +61,7 @@ namespace Jigsaw_2.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to eduard mane 
-        ///51
-        ///pablo pikaso 
-        ///91
-        ///rafael 
-        ///37
-        ///piter pol rubens 
-        ///62
-        ///jan vermer 
-        ///42
-        ///teodor zeriko 
-        ///32
-        ///djura jaksic 
-        ///48
-        ///francisko goja 
-        ///82
-        ///
-        ///bernardo 
-        ///bertoluci
-        ///akira 
-        ///kurosava
-        ///nikita 
-        ///mihalkov
-        ///zan luk 
-        ///godar
-        ///vim 
-        ///venders
-        ///fatih 
-        ///akin
-        ///verner 
-        ///hercog
-        ///alfred 
-        ///hickok
-        ///
+        ///   Looks up a localized string similar to Spojite lekove sa grupom kojoj pripadaju.
         ///morfijum 
         ///analgetik
         ///diazepam 
@@ -112,8 +79,28 @@ namespace Jigsaw_2.Properties {
         ///pirantel 
         ///antelmintik
         ///
+        ///Spojite zivotinje sa vrstama kojim pripadaju.
         ///golub 
-        ///niski visokol [rest of string was truncated]&quot;;.
+        ///niski visokoletac
+        ///govedo 
+        ///simental
+        ///konj 
+        ///mustang
+        ///pas 
+        ///samojed
+        ///kokoska 
+        ///maran
+        ///svinja 
+        ///mangulica
+        ///koza 
+        ///nubijska
+        ///macka 
+        ///sfinks
+        ///
+        ///Spojite alkoholna pica sa zemljom iz koje poticu.
+        ///titova vodka 
+        ///sad
+        ///kral [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CouplingsList {
             get {

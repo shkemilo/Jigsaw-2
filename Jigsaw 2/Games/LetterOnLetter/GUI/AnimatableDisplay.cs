@@ -48,7 +48,6 @@ namespace Jigsaw_2.Games.LetterOnLetter
             if (message is char)
             {
                 realValue = Convert.ToChar(message);
-                Console.WriteLine(realValue);
             }
             else
             {

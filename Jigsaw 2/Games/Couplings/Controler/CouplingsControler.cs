@@ -17,7 +17,7 @@ namespace Jigsaw_2.Games.Couplings
         private readonly int numberOfFields;
         private int currentElement;
 
-        private TextBox instructionDisplay;
+        private readonly TextBox instructionDisplay;
 
         public CouplingsControler(CouplingsComposite display, CouplingsEngine engine, Grid gameGrid, int numberOfFields = 8) : base(gameGrid, "couplings")
         {
@@ -32,8 +32,10 @@ namespace Jigsaw_2.Games.Couplings
 
         public void Couple(Button coupleTarget)
         {
-            int index = engine.GetIndexOfTarget(coupleTarget.Content.ToString());
-            bool correct = engine.Check(engine.GetCouplings()[currentElement].Item1, coupleTarget.Content.ToString());
+            string target = coupleTarget.Content.ToString();
+
+            int index = engine.GetIndexOfTarget(target);
+            bool correct = engine.Check(engine.GetCouplings()[currentElement].Item1, target);
 
             update(correct, index);
 
@@ -54,13 +56,9 @@ namespace Jigsaw_2.Games.Couplings
             ScoreInterface.Instance.StopTimeControler();
 
             display.EvaluateAll();
-
             display.Print();
-
             orderCouplings();
-
             graphicalElements.Remove(display);
-
             disableAllControls();
 
             GameManager.Instance.NextGame();

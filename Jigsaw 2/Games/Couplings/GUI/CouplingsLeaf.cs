@@ -23,8 +23,6 @@ namespace Jigsaw_2.Games.Couplings
             match.IsEnabled = false;
 
             color = DefaultColor;
-
-            isSet = false;
         }
 
         /// <summary> Sets the elements color based on if it was correctly coupled. </summary>
@@ -61,6 +59,7 @@ namespace Jigsaw_2.Games.Couplings
             if (color != RightColor)
             {
                 color = message;
+                match.IsEnabled = false;
             }
         }
     }
