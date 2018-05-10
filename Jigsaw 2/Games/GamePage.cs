@@ -79,7 +79,7 @@ namespace Jigsaw_2.Games
                 {
                     a.Animate();
                 }
-            }    
+            }
         }
 
         #endregion Events

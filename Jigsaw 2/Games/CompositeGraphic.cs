@@ -1,8 +1,5 @@
 ﻿using Jigsaw_2.Abstracts;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Jigsaw_2.Games
 {
@@ -19,17 +16,17 @@ namespace Jigsaw_2.Games
         {
             graphics.Add(graphic);
         }
-     
+
         public void AddRange(params IGraphic[] graphic)
         {
             graphics.AddRange(graphic);
         }
-     
+
         public void Delete(IGraphic graphic)
         {
             graphics.Remove(graphic);
         }
-       
+
         public void Print()
         {
             foreach (IGraphic childGraphic in graphics)

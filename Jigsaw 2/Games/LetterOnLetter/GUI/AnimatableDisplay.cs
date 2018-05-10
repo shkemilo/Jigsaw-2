@@ -8,7 +8,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
     {
         private readonly Button display;
         private char realValue;
- 
+
         private char toDisplay;
 
         private readonly Random animationSeed;
@@ -25,11 +25,11 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
         public void Animate()
         {
-                toDisplay = (char)('A' + animationSeed.Next(0, 26));
+            toDisplay = (char)('A' + animationSeed.Next(0, 26));
         }
 
         public void AnimationStop()
-        { 
+        {
             toDisplay = realValue;
         }
 
