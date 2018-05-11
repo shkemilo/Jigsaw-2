@@ -1,8 +1,5 @@
 # Jigsaw
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/533f4ab3ec524f438c6c1358a5c79d4f)](https://app.codacy.com/app/mateja.milosevickg99/Jigsaw-2?utm_source=github.com&utm_medium=referral&utm_content=shkemilo/Jigsaw-2&utm_campaign=badger)
-[![CodeFactor](https://www.codefactor.io/repository/github/shkemilo/jigsaw-2/badge)](https://www.codefactor.io/repository/github/shkemilo/jigsaw-2)
-
 Serbian Gameshow "Slagalica" made in C#.
 
 ## Class Groups:
