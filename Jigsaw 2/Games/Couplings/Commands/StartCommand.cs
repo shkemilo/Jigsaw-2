@@ -4,7 +4,7 @@ namespace Jigsaw_2.Games.Couplings
 {
     internal class StartCommand : ICommand
     {
-        private ICouplingsBehavior couplingsBehavior;
+        private readonly ICouplingsBehavior couplingsBehavior;
 
         public StartCommand(ICouplingsBehavior couplingsBehavior)
         {

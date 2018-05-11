@@ -7,8 +7,8 @@ namespace Jigsaw_2.Games.Couplings
 {
     internal class CouplingsControlerFactory
     {
-        public Grid grid;
-        private CouplingsEngine engine;
+        public readonly Grid grid;
+        private readonly CouplingsEngine engine;
 
         public CouplingsControlerFactory(Grid grid)
         {

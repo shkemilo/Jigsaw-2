@@ -92,7 +92,9 @@ namespace Jigsaw_2.Games.LetterOnLetter
             MessageDialogResult exitResult = await (Application.Current.MainWindow as MetroWindow)?.ShowMessageAsync("Jigsaw", "Are you sure you want to submit your current word?", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { NegativeButtonText = "No", AffirmativeButtonText = "Yes" });
 
             if (exitResult == MessageDialogResult.Affirmative)
+            {
                 GameOver();
+            }
         }
 
         public override void Grader()
@@ -102,7 +104,9 @@ namespace Jigsaw_2.Games.LetterOnLetter
                 score += answer.Length * 2;
 
                 if (answer.Length == engine.GetLongestWord().Length)
+                {
                     score += 6;
+                }
 
                 ScoreInterface.Instance.ScoreEngine.ChangePoints(score);
             }

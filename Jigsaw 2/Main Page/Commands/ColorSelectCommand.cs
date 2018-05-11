@@ -5,9 +5,9 @@ namespace Jigsaw_2.MainPage.Commands
 {
     internal class ColorSelectCommand : ICommand
     {
-        private IMainPageBehavior mainPageBehavior;
+        private readonly IMainPageBehavior mainPageBehavior;
 
-        private ComboBoxItem comboBoxItem;
+        private readonly ComboBoxItem comboBoxItem;
 
         public ColorSelectCommand(IMainPageBehavior mainPageBehavior, ComboBoxItem comboBoxItem)
         {

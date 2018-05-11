@@ -12,10 +12,10 @@ namespace Jigsaw_2.Games.Jumper
     {
         #region Private Fields
 
-        private List<JumperDisplayComposite> displays;
-        private List<JumperCheckerComposite> checkers;
+        private readonly List<JumperDisplayComposite> displays;
+        private readonly List<JumperCheckerComposite> checkers;
 
-        private int numberOfRows;
+        private readonly int numberOfRows;
         private int currentRow;
 
         #endregion Private Fields
@@ -45,7 +45,9 @@ namespace Jigsaw_2.Games.Jumper
         public void NextRow()
         {
             if (currentRow < numberOfRows - 1)
+            {
                 currentRow++;
+            }
         }
 
         public void SetActiveRowVisual()
@@ -80,11 +82,17 @@ namespace Jigsaw_2.Games.Jumper
         public override void Update<T>(T message)
         {
             if (message is BitmapImage || message == null)
+            {
                 displays[currentRow].Update(message);
+            }
             else if (message is string[])
+            {
                 checkers[currentRow].Update(message);
+            }
             else
-                throw new Exception("This function only accepts Images of Color arrays");
+            {
+                throw new ArgumentException("This function only accepts Images of Color arrays");
+            }
         }
 
         #endregion Public Override Methods

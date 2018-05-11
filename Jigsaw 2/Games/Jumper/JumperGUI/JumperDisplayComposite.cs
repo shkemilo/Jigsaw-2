@@ -15,7 +15,7 @@ namespace Jigsaw_2.Games.Jumper
 
         private List<JumperDisplayLeaf> elements;
 
-        private int numberOfElements;
+        private readonly int numberOfElements;
         private int currentElementIndex;
 
         #endregion Private Fields
@@ -44,13 +44,17 @@ namespace Jigsaw_2.Games.Jumper
         public void PreviousElement()
         {
             if (currentElementIndex >= 0)
+            {
                 currentElementIndex--;
+            }
         }
 
         public void NextElement()
         {
             if (currentElementIndex < numberOfElements - 1)
+            {
                 currentElementIndex++;
+            }
         }
 
         /// <summary> Returns the current element to be set. </summary>
@@ -62,16 +66,20 @@ namespace Jigsaw_2.Games.Jumper
         public void Disable()
         {
             foreach (JumperDisplayLeaf element in elements)
+            {
                 element.SetEnabled(false);
+            }
         }
 
         /// <summary> Return a field at specified index. Returns null if index doesnt exist. </summary>
         public JumperDisplayLeaf GetFieldAtIndex(int n)
         {
             if ((n < numberOfElements) && (n >= 0))
+            {
                 return elements[n];
+            }
 
-            throw new Exception("No such element exists.");
+            throw new IndexOutOfRangeException("No such element exists.");
         }
 
         #endregion Public Methods
@@ -82,16 +90,22 @@ namespace Jigsaw_2.Games.Jumper
         public override void Show()
         {
             foreach (JumperDisplayLeaf element in elements)
+            {
                 element.Show();
+            }
         }
 
         /// <summary> Updates the Image of the current element. </summary>
         public override void Update<T>(T message)
         {
             if (message is BitmapImage || message == null)
+            {
                 elements[currentElementIndex].Update(message);
+            }
             else
-                throw new Exception("This function only accepts BitmapImages");
+            {
+                throw new ArgumentException("This function only accepts BitmapImages");
+            }
         }
 
         #endregion Public Override Methods

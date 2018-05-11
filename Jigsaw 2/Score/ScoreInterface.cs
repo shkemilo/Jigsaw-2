@@ -1,10 +1,10 @@
-using Jigsaw_2.Games;
 using Jigsaw_2.Animators;
+using Jigsaw_2.Games;
 using Jigsaw_2.Helpers;
+using Jigsaw_2.MainPage;
 using System;
 using System.Windows.Controls;
 using System.Windows.Threading;
-using Jigsaw_2.MainPage;
 
 namespace Jigsaw_2.Score
 {
@@ -120,7 +120,9 @@ namespace Jigsaw_2.Score
         private void timeControlerTick(object sender, EventArgs e)
         {
             if (progressBar.Value != progressBar.Maximum)
+            {
                 progressBar.SetPercent(progressBar.Value + 1, timeControler.Interval);
+            }
             else
             {
                 stopCurrentGame();

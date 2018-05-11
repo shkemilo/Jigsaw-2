@@ -12,7 +12,7 @@ namespace Jigsaw_2.Games.Jumper
     {
         #region Private Fields
 
-        private int numberOfFields;
+        private readonly int numberOfFields;
         private int[] combination;
 
         private Random randomSeed;
@@ -59,6 +59,7 @@ namespace Jigsaw_2.Games.Jumper
             int yellowCount = 0;
 
             for (int i = 0; i < numberOfFields; i++)
+            {
                 if (tempCombination[i] == answer[i])
                 {
                     greenCount++;
@@ -66,14 +67,17 @@ namespace Jigsaw_2.Games.Jumper
                     tempCombination[i] = -1;
                     tempAnswer.Remove(answer[i]);
                 }
+            }
 
             foreach (int a in tempAnswer)
+            {
                 if (tempCombination.Contains(a))
                 {
                     yellowCount++;
 
                     tempCombination[tempCombination.IndexOf(a)] = -1;
                 }
+            }
 
             addColors(ref tempList, greenCount, "Green");
             addColors(ref tempList, yellowCount, "Yellow");
@@ -88,11 +92,13 @@ namespace Jigsaw_2.Games.Jumper
             bool goodAnswer = true;
 
             for (int i = 0; i < answer.Length; i++)
+            {
                 if (combination[i] != answer[i])
                 {
                     goodAnswer = false;
                     break;
                 }
+            }
 
             return goodAnswer;
         }
@@ -105,16 +111,20 @@ namespace Jigsaw_2.Games.Jumper
         private void generateCombination()
         {
             for (int i = 0; i < numberOfFields; i++)
+            {
                 combination[i] = randomSeed.Next(1, 7);
+            }
         }
 
         /// <summary> Helper function. Adds a specified color to a list n times. </summary>
-        private void addColors(ref List<string> list, int n, string c)
+        private static void addColors(ref List<string> list, int n, string c)
         {
             int currentListLength = list.Count;
 
             for (int i = currentListLength; i < n + currentListLength; i++)
+            {
                 list.Add(c);
+            }
         }
 
         #endregion Private Methods

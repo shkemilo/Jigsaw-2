@@ -5,9 +5,9 @@ namespace Jigsaw_2.MainPage.Commands
 {
     internal class SettingsCommand : ICommand
     {
-        private IMainPageBehavior mainPageBehavior;
+        private readonly IMainPageBehavior mainPageBehavior;
 
-        private Button settingsButton;
+        private readonly Button settingsButton;
 
         public SettingsCommand(IMainPageBehavior mainPageBehavior, Button settingsButton)
         {

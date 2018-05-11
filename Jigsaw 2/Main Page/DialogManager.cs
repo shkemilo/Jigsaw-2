@@ -2,6 +2,7 @@
 using Jigsaw_2.Helpers;
 using Jigsaw_2.Score;
 using MahApps.Metro.Controls.Dialogs;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -60,18 +61,20 @@ namespace Jigsaw_2.MainPage
 
         #region Async
 
-        public async void ShowInstructions(string gameName)
+        public async Task ShowInstructions(string gameName)
         {
             await main.ShowMessageAsync("Instructions", instructionFactory.GetInstructions(gameName));
         }
 
         /// <summary> Gets the users interface </summary>
-        public async void SetUsername(string message = "Enter your username: ")
+        public async Task SetUsername(string message = "Enter your username: ")
         {
             string result = await main.ShowInputAsync("Jigsaw", message);
 
             if (result == null)
-                exitDialog();
+            {
+                await exitDialog();
+            }
             else
             {
                 result = result.Trim();
@@ -79,7 +82,7 @@ namespace Jigsaw_2.MainPage
                 if (badInput(result) != string.Empty)
                 {
                     message = badInput(result);
-                    SetUsername(message);
+                    await SetUsername(message);
                 }
                 else
                 {
@@ -90,25 +93,31 @@ namespace Jigsaw_2.MainPage
         }
 
         /// <summary> Set of commands to be run when there are no games left. </summary>
-        public async void TheEnd()
+        public async Task TheEnd()
         {
-            MessageDialogResult exitResult = await main.ShowMessageAsync("Jigsaw", "Your score is: " + ScoreInterface.Instance.ScoreEngine.Score + "\n Play Again?", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { NegativeButtonText = "No", AffirmativeButtonText = "Yes" });
+            MessageDialogResult exitResult = await main.ShowMessageAsync("Jigsaw", "Your score is: " + ScoreInterface.Instance.ScoreEngine.Score + "\n Play Again?", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings { NegativeButtonText = "No", AffirmativeButtonText = "Yes" });
 
             if (exitResult == MessageDialogResult.Affirmative)
+            {
                 System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            }
 
             Application.Current.Shutdown();
         }
 
         /// <summary> Asks the user if he wants to exit the application. </summary>
-        private async void exitDialog()
+        private async Task exitDialog()
         {
-            MessageDialogResult exitResult = await main.ShowMessageAsync("Jigsaw", "Do you want to exit the game?", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { NegativeButtonText = "No", AffirmativeButtonText = "Yes" });
+            MessageDialogResult exitResult = await main.ShowMessageAsync("Jigsaw", "Do you want to exit the game?", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings { NegativeButtonText = "No", AffirmativeButtonText = "Yes" });
 
             if (exitResult == MessageDialogResult.Affirmative)
+            {
                 Application.Current.Shutdown();
+            }
             else
-                SetUsername();
+            {
+                await SetUsername();
+            }
         }
 
         #endregion Async
@@ -121,9 +130,13 @@ namespace Jigsaw_2.MainPage
             string message = string.Empty;
 
             if (input == string.Empty)
+            {
                 message = "Username mustn't be blank. Try again.";
+            }
             else if (input.Length > 16)
+            {
                 message = "Username too long. Try again";
+            }
 
             return message;
         }
@@ -132,12 +145,16 @@ namespace Jigsaw_2.MainPage
         private void setCurrentUser()
         {
             foreach (TextBlock tb in Finder.FindVisualChildren<TextBlock>(main))
+            {
                 if (tb.Tag != null)
+                {
                     if (tb.Tag.ToString() == "CurrentUser")
                     {
                         tb.Text = username;
                         break;
                     }
+                }
+            }
         }
 
         #endregion Private Methods

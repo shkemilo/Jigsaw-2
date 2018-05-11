@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Jigsaw_2.Games.LetterOnLetter
 {
@@ -14,6 +15,6 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
         void Start();
 
-        void Confirm();
+        Task Confirm();
     }
 }

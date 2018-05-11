@@ -5,11 +5,11 @@ namespace Jigsaw_2.MainPage.Commands
 {
     internal class StartCurrentGameCommand : ICommand
     {
-        private IMainPageBehavior mainPageBehavior;
+        private readonly IMainPageBehavior mainPageBehavior;
 
-        private Button startButton;
+        private readonly Button startButton;
 
-        private Frame mainFrame;
+        private readonly Frame mainFrame;
 
         public StartCurrentGameCommand(IMainPageBehavior mainPageBehavior, Frame mainFrame, Button startButton)
         {

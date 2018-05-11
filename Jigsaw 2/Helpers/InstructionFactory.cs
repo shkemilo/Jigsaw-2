@@ -1,6 +1,5 @@
 ﻿using Jigsaw_2.Abstracts;
 using Jigsaw_2.Games;
-using System;
 using System.Collections.Generic;
 
 namespace Jigsaw_2.Helpers
@@ -21,12 +20,16 @@ namespace Jigsaw_2.Helpers
 
         public override string GetInstructions(string game)
         {
-            game = game.ToLower();
+            game = game.ToLowerInvariant();
 
             if (instructions.ContainsKey(game))
+            {
                 return instructions[game];
+            }
             else
+            {
                 return null;
+            }
         }
 
         public override GamePage GetGame(string game)

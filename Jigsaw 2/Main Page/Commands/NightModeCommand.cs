@@ -4,7 +4,7 @@ namespace Jigsaw_2.MainPage.Commands
 {
     internal class NightModeCommand : ICommand
     {
-        private IMainPageBehavior mainPageBehavior;
+        private readonly IMainPageBehavior mainPageBehavior;
 
         public NightModeCommand(IMainPageBehavior mainPageBehavior)
         {

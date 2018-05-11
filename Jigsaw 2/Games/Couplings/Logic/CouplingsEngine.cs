@@ -102,7 +102,9 @@ namespace Jigsaw_2.Games.Couplings
         private void setOffset(List<string> original, List<string> shuffled)
         {
             for (int i = 0; i < numberOfFields; i++)
+            {
                 offset[i] = shuffled.IndexOf(original[i]) - i;
+            }
         }
 
         /// <summary> Converts a dictionary to 2 arrays, one containing the keys, and other the values. </summary>
@@ -122,7 +124,9 @@ namespace Jigsaw_2.Games.Couplings
             Tuple<string, string>[] temp = new Tuple<string, string>[numberOfFields];
 
             for (int i = 0; i < numberOfFields; i++) // Organizes the keys and values into tuples
+            {
                 temp[i] = new Tuple<string, string>(array1[i], array2[i]);
+            }
 
             return temp;
         }

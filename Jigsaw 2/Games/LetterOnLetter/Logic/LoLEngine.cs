@@ -11,10 +11,10 @@ namespace Jigsaw_2.Games.LetterOnLetter
     {
         #region Private Fields
 
-        private WordList words;
+        private readonly WordList words;
 
         private readonly int numberOfFields;
-        private string word;
+        private readonly string word;
         private char[] letters;
 
         #endregion Private Fields
@@ -85,5 +85,5 @@ namespace Jigsaw_2.Games.LetterOnLetter
         }
 
         #endregion Private Methods
-        }
+    }
 }

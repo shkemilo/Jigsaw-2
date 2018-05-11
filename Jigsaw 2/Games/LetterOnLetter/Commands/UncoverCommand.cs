@@ -24,5 +24,10 @@ namespace Jigsaw_2.Games.LetterOnLetter.Commands
         {
             count++;
         }
+
+        public static int GetCount()
+        {
+            return count;
+        }
     }
 }

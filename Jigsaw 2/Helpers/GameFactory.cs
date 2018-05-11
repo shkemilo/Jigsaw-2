@@ -4,7 +4,6 @@ using Jigsaw_2.Games.Couplings;
 using Jigsaw_2.Games.Jumper;
 using Jigsaw_2.Games.LetterOnLetter;
 using Jigsaw_2.Games.WhoKnowsKnows;
-using System;
 
 namespace Jigsaw_2.Helpers
 {

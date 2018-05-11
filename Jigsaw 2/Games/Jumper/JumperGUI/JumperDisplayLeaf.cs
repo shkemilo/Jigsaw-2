@@ -56,12 +56,18 @@ namespace Jigsaw_2.Games.Jumper
         /// <summary> Updates the image the element will show. </summary>
         public override void Update<T>(T message)
         {
-            if (message == null)
+            if (Equals(message, default(T)))
+            {
                 source = null;
+            }
             else if (message is BitmapImage)
+            {
                 source = message as BitmapImage;
+            }
             else
-                throw new Exception("This function only accepts BitmapImages");
+            {
+                throw new ArgumentException("This function only accepts BitmapImages");
+            }
         }
 
         #endregion Public Override Methods

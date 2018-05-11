@@ -10,7 +10,7 @@ namespace Jigsaw_2.Helpers
     {
         #region Public Static Fields
 
-        private static ResourceDictionary resources;
+        private static readonly ResourceDictionary resources;
 
         #endregion Public Static Fields
 
@@ -18,7 +18,7 @@ namespace Jigsaw_2.Helpers
 
         static ResourceDictionaryManager()
         {
-            resources = new ResourceDictionary()
+            resources = new ResourceDictionary
             {
                 Source = new Uri("Resources\\Icons.xaml", UriKind.Relative)
             };

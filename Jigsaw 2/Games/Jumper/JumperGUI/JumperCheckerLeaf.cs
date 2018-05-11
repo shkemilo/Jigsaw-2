@@ -43,9 +43,13 @@ namespace Jigsaw_2.Games.Jumper
         public override void Update<T>(T message)
         {
             if (message is string)
+            {
                 color = new BrushConverter().ConvertFromString(message as string) as SolidColorBrush;
+            }
             else
-                throw new Exception("This function only accepts Colors");
+            {
+                throw new ArgumentException("This function only accepts Colors");
+            }
         }
 
         #endregion Public Override Methods

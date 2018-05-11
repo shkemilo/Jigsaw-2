@@ -97,7 +97,7 @@ namespace Jigsaw_2.Games.Couplings
             display.Print();
         }
 
-        private SolidColorBrush boolToColor(bool correct)
+        private static SolidColorBrush boolToColor(bool correct)
         {
             if (correct)
             {

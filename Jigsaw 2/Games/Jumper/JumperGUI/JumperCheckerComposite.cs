@@ -11,9 +11,9 @@ namespace Jigsaw_2.Games.Jumper
     {
         #region Private Fields
 
-        private List<JumperCheckerLeaf> elements;
+        private readonly List<JumperCheckerLeaf> elements;
 
-        private int numberOfElements;
+        private readonly int numberOfElements;
 
         #endregion Private Fields
 
@@ -34,7 +34,9 @@ namespace Jigsaw_2.Games.Jumper
         {
             string[] activeColors = new string[numberOfElements];
             for (int i = 0; i < numberOfElements; i++)
+            {
                 activeColors[i] = "White";
+            }
 
             Update(activeColors);
         }
@@ -47,7 +49,9 @@ namespace Jigsaw_2.Games.Jumper
         public override void Show()
         {
             foreach (JumperCheckerLeaf element in elements)
+            {
                 element.Show();
+            }
         }
 
         /// <summary> Set the colors of every element in the component. </summary>
@@ -58,10 +62,14 @@ namespace Jigsaw_2.Games.Jumper
                 string[] colorArray = message as string[];
 
                 for (int i = 0; i < numberOfElements; i++)
+                {
                     elements[i].Update(colorArray[i]);
+                }
             }
             else
-                throw new Exception("This function only accepts Brush arrays");
+            {
+                throw new ArgumentException("This function only accepts Brush arrays");
+            }
         }
 
         #endregion Public Override Methods

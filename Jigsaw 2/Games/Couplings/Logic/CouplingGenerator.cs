@@ -10,7 +10,7 @@ namespace Jigsaw_2.Games.Couplings
     {
         #region Private Fields
 
-        private Dictionary<string, string> couplings;
+        private readonly Dictionary<string, string> couplings;
         private string couplingText;
 
         #endregion Private Fields

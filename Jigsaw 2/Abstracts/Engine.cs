@@ -15,7 +15,7 @@ namespace Jigsaw_2.Abstracts
 
         #region Constructors
 
-        public Engine()
+        protected Engine()
         {
             observers = new List<IObserver>();
         }
@@ -37,7 +37,9 @@ namespace Jigsaw_2.Abstracts
         public void Broadcast<T>(T message)
         {
             foreach (IObserver o in observers)
+            {
                 o.Update(message);
+            }
         }
 
         #endregion Public Methods

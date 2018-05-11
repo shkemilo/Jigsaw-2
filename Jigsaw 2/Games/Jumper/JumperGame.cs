@@ -23,7 +23,7 @@ namespace Jigsaw_2.Games.Jumper
         private JumperEngine engine;
         private JumperDisplay mainDisp;
         private Button nextRowButton;
-        private int numberOfRows;
+        private readonly int numberOfRows;
         private List<Control> userControls;
 
         #endregion Private Fields
@@ -81,7 +81,9 @@ namespace Jigsaw_2.Games.Jumper
         public override void Grader()
         {
             if (engine.Check(answer))
+            {
                 ScoreInterface.Instance.ScoreEngine.ChangePoints((numberOfRows - mainDisp.CurrentRow) * 5);
+            }
         }
 
         #endregion Public Override Methods
@@ -103,7 +105,9 @@ namespace Jigsaw_2.Games.Jumper
             }
 
             if (mainDisp.GetCurrentRow().CurrentElementIndex == 3)
+            {
                 nextRowButton.IsEnabled = true;
+            }
         }
 
         /// <summary> Changes to the next row. </summary>
@@ -117,7 +121,9 @@ namespace Jigsaw_2.Games.Jumper
             nextRowButton.IsEnabled = false;
 
             if (engine.Check(answer) || (mainDisp.CurrentRow == (numberOfRows - 1)))
+            {
                 GameOver();
+            }
             else
             {
                 answer = new int[] { 0, 0, 0, 0 };
@@ -172,14 +178,18 @@ namespace Jigsaw_2.Games.Jumper
         private void disableField()
         {
             if (mainDisp.GetCurrentRow().CurrentElementIndex != -1)
+            {
                 mainDisp.GetActiveElement().GetField().Click -= undo;
+            }
         }
 
         /// <summary> Enables the current field. </summary>
         private void enableField()
         {
             if (mainDisp.GetCurrentRow().CurrentElementIndex != -1)
+            {
                 mainDisp.GetActiveElement().GetField().Click += undo;
+            }
         }
 
         /// <summary> Sets a JumperCheckerComponent by its tag. </summary>
@@ -188,9 +198,15 @@ namespace Jigsaw_2.Games.Jumper
             List<JumperCheckerLeaf> temp = new List<JumperCheckerLeaf>();
 
             foreach (Ellipse e in Finder.FindVisualChildren<Ellipse>(gameGrid))
+            {
                 if (e.Tag != null)
+                {
                     if (e.Tag.ToString() == tag)
+                    {
                         temp.Add(new JumperCheckerLeaf(e));
+                    }
+                }
+            }
 
             return new JumperCheckerComposite(temp);
         }
@@ -201,7 +217,9 @@ namespace Jigsaw_2.Games.Jumper
             List<JumperDisplayLeaf> temp = new List<JumperDisplayLeaf>();
 
             foreach (Control c in Finder.FindElementsWithTag(allControls, tag))
+            {
                 temp.Add(new JumperDisplayLeaf(c as Button));
+            }
 
             return new JumperDisplayComposite(temp);
         }
@@ -213,7 +231,9 @@ namespace Jigsaw_2.Games.Jumper
             List<JumperDisplayLeaf> elementHolder = new List<JumperDisplayLeaf>();
 
             foreach (Control c in tempElements)
+            {
                 elementHolder.Add(new JumperDisplayLeaf(c as Button));
+            }
 
             correctCombinationDisplay = new JumperDisplayComposite(elementHolder);
         }
@@ -237,7 +257,9 @@ namespace Jigsaw_2.Games.Jumper
         private void setUserControlsEnabled(bool b)
         {
             foreach (Control c in userControls)
+            {
                 c.IsEnabled = b;
+            }
         }
 
         /// <summary> Shows the correct combination. </summary>

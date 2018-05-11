@@ -16,10 +16,10 @@ namespace Jigsaw_2.Animators
         private double oldValue;
 
         private NavigatingCancelEventArgs navArgs;
-        private Duration duration;
+        private readonly Duration duration;
 
-        private Frame mainFrame;
-        private DependencyProperty property;
+        private readonly Frame mainFrame;
+        private readonly DependencyProperty property;
 
         #endregion Private Fields
 
@@ -70,9 +70,13 @@ namespace Jigsaw_2.Animators
             {
                 case NavigationMode.New:
                     if (navArgs.Uri == null)
+                    {
                         mainFrame.Navigate(navArgs.Content);
+                    }
                     else
+                    {
                         mainFrame.Navigate(navArgs.Uri);
+                    }
                     break;
 
                 case NavigationMode.Back:
@@ -88,7 +92,7 @@ namespace Jigsaw_2.Animators
                     break;
 
                 default:
-                    break;
+                    throw new NotSupportedException();
             }
 
             Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Loaded,

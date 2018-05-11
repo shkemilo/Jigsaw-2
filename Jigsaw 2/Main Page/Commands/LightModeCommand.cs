@@ -4,7 +4,7 @@ namespace Jigsaw_2.MainPage.Commands
 {
     internal class LightModeCommand : ICommand
     {
-        private IMainPageBehavior mainPageBehavior;
+        private readonly IMainPageBehavior mainPageBehavior;
 
         public LightModeCommand(IMainPageBehavior mainPageBehavior)
         {

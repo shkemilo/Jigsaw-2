@@ -49,9 +49,13 @@ namespace Jigsaw_2.Games.Couplings
         public void Update<T>(T message)
         {
             if (message is SolidColorBrush)
+            {
                 setColor(message as SolidColorBrush);
+            }
             else
-                throw new Exception("Invalid function call.");
+            {
+                throw new ArgumentException("Invalid function call.");
+            }
         }
 
         private void setColor(SolidColorBrush message)

@@ -1,7 +1,6 @@
 ﻿using Jigsaw_2.Abstracts;
 using Jigsaw_2.Games.LetterOnLetter.Commands;
 using Jigsaw_2.Helpers;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -32,7 +31,6 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
             numberOfFields = 12;
 
-            List<IAnimatableGUI> tempList = new List<IAnimatableGUI>();
             foreach (Button b in Finder.FindVisualChildrenWithTag<Button>(LetterOnLetterGrid, "CharacterDisplayButton"))
             {
                 b.Click += selectHandler;
@@ -87,7 +85,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
         {
             commandManager.ExecuteCommand(uncoverCommand);
 
-            if (UncoverCommand.Count == numberOfFields)
+            if (UncoverCommand.GetCount() == numberOfFields)
             {
                 start();
             }

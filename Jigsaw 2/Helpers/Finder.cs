@@ -32,9 +32,15 @@ namespace Jigsaw_2.Helpers
         public static Control FindElementWithTag(string tag)
         {
             foreach (Control c in allControls)
+            {
                 if (c.Tag != null)
+                {
                     if (c.Tag.ToString() == tag)
+                    {
                         return c;
+                    }
+                }
+            }
 
             return null;
         }
@@ -43,9 +49,15 @@ namespace Jigsaw_2.Helpers
         public static Control FindElementWithTag(List<Control> targetList, string tag)
         {
             foreach (Control c in targetList)
+            {
                 if (c.Tag != null)
+                {
                     if (c.Tag.ToString() == tag)
+                    {
                         return c;
+                    }
+                }
+            }
 
             return null;
         }
@@ -56,14 +68,24 @@ namespace Jigsaw_2.Helpers
             List<Control> tList = new List<Control>();
 
             foreach (Control c in allControls)
+            {
                 if (c.Tag != null)
+                {
                     if (c.Tag.ToString() == tag)
+                    {
                         tList.Add(c);
+                    }
+                }
+            }
 
             if (tList.Count == 0)
+            {
                 return null;
+            }
             else
+            {
                 return tList;
+            }
         }
 
         /// <summary> Finds and returns a collection of Controls in a specified collection with the same tag. Returns null if not found. </summary>
@@ -72,14 +94,24 @@ namespace Jigsaw_2.Helpers
             List<Control> tList = new List<Control>();
 
             foreach (Control c in targetList)
+            {
                 if (c.Tag != null)
+                {
                     if (c.Tag.ToString() == tag)
+                    {
                         tList.Add(c);
+                    }
+                }
+            }
 
             if (tList.Count == 0)
+            {
                 return null;
+            }
             else
+            {
                 return tList;
+            }
         }
 
         /// <summary> Finds and returns a list of all visual children of an object. </summary>
@@ -110,7 +142,9 @@ namespace Jigsaw_2.Helpers
             foreach (T element in FindVisualChildren<T>(depObj))
             {
                 if (element.Tag?.ToString() == tag)
+                {
                     tempList.Add(element);
+                }
             }
 
             return tempList;
@@ -121,7 +155,9 @@ namespace Jigsaw_2.Helpers
             foreach (T element in FindVisualChildren<T>(depObj))
             {
                 if (element.Tag?.ToString() == tag)
+                {
                     return element;
+                }
             }
 
             return null;
