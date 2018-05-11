@@ -20,11 +20,11 @@ namespace Jigsaw_2.Helpers
 
         public override string GetInstructions(string game)
         {
-            game = game.ToLowerInvariant();
+            string lowerGame = game.ToLowerInvariant();
 
-            if (instructions.ContainsKey(game))
+            if (instructions.ContainsKey(lowerGame))
             {
-                return instructions[game];
+                return instructions[lowerGame];
             }
             else
             {

@@ -36,8 +36,6 @@ namespace Jigsaw_2
 
             InitializeComponent();
 
-            Thread.Sleep(2000); // prevents random bugs when reseting the application
-
             Finder.SetAllControls(Finder.FindVisualChildren<Control>(MainWindowGrid).ToList());
 
             DialogManager.Instance.SetUsername();

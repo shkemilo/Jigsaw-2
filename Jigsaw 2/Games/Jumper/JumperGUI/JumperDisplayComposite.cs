@@ -79,7 +79,7 @@ namespace Jigsaw_2.Games.Jumper
                 return elements[n];
             }
 
-            throw new IndexOutOfRangeException("No such element exists.");
+            throw new MemberAccessException("No such element exists.");
         }
 
         #endregion Public Methods

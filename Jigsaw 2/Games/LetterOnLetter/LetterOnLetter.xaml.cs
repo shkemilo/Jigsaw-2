@@ -42,6 +42,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
 
             commandManager = new CommandManager();
             feedbackCommand = new FeedbackCommand(lolGameBehavior);
+            UncoverCommand.ResetCount();
             uncoverCommand = new UncoverCommand(lolGameBehavior);
             startCommand = new StartCommand(lolGameBehavior);
             confirmCommand = new ConfirmCommand(lolGameBehavior);

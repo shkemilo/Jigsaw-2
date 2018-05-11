@@ -4,7 +4,7 @@ namespace Jigsaw_2.Games.LetterOnLetter.Commands
 {
     internal class UncoverCommand : ICommand
     {
-        private static int count = 0;
+        private static int count;
 
         private readonly ILoLGameBehavior lolGameBehavior;
 
@@ -28,6 +28,11 @@ namespace Jigsaw_2.Games.LetterOnLetter.Commands
         public static int GetCount()
         {
             return count;
+        }
+
+        public static void ResetCount()
+        {
+            count = 0;
         }
     }
 }

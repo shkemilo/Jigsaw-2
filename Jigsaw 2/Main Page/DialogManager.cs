@@ -73,7 +73,7 @@ namespace Jigsaw_2.MainPage
 
             if (result == null)
             {
-                await exitDialog();
+                await exitDialog().ConfigureAwait(false);
             }
             else
             {
@@ -82,7 +82,7 @@ namespace Jigsaw_2.MainPage
                 if (badInput(result) != string.Empty)
                 {
                     message = badInput(result);
-                    await SetUsername(message);
+                    await SetUsername(message).ConfigureAwait(false); ;
                 }
                 else
                 {
@@ -116,7 +116,7 @@ namespace Jigsaw_2.MainPage
             }
             else
             {
-                await SetUsername();
+                await SetUsername().ConfigureAwait(false);
             }
         }
 
