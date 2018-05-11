@@ -86,6 +86,9 @@ namespace Jigsaw_2.Animators
                 case NavigationMode.Refresh:
                     mainFrame.Refresh();
                     break;
+
+                default:
+                    break;
             }
 
             Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Loaded,

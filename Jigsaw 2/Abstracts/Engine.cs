@@ -9,7 +9,7 @@ namespace Jigsaw_2.Abstracts
     {
         #region Private Fields
 
-        private List<IObserver> observers;
+        private readonly List<IObserver> observers;
 
         #endregion Private Fields
 

@@ -71,17 +71,19 @@ namespace Jigsaw_2.Games.LetterOnLetter
             for (int i = 0; i < words.Length; i++)
                 word += words[i];*/
 
-            Random rnd = new Random(Guid.NewGuid().GetHashCode());
+            /*Random rnd = new Random(Guid.NewGuid().GetHashCode());
             for (int i = word.Length; i < numberOfFields; i++)
                 word += (char)('A' + rnd.Next(0, 26));
 
+            new Random().Shuffle(wordArray);*/
+
             char[] wordArray = word.ToCharArray();
 
-            new Random().Shuffle(wordArray);
+            new Random(Guid.NewGuid().GetHashCode()).Shuffle(wordArray);
 
             letters = wordArray;
         }
 
         #endregion Private Methods
-    }
+        }
 }

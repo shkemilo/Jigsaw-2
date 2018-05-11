@@ -22,11 +22,12 @@ namespace Jigsaw_2.Games.Couplings
             couplings = new Dictionary<string, string>();
 
             setCouplings();
-
+#if DEBUG
             foreach (KeyValuePair<string, string> kvp in couplings)
             {
                 Console.WriteLine(kvp.ToString());
             }
+#endif
         }
 
         #endregion Constructors

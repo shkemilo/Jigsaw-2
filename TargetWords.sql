@@ -1,1 +1,0 @@
-﻿SELECT * FROM Words WHERE LEN(word) = 12;

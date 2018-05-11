@@ -4,6 +4,7 @@ using Jigsaw_2.MainPage;
 using Jigsaw_2.Score;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -86,7 +87,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
             mainDisplay.Next();
         }
 
-        public async void Confirm()
+        public async Task Confirm()
         {
             MessageDialogResult exitResult = await (Application.Current.MainWindow as MetroWindow)?.ShowMessageAsync("Jigsaw", "Are you sure you want to submit your current word?", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { NegativeButtonText = "No", AffirmativeButtonText = "Yes" });
 

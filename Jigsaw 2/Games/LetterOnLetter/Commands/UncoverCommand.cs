@@ -4,23 +4,24 @@ namespace Jigsaw_2.Games.LetterOnLetter.Commands
 {
     internal class UncoverCommand : ICommand
     {
-        private static int count;
+        private static int count = 0;
 
         private readonly ILoLGameBehavior lolGameBehavior;
 
         public UncoverCommand(ILoLGameBehavior lolGameBehavior)
         {
             this.lolGameBehavior = lolGameBehavior;
-
-            count = 0;
         }
-
-        public static int Count { get => count; }
 
         public void Execute()
         {
             lolGameBehavior.Uncover();
 
+            addCount();
+        }
+
+        private static void addCount()
+        {
             count++;
         }
     }
