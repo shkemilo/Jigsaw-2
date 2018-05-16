@@ -8,9 +8,9 @@ namespace Jigsaw_2.Games.WhoKnowsKnows
         private readonly string questionText;
         private readonly int correctIndex;
 
-        public Question(List<string> answers, string questionText, int correctIndex)
+        public Question(IEnumerable<string> answers, string questionText, int correctIndex)
         {
-            this.answers = answers;
+            this.answers = new List<string>(answers);
             this.questionText = questionText;
             this.correctIndex = correctIndex;
         }

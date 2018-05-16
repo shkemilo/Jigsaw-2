@@ -6,7 +6,7 @@ namespace Jigsaw_2.Games.WhoKnowsKnows
     {
         private IWKKBehavior wkkBehavior;
 
-        private string answer;
+        private readonly string answer;
 
         public SubmitCommand(IWKKBehavior wkkBehavior, string answer)
         {

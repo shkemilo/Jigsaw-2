@@ -12,6 +12,8 @@ namespace Jigsaw_2.Games.WhoKnowsKnows
     {
         private readonly IWKKBehavior wkkBehavior;
 
+        private readonly ICommand startCommand;
+
         public WhoKnowsKnows()
         {
             InitializeComponent();
@@ -24,6 +26,8 @@ namespace Jigsaw_2.Games.WhoKnowsKnows
             wkkBehavior = new WKKControlerFactory(WKKGrid).GetControler();
 
             SetGame(wkkBehavior as Game);
+
+            startCommand = new StartCommand(wkkBehavior);
         }
 
         private void submitHandler(object sender, RoutedEventArgs e)
@@ -34,6 +38,13 @@ namespace Jigsaw_2.Games.WhoKnowsKnows
         private void nextHandler(object sender, RoutedEventArgs e)
         {
             new SubmitCommand(wkkBehavior, string.Empty).Execute();
+        }
+
+        private void startHandler(object sender, RoutedEventArgs e)
+        {
+            startCommand.Execute();
+
+            (sender as Button).IsEnabled = false;
         }
     }
 }

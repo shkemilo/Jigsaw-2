@@ -1,0 +1,46 @@
+﻿<gamePage:GamePage
+    xmlns:gamePage="clr-namespace:Jigsaw_2.Games" x:Class="Jigsaw_2.Games.Associations.Associations"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Jigsaw_2.Games.Associations"
+      mc:Ignorable="d"
+      d:DesignHeight="750" d:DesignWidth="1210"
+      Title="Association">
+
+    <gamePage:GamePage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </gamePage:GamePage.Resources>
+
+    <Grid Name="grid">
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="130,40,0,0" VerticalAlignment="Top" Width="150" Tag="A" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="170,95,0,0" VerticalAlignment="Top" Width="150" Tag="A" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="210,150,0,0" VerticalAlignment="Top" Width="150" Tag="A" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,205,0,0" VerticalAlignment="Top" Width="150" Tag="A" />
+        <Button Content="" HorizontalAlignment="Left" Height="70" Margin="290,260,0,0" VerticalAlignment="Top" Width="200" Tag="A" Click="guessHandler" />
+        <Button Content="Kocano" HorizontalAlignment="Left" Height="80" Margin="490,335,0,0" VerticalAlignment="Top" Width="250" Click="guessHandler" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="872,150,0,0" VerticalAlignment="Top" Width="150" Tag="B" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="832,205,0,0" VerticalAlignment="Top" Width="150" Tag="B" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="952,40,0,0" VerticalAlignment="Top" Width="150" Tag="B" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="912,95,0,0" VerticalAlignment="Top" Width="150" Tag="B" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="130,660,0,0" VerticalAlignment="Top" Width="150" Tag="C" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="170,605,0,0" VerticalAlignment="Top" Width="150" Tag="C" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="210,550,0,0" VerticalAlignment="Top" Width="150" Tag="C" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,495,0,0" VerticalAlignment="Top" Width="150" Tag="C" />
+        <Button Content="" HorizontalAlignment="Left" Height="70" Margin="290,420,0,0" VerticalAlignment="Top" Width="200" Tag="C" Click="guessHandler" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="952,660,0,0" VerticalAlignment="Top" Width="150" Tag="D" />
+        <Button Content="" HorizontalAlignment="Left" Height="70" Margin="743,260,0,0" VerticalAlignment="Top" Width="200" Tag="B" Click="guessHandler" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="912,605,0,0" VerticalAlignment="Top" Width="150" Tag="D" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="872,550,0,0" VerticalAlignment="Top" Width="150" Tag="D" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="832,495,0,0" VerticalAlignment="Top" Width="150" Tag="D" />
+        <Button Content="" HorizontalAlignment="Left" Height="70" Margin="743,420,0,0" VerticalAlignment="Top" Width="200" Tag="D" Click="guessHandler" />
+        <TextBlock HorizontalAlignment="Left" Height="52" Margin="456,22,0,0" TextWrapping="Wrap" Text="Associations Game" VerticalAlignment="Top" Width="260" FontSize="30" />
+        <Image HorizontalAlignment="Left" Height="64" Margin="722,10,0,0" VerticalAlignment="Top" Width="64" Source="/Jigsaw 2;component/Resources/Graphics/Jumper/Logo64.png" />
+        <Button Content="Quit" HorizontalAlignment="Left" Height="50" Margin="542,95,0,0" VerticalAlignment="Top" Width="150" Tag="" Click="quitHandler" />
+    </Grid>
+</gamePage:GamePage>

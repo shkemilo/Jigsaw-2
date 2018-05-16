@@ -4,6 +4,7 @@ using Jigsaw_2.Games.Couplings;
 using Jigsaw_2.Games.Jumper;
 using Jigsaw_2.Games.LetterOnLetter;
 using Jigsaw_2.Games.WhoKnowsKnows;
+using Jigsaw_2.Games.Associations;
 
 namespace Jigsaw_2.Helpers
 {
@@ -34,6 +35,10 @@ namespace Jigsaw_2.Helpers
             else if (game == "whoknowsknows")
             {
                 return new WhoKnowsKnows();
+            }
+            else if(game == "associations")
+            {
+                return new Associations();
             }
             else
             {

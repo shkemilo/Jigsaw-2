@@ -41,16 +41,18 @@ namespace Jigsaw_2.MainPage
 
             gameFactory = FactoryProducer.GetFactory("game");
 
-            games.Enqueue("letteronletter");
-            games.Enqueue("letteronletter");
+            /*games.Enqueue("letteronletter");
+            games.Enqueue("letteronletter");*/
 
             /*games.Enqueue("jumper");
-            games.Enqueue("jumper");
+            games.Enqueue("jumper"); */
 
-            games.Enqueue("couplings");
-            games.Enqueue("couplings");
+            //games.Enqueue("couplings");
+            //games.Enqueue("couplings");
 
-            //games.Enqueue("whoknowsknows");*/
+            //games.Enqueue("whoknowsknows");
+
+            games.Enqueue("associations");
 
             gameChanger = Finder.FindElementWithTag("GameChanger");
 

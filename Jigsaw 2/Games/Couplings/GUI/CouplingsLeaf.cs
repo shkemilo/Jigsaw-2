@@ -9,7 +9,7 @@ namespace Jigsaw_2.Games.Couplings
     {
         public static readonly SolidColorBrush RightColor = Brushes.DarkGreen;
         public static readonly SolidColorBrush WrongColor = Brushes.DarkRed;
-        public static readonly SolidColorBrush DefaultColor = Brushes.Gray;
+        public static readonly SolidColorBrush DefaultColor = Brushes.Transparent;
 
         private Button match;
 

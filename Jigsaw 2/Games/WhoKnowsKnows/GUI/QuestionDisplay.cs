@@ -9,7 +9,7 @@ namespace Jigsaw_2.Games.WhoKnowsKnows
     {
         private static readonly SolidColorBrush rightColor = Brushes.DarkGreen;
         private static readonly SolidColorBrush wrongColor = Brushes.DarkRed;
-        private static readonly SolidColorBrush defaultColor = Brushes.Gray;
+        private static readonly SolidColorBrush defaultColor = Brushes.Transparent;
 
         private Button questionField;
 

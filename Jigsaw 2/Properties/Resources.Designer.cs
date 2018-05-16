@@ -61,6 +61,15 @@ namespace Jigsaw_2.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream BackGroundMusic {
+            get {
+                return ResourceManager.GetStream("BackGroundMusic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Spojite lekove sa grupom kojoj pripadaju.
         ///morfijum 
         ///analgetik
@@ -105,6 +114,15 @@ namespace Jigsaw_2.Properties {
         internal static string CouplingsList {
             get {
                 return ResourceManager.GetString("CouplingsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream UvodnaSpica {
+            get {
+                return ResourceManager.GetStream("UvodnaSpica", resourceCulture);
             }
         }
         

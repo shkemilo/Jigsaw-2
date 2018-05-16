@@ -38,9 +38,6 @@ namespace Jigsaw_2.Games.WhoKnowsKnows
             timeOutTimer.Tick += onTimedEvent;
 
             questionDisplay = Finder.FindVisualChildWithTag<TextBox>(gameGrid, "QuestionDisplay");
-
-            ScoreInterface.Instance.SetTimeControlerInterval(TimeSpan.FromSeconds(0.1));
-            next();
         }
 
         private void onTimedEvent(object sender, EventArgs e)
@@ -57,6 +54,12 @@ namespace Jigsaw_2.Games.WhoKnowsKnows
             Grader();
 
             GameOver();
+        }
+
+        public void Start()
+        {
+            ScoreInterface.Instance.SetTimeControlerInterval(TimeSpan.FromSeconds(0.1));
+            next();
         }
 
         public override void Grader()
@@ -81,7 +84,7 @@ namespace Jigsaw_2.Games.WhoKnowsKnows
 
             engine.Broadcast(engine.GetAnswers());
 
-            display.Enable(false);
+            disableAllControls();
             timeOutTimer.Start();
         }
 
@@ -111,6 +114,8 @@ namespace Jigsaw_2.Games.WhoKnowsKnows
 
         private void nextQuestion()
         {
+            enableAllControls();
+
             ScoreInterface.Instance.StartTimeControler();
 
             engine.Broadcast(engine.Question);

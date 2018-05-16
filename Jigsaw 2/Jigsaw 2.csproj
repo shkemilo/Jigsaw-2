@@ -107,6 +107,8 @@
     <Compile Include="Abstracts\GUI\IAnimatableGUI.cs" />
     <Compile Include="Abstracts\Command\ICommand.cs" />
     <Compile Include="Abstracts\GUI\IEnableable.cs" />
+    <Compile Include="Abstracts\GUI\IHideable.cs" />
+    <Compile Include="Abstracts\GUI\IHideableGUI.cs" />
     <Compile Include="Abstracts\IGame.cs" />
     <Compile Include="Abstracts\GUI\IGraphic.cs" />
     <Compile Include="Abstracts\GUI\IGUI.cs" />
@@ -116,6 +118,20 @@
     <Compile Include="Animators\ControlMove.cs" />
     <Compile Include="Animators\FrameAnimator.cs" />
     <Compile Include="Animators\SmoothProgressBar.cs" />
+    <Compile Include="Games\Associations\Commands\QuitCommand.cs" />
+    <Compile Include="Games\Associations\Logic\Association.cs" />
+    <Compile Include="Games\Associations\GUI\AssociationComposite.cs" />
+    <Compile Include="Games\Associations\Controler\AssociationControler.cs" />
+    <Compile Include="Games\Associations\Logic\AssociationEngine.cs" />
+    <Compile Include="Games\Associations\Logic\AssociationGenerator.cs" />
+    <Compile Include="Games\Associations\GUI\AssociationLeaf.cs" />
+    <Compile Include="Games\Associations\Associations.xaml.cs">
+      <DependentUpon>Associations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Associations\Controler\AssociationControlerFactory.cs" />
+    <Compile Include="Games\Associations\Commands\GuessCommand.cs" />
+    <Compile Include="Games\Associations\Controler\IAssociationBehavior.cs" />
+    <Compile Include="Games\Associations\Commands\UncoverCommand.cs" />
     <Compile Include="Games\CommandManager.cs" />
     <Compile Include="Games\CompositeGraphic.cs" />
     <Compile Include="Games\Couplings\Commands\CoupleCommand.cs" />
@@ -141,6 +157,7 @@
     <Compile Include="Games\LetterOnLetter\Controler\LoLGameControler.cs" />
     <Compile Include="Games\LetterOnLetter\GUI\LoLGUI.cs" />
     <Compile Include="Games\LetterOnLetter\Controler\LoLControlerFactory.cs" />
+    <Compile Include="Games\WhoKnowsKnows\Commands\StartCommand.cs" />
     <Compile Include="Games\WhoKnowsKnows\Logic\Question.cs" />
     <Compile Include="Games\WhoKnowsKnows\GUI\QuestionComposite.cs" />
     <Compile Include="Games\WhoKnowsKnows\GUI\QuestionDisplay.cs" />
@@ -193,6 +210,10 @@
     </Compile>
     <Compile Include="Score\ScoreEngine.cs" />
     <Compile Include="Score\ScoreInterface.cs" />
+    <Page Include="Games\Associations\Associations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Games\Couplings\Couplings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -311,6 +332,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>JigsawDatabase.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\BackGroundMusic.wav" />
+    <None Include="Resources\UvodnaSpica.wav" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

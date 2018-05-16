@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Media;
 
 namespace Jigsaw_2
 {
@@ -33,6 +34,9 @@ namespace Jigsaw_2
         public MainWindow()
         {
             mainPageControler = new MainPageControler();
+
+            SoundPlayer soundPlayer = new SoundPlayer(Properties.Resources.UvodnaSpica);
+            soundPlayer.Play();
 
             InitializeComponent();
 
