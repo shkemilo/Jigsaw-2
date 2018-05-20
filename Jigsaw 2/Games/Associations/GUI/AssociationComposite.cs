@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Media;
 
 namespace Jigsaw_2.Games.Associations
 {
@@ -56,13 +57,25 @@ namespace Jigsaw_2.Games.Associations
 
         public void Update<T>(T message)
         {
-            if (message is Association)
+            if(message is bool)
+            {
+                updateFields(Convert.ToBoolean(message));
+            }
+            else if (message is Association)
             {
                 updateFields(message as Association);
             }
             else
             {
                 throw new ArgumentException("Invalid argument.");
+            }
+        }
+
+        private void updateFields(bool message)
+        {
+            foreach(IHideableGUI element in fields)
+            {
+                element.Update(message);
             }
         }
 
@@ -83,7 +96,7 @@ namespace Jigsaw_2.Games.Associations
             }
         }
 
-        private void updateFields(List<Association> message)
+        /*private void updateFields(List<Association> message)
         {
             int i = 0;
 
@@ -91,7 +104,7 @@ namespace Jigsaw_2.Games.Associations
             {
                 element.Update(message.ElementAt(i++));
             }
-        }
+        }*/
 
         private void uncoverAll()
         {

@@ -6,8 +6,8 @@ namespace Jigsaw_2.Games.LetterOnLetter
 {
     public class LoLGUI : IAnimatableGUI
     {
-        private readonly Queue<IAnimatableGUI> animatableDisplays;
-        private readonly List<IAnimatableGUI> animatableDisplaysCopy;
+        protected readonly Queue<IAnimatableGUI> animatableDisplays;
+        protected readonly List<IAnimatableGUI> animatableDisplaysCopy;
 
         public LoLGUI(IEnumerable<IAnimatableGUI> animatableDisplays)
         {
@@ -57,7 +57,7 @@ namespace Jigsaw_2.Games.LetterOnLetter
             }
         }
 
-        public void Update<T>(T message)
+        public virtual void Update<T>(T message)
         {
             if (message is char[])
             {

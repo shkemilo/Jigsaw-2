@@ -5,9 +5,11 @@ using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
+using System.Windows.Media;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using Jigsaw_2.Helpers;
 
 namespace Jigsaw_2.Games.Associations
 {
@@ -29,6 +31,15 @@ namespace Jigsaw_2.Games.Associations
 
             this.numberOfFields = numberOfFields;
 
+            openedFields = new int[numberOfFields];
+
+            answeredColumns = new bool[numberOfFields];
+        }
+
+        public void Start()
+        {
+            enableAllControls();
+
             int i = 0;
             foreach (IHideableGUI element in gui)
             {
@@ -36,10 +47,6 @@ namespace Jigsaw_2.Games.Associations
 
                 element.Update(engine.Associations.ElementAt(i++));
             }
-
-            openedFields = new int[numberOfFields];
-
-            answeredColumns = new bool[numberOfFields];
 
             ScoreInterface.Instance.StartTimeControler();
         }
@@ -79,6 +86,8 @@ namespace Jigsaw_2.Games.Associations
 
                     button.IsEnabled = false;
 
+                    button.Background = Brushes.DarkGreen;
+
                     return;
                 }
             }
@@ -109,7 +118,7 @@ namespace Jigsaw_2.Games.Associations
         {
             if (!answeredColumns[index])
             {
-                uncover(index);
+                uncover(index, true);
 
                 grade(index);
 
@@ -131,7 +140,7 @@ namespace Jigsaw_2.Games.Associations
         {
             for (int i = 0; i < numberOfFields; i++)
             {
-                uncover(i);
+                uncover(i, false);
             }
         }
 
@@ -145,10 +154,12 @@ namespace Jigsaw_2.Games.Associations
             }
         }
 
-        private void uncover(int index)
+        private void uncover(int index, bool notForced)
         {
             gui.ElementAt(index).Uncover();
             gui.ElementAt(index).Enable(false);
+
+            gui.ElementAt(index).Update(notForced);
         }
 
         public override void Grader()
@@ -161,6 +172,8 @@ namespace Jigsaw_2.Games.Associations
             ScoreInterface.Instance.StopTimeControler();
 
             forcedUncover();
+
+            (Finder.FindElementWithTag(allControls, "final") as Button).Content = engine.FinalAnswer;
 
             disableAllControls();
 

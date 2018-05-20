@@ -10,7 +10,7 @@ namespace Jigsaw_2.Games.Associations
 
         private readonly int numberOfFields;
 
-        public Association(List<string> fields, string answer, string hiddenSymbol, int numberOfFields = 4)
+        public Association(List<string> fields, string answer, string hiddenSymbol = "A", int numberOfFields = 4)
         {
             this.fields = fields;
             this.answer = answer;

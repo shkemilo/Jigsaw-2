@@ -39,6 +39,7 @@
 
                 <Button.ContextMenu>
                     <ContextMenu BorderThickness="1">
+                        <CheckBox Content="Mute " Checked="stopMusic" Unchecked="startMusic" IsChecked="False" Name="muteBox" IsEnabled="False"></CheckBox>
                         <MenuItem Header="Style: ">
                             <CheckBox Content="Night mode " FontSize ="14" Checked ="nightMode" Unchecked="lightMode" IsChecked="False"></CheckBox>
                             <MenuItem Header="Color: " FontSize ="14" IsEnabled="False"></MenuItem>

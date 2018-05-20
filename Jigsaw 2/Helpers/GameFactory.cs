@@ -5,6 +5,7 @@ using Jigsaw_2.Games.Jumper;
 using Jigsaw_2.Games.LetterOnLetter;
 using Jigsaw_2.Games.WhoKnowsKnows;
 using Jigsaw_2.Games.Associations;
+using Jigsaw_2.Games.MyNumber;
 
 namespace Jigsaw_2.Helpers
 {
@@ -39,6 +40,10 @@ namespace Jigsaw_2.Helpers
             else if(game == "associations")
             {
                 return new Associations();
+            }
+            else if(game == "mynumber")
+            {
+                return new MyNumber();
             }
             else
             {

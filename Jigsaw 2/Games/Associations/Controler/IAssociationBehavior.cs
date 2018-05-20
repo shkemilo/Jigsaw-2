@@ -9,5 +9,7 @@ namespace Jigsaw_2.Games.Associations
         void Guess(Button button);
 
         void Quit();
+
+        void Start();
     }
 }

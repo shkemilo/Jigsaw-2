@@ -13,6 +13,7 @@ namespace Jigsaw_2.Games.Associations
         private readonly IAssociationBehavior associationBehavior;
 
         private readonly ICommand quitCommand;
+        private readonly ICommand startCommand;
 
         public Associations()
         {
@@ -27,6 +28,7 @@ namespace Jigsaw_2.Games.Associations
             addUncoverHandler("C");
             addUncoverHandler("D");
 
+            startCommand = new StartCommand(associationBehavior);
             quitCommand = new QuitCommand(associationBehavior);
         }
 
@@ -38,6 +40,18 @@ namespace Jigsaw_2.Games.Associations
         private void guessHandler(object sender, RoutedEventArgs e)
         {
             new GuessCommand(associationBehavior, sender as Button).Execute();
+        }
+
+        private void quitHandler(object sender, RoutedEventArgs e)
+        {
+            quitCommand.Execute();
+        }
+
+        private void startHandler(object sender, RoutedEventArgs e)
+        {
+            startCommand.Execute();
+
+            (sender as Button).IsEnabled = false;
         }
 
         private void addUncoverHandler(string tag)
@@ -53,11 +67,6 @@ namespace Jigsaw_2.Games.Associations
 
                 i++;
             }
-        }
-
-        private void quitHandler(object sender, RoutedEventArgs e)
-        {
-            quitCommand.Execute();
         }
     }
 }

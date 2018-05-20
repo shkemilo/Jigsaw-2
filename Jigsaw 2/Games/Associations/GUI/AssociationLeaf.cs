@@ -1,11 +1,14 @@
 ﻿using Jigsaw_2.Abstracts;
 using System;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Jigsaw_2.Games.Associations
 {
     internal class AssociationLeaf : IHideableGUI
     {
+        public static readonly SolidColorBrush RightColor = Brushes.DarkGreen;
+
         private Button field;
         private string toPrint;
 
@@ -44,13 +47,25 @@ namespace Jigsaw_2.Games.Associations
 
         public void Update<T>(T message)
         {
-            if (message is string)
+            if(message is bool)
+            {
+                updateColor(Convert.ToBoolean(message));
+            }
+            else if (message is string)
             {
                 realValue = message as string;
             }
             else
             {
                 throw new ArgumentException("Invalid argument type.");
+            }
+        }
+
+        private void updateColor(bool message)
+        {
+            if(message)
+            {
+                field.Background = RightColor;
             }
         }
     }

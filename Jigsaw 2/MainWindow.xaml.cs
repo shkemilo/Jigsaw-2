@@ -5,12 +5,12 @@ using Jigsaw_2.MainPage;
 using Jigsaw_2.MainPage.Commands;
 using Jigsaw_2.Score;
 using MahApps.Metro.Controls;
-using System;
 using System.Linq;
-using System.Threading;
+using System.Media;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Media;
+using Jigsaw_2.Games.MyNumber;
 
 namespace Jigsaw_2
 {
@@ -19,6 +19,8 @@ namespace Jigsaw_2
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        private SoundPlayer soundPlayer;
+
         private readonly ICommand nightModeCommand;
         private readonly ICommand lightModeCommand;
         private readonly ICommand instructionCommand;
@@ -35,8 +37,7 @@ namespace Jigsaw_2
         {
             mainPageControler = new MainPageControler();
 
-            SoundPlayer soundPlayer = new SoundPlayer(Properties.Resources.UvodnaSpica);
-            soundPlayer.Play();
+            //startSound();
 
             InitializeComponent();
 
@@ -52,6 +53,8 @@ namespace Jigsaw_2
             lightModeCommand = new LightModeCommand(mainPageControler);
             instructionCommand = new InstructionsCommand(mainPageControler);
             startCurrentGameCommand = new StartCurrentGameCommand(mainPageControler, MainFrame, StartButton);
+
+            ExpressionGenerator test = new ExpressionGenerator();
         }
 
         #endregion Constructors
@@ -96,21 +99,15 @@ namespace Jigsaw_2
             startCurrentGameCommand.Execute();
         }
 
-        /// <summary> Function used for preserving the aspect ratio while resizing. </summary>
-        /*protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
+        private void stopMusic(object sender, RoutedEventArgs e) //please don't stop the music
         {
-            double aspectRatio = 1.5;
+            soundPlayer.Stop();
+        }
 
-            double percentWidthChange = Math.Abs(sizeInfo.NewSize.Width - sizeInfo.PreviousSize.Width) / sizeInfo.PreviousSize.Width;
-            double percentHeightChange = Math.Abs(sizeInfo.NewSize.Height - sizeInfo.PreviousSize.Height) / sizeInfo.PreviousSize.Height;
-
-            if (percentWidthChange > percentHeightChange)
-                Height = sizeInfo.NewSize.Width / aspectRatio;
-            else
-                Width = sizeInfo.NewSize.Height * aspectRatio;
-
-            base.OnRenderSizeChanged(sizeInfo);
-        }*/
+        private void startMusic(object sender, RoutedEventArgs e)
+        {
+            soundPlayer.PlayLooping();
+        }
 
         protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
         {
@@ -127,5 +124,18 @@ namespace Jigsaw_2
         }
 
         #endregion Events
+
+        private async Task startSound()
+        {
+            soundPlayer = new SoundPlayer(Properties.Resources.UvodnaSpica);
+
+            await Task.Run(() => { soundPlayer.PlaySync(); });
+
+            muteBox.IsEnabled = true;
+
+            soundPlayer = new SoundPlayer(Properties.Resources.BackGroundMusic);
+
+            soundPlayer.PlayLooping();
+        }
     }
 }
