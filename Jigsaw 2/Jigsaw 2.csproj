@@ -131,7 +131,6 @@
     <Compile Include="Games\Associations\Controler\IAssociationBehavior.cs" />
     <Compile Include="Games\Associations\Commands\UncoverCommand.cs" />
     <Compile Include="Games\CommandManager.cs" />
-    <Compile Include="Games\CompositeGraphic.cs" />
     <Compile Include="Games\Couplings\Commands\CoupleCommand.cs" />
     <Compile Include="Games\Couplings\Logic\CouplingGenerator.cs" />
     <Compile Include="Games\Couplings\GUI\CouplingsComposite.cs" />

@@ -24,7 +24,7 @@
         <Button Content="" HorizontalAlignment="Left" Height="102" Margin="676,343,0,0" VerticalAlignment="Top" Width="448" FontSize="26"  Tag="QuestionButton" FontWeight="Medium" IsEnabled="False" />
         <Button Content="" HorizontalAlignment="Left" Height="102" Margin="76,567,0,0" VerticalAlignment="Top" Width="448" FontSize="26"  Tag="QuestionButton" mah:ControlsHelper.ContentCharacterCasing="Upper" FontWeight="Medium" IsEnabled="False" />
         <Button Content="" HorizontalAlignment="Left" Height="102" Margin="676,567,0,0" VerticalAlignment="Top" Width="448" FontSize="26" Tag="QuestionButton" FontWeight="Medium" IsEnabled="False" />
-        <Button x:Name="NextQuestion" HorizontalAlignment="Left" Height="100" Margin="1024,214,0,0" VerticalAlignment="Top" Width="100" Style="{DynamicResource MetroCircleButtonStyle}" Click="nextHandler" IsEnabled="False">
+        <Button x:Name="NextQuestion" HorizontalAlignment="Left" BorderThickness="0" Background="Transparent" Height="100" Margin="1024,214,0,0" VerticalAlignment="Top" Width="100" Style="{DynamicResource MetroCircleButtonStyle}" Click="nextHandler" IsEnabled="False">
             <Rectangle Width="60"
                 Height="60"
                 Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" IsEnabled="False">
@@ -35,7 +35,7 @@
         </Button>
         <Image HorizontalAlignment="Left" Height="64" Margin="328,4,0,0" VerticalAlignment="Top" Width="64" Source="/Jigsaw 2;component/Resources/Graphics/Jumper/Logo64.png" />
         <Label Content="Who Knows Knows" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="36" />
-        <Button x:Name="StartButton" HorizontalAlignment="Left" Height="100" Margin="76,106,0,0" VerticalAlignment="Top" Width="100" Style="{DynamicResource MetroCircleButtonStyle}" Click="startHandler">
+        <Button x:Name="StartButton" HorizontalAlignment="Left" BorderThickness="0" Background="Transparent" Height="100" Margin="76,106,0,0" VerticalAlignment="Top" Width="100" Style="{DynamicResource MetroCircleButtonStyle}" Click="startHandler">
             <Rectangle Width="60"
                 Height="60"
                 Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" IsEnabled="False">

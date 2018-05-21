@@ -18,30 +18,46 @@
     </gamePage:GamePage.Resources>
 
     <Grid Name="grid">
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="130,40,0,0" VerticalAlignment="Top" Width="150" Tag="A" IsEnabled="False" />
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="170,95,0,0" VerticalAlignment="Top" Width="150" Tag="A" IsEnabled="False" />
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="210,150,0,0" VerticalAlignment="Top" Width="150" Tag="A" IsEnabled="False" />
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,205,0,0" VerticalAlignment="Top" Width="150" Tag="A" IsEnabled="False" />
-        <Button Content="" HorizontalAlignment="Left" Height="70" Margin="290,260,0,0" VerticalAlignment="Top" Width="200" Tag="A" Click="guessHandler" IsEnabled="False" />
-        <Button Content="Kocano" HorizontalAlignment="Left" Height="80" Margin="490,335,0,0" VerticalAlignment="Top" Width="250" Click="guessHandler" IsEnabled="False" Tag="final" />
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="872,150,0,0" VerticalAlignment="Top" Width="150" Tag="B" IsEnabled="False" />
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="832,205,0,0" VerticalAlignment="Top" Width="150" Tag="B" IsEnabled="False" />
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="952,40,0,0" VerticalAlignment="Top" Width="150" Tag="B" IsEnabled="False" />
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="912,95,0,0" VerticalAlignment="Top" Width="150" Tag="B" IsEnabled="False" />
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="130,660,0,0" VerticalAlignment="Top" Width="150" Tag="C" IsEnabled="False" />
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="170,605,0,0" VerticalAlignment="Top" Width="150" Tag="C" IsEnabled="False" />
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="210,550,0,0" VerticalAlignment="Top" Width="150" Tag="C" IsEnabled="False" />
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,495,0,0" VerticalAlignment="Top" Width="150" Tag="C" IsEnabled="False" />
-        <Button Content="" HorizontalAlignment="Left" Height="70" Margin="290,420,0,0" VerticalAlignment="Top" Width="200" Tag="C" Click="guessHandler" IsEnabled="False" />
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="952,660,0,0" VerticalAlignment="Top" Width="150" Tag="D" IsEnabled="False" />
-        <Button Content="" HorizontalAlignment="Left" Height="70" Margin="743,260,0,0" VerticalAlignment="Top" Width="200" Tag="B" Click="guessHandler" IsEnabled="False" />
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="912,605,0,0" VerticalAlignment="Top" Width="150" Tag="D" IsEnabled="False" />
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="872,550,0,0" VerticalAlignment="Top" Width="150" Tag="D" IsEnabled="False" />
-        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="832,495,0,0" VerticalAlignment="Top" Width="150" Tag="D" IsEnabled="False" />
-        <Button Content="" HorizontalAlignment="Left" Height="70" Margin="743,420,0,0" VerticalAlignment="Top" Width="200" Tag="D" Click="guessHandler" IsEnabled="False" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="130,40,0,0" VerticalAlignment="Top" Width="150" Tag="A" IsEnabled="False" FontSize="16" FontWeight="SemiBold" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="170,95,0,0" VerticalAlignment="Top" Width="150" Tag="A" IsEnabled="False" FontSize="16" FontWeight="SemiBold" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="210,150,0,0" VerticalAlignment="Top" Width="150" Tag="A" IsEnabled="False" FontSize="16" FontWeight="SemiBold" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,205,0,0" VerticalAlignment="Top" Width="150" Tag="A" IsEnabled="False" FontSize="16" FontWeight="SemiBold" />
+        <Button Content="" HorizontalAlignment="Left" Height="70" Margin="290,260,0,0" VerticalAlignment="Top" Width="200" Tag="A" Click="guessHandler" IsEnabled="False" FontSize="20" />
+        <Button Content="Konacno" HorizontalAlignment="Left" Height="80" Margin="490,335,0,0" VerticalAlignment="Top" Width="250" Click="guessHandler" IsEnabled="False" Tag="final" FontSize="24" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="872,150,0,0" VerticalAlignment="Top" Width="150" Tag="B" IsEnabled="False" FontSize="16" FontWeight="SemiBold" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="832,205,0,0" VerticalAlignment="Top" Width="150" Tag="B" IsEnabled="False" FontSize="16" FontWeight="SemiBold" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="952,40,0,0" VerticalAlignment="Top" Width="150" Tag="B" IsEnabled="False" FontSize="16" FontWeight="SemiBold" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="912,95,0,0" VerticalAlignment="Top" Width="150" Tag="B" IsEnabled="False" FontSize="16" FontWeight="SemiBold" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="130,660,0,0" VerticalAlignment="Top" Width="150" Tag="C" IsEnabled="False" FontSize="16" FontWeight="SemiBold" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="170,605,0,0" VerticalAlignment="Top" Width="150" Tag="C" IsEnabled="False" FontSize="16" FontWeight="SemiBold" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="210,550,0,0" VerticalAlignment="Top" Width="150" Tag="C" IsEnabled="False" FontSize="16" FontWeight="SemiBold" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="250,495,0,0" VerticalAlignment="Top" Width="150" Tag="C" IsEnabled="False" FontSize="16" FontWeight="SemiBold" />
+        <Button Content="" HorizontalAlignment="Left" Height="70" Margin="290,420,0,0" VerticalAlignment="Top" Width="200" Tag="C" Click="guessHandler" IsEnabled="False" FontSize="20" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="952,660,0,0" VerticalAlignment="Top" Width="150" Tag="D" IsEnabled="False" FontSize="16" FontWeight="SemiBold" />
+        <Button Content="" HorizontalAlignment="Left" Height="70" Margin="743,260,0,0" VerticalAlignment="Top" Width="200" Tag="B" Click="guessHandler" IsEnabled="False" FontSize="20" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="912,605,0,0" VerticalAlignment="Top" Width="150" Tag="D" IsEnabled="False" FontSize="16" FontWeight="SemiBold" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="872,550,0,0" VerticalAlignment="Top" Width="150" Tag="D" IsEnabled="False" FontSize="16" FontWeight="SemiBold" />
+        <Button Content="" HorizontalAlignment="Left" Height="50" Margin="832,495,0,0" VerticalAlignment="Top" Width="150" Tag="D" IsEnabled="False" FontSize="16" FontWeight="SemiBold" />
+        <Button Content="" HorizontalAlignment="Left" Height="70" Margin="743,420,0,0" VerticalAlignment="Top" Width="200" Tag="D" Click="guessHandler" IsEnabled="False" FontSize="20" />
         <TextBlock HorizontalAlignment="Left" Height="52" Margin="456,22,0,0" TextWrapping="Wrap" Text="Associations Game" VerticalAlignment="Top" Width="260" FontSize="30" />
         <Image HorizontalAlignment="Left" Height="64" Margin="722,10,0,0" VerticalAlignment="Top" Width="64" Source="/Jigsaw 2;component/Resources/Graphics/Jumper/Logo64.png" />
-        <Button Content="Quit" HorizontalAlignment="Left" Height="50" Margin="534,550,0,0" VerticalAlignment="Top" Width="150" Tag="" Click="quitHandler" IsEnabled="False" />
-        <Button Content="Start" HorizontalAlignment="Left" Height="50" Margin="534,150,0,0" VerticalAlignment="Top" Width="150" Tag="" Click="startHandler" />
+        <Button BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Height="94" Margin="534,506,0,0" VerticalAlignment="Top" Width="150" Tag="" Click="quitHandler" IsEnabled="False">
+            <Rectangle Width="80"
+                Height="80"
+                Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" IsEnabled="False">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_cancel}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+        </Button>
+        <Button BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Height="90" Margin="534,150,0,0" VerticalAlignment="Top" Width="150" Tag="" Click="startHandler">
+            <Rectangle Width="80"
+                Height="80"
+                Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" IsEnabled="False">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_control_play}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+        </Button>
     </Grid>
 </gamePage:GamePage>

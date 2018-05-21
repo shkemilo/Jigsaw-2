@@ -149,7 +149,7 @@
         <Button HorizontalAlignment="Left" Margin="608,535.388,0,0" VerticalAlignment="Top" Width="64" Height="64" Tag="CorrectCombination" Grid.Row="1">
             <Image />
         </Button>
-        <Button HorizontalAlignment="Left" Margin="439,10,0,0" VerticalAlignment="Top" Width="149" Height="64" Tag="NextRowButton">
+        <Button BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="439,10,0,0" VerticalAlignment="Top" Width="149" Height="64" Tag="NextRowButton">
             <Rectangle Width="50"
                 Height="50"
                 Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" Tag="NextRowImage">

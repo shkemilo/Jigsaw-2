@@ -82,6 +82,8 @@ namespace Jigsaw_2.Games.Associations
             {
                 if (engine.Check(result))
                 {
+                    uncoverAll();
+
                     GameOver();
 
                     button.IsEnabled = false;

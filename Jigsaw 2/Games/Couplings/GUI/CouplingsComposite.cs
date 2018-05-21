@@ -8,7 +8,7 @@ namespace Jigsaw_2.Games.Couplings
 {
     internal class CouplingsComposite : IGUI
     {
-        public static readonly SolidColorBrush MatchesActiveColor = Brushes.Goldenrod;
+        public static readonly SolidColorBrush MatchesActiveColor = Brushes.DarkGoldenrod;
         public static readonly SolidColorBrush MatchTargetsActiveColor = Brushes.Transparent;
 
         private readonly Queue<IGUI> matches;

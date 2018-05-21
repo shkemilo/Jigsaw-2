@@ -44,7 +44,7 @@
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
-        <Button HorizontalAlignment="Left" BorderThickness="0" Background="Transparent" Height="114" Margin="460,73,0,0" VerticalAlignment="Top" Width="100" Click="uncoverHandler">
+        <Button HorizontalAlignment="Left" BorderThickness="0" Background="Transparent" Height="114" Margin="360,73,0,0" VerticalAlignment="Top" Width="300" Click="uncoverHandler">
             <Rectangle x:Name ="lol" Tag="SSImage"
                     Width="80"
                     Height="90"
@@ -54,5 +54,7 @@
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
+        <TextBlock HorizontalAlignment="Left" Height="52" Margin="812,22,0,0" TextWrapping="Wrap" Text="My Number Game" VerticalAlignment="Top" Width="326" FontSize="36" />
+        <Image HorizontalAlignment="Left" Height="64" Margin="1110,10,0,0" VerticalAlignment="Top" Width="66" Source="/Jigsaw 2;component/Resources/Graphics/Jumper/Logo64.png" />
     </Grid>
 </gamePage:GamePage>

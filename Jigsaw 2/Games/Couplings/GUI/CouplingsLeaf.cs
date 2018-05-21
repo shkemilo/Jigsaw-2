@@ -12,6 +12,7 @@ namespace Jigsaw_2.Games.Couplings
         public static readonly SolidColorBrush DefaultColor = Brushes.Transparent;
 
         private Button match;
+        private string content;
 
         private SolidColorBrush color;
 
@@ -19,7 +20,7 @@ namespace Jigsaw_2.Games.Couplings
         {
             this.match = match;
 
-            match.Content = content.ToUpper();
+            this.content = content;
             match.IsEnabled = false;
 
             color = DefaultColor;
@@ -43,6 +44,7 @@ namespace Jigsaw_2.Games.Couplings
 
         public void Print()
         {
+            match.Content = content;
             match.Background = color;
         }
 
