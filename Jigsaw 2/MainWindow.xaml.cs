@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using Jigsaw_2.Games.MyNumber;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
 
 namespace Jigsaw_2
 {
@@ -40,6 +43,8 @@ namespace Jigsaw_2
             //startSound();
 
             InitializeComponent();
+
+            loadHighScore();
 
             Finder.SetAllControls(Finder.FindVisualChildren<Control>(MainWindowGrid).ToList());
 
@@ -136,6 +141,22 @@ namespace Jigsaw_2
             soundPlayer = new SoundPlayer(Properties.Resources.BackGroundMusic);
 
             soundPlayer.PlayLooping();
+        }
+
+        private void loadHighScore()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["Jigsaw_2.Properties.Settings.JigsawDatabaseConnectionString"].ConnectionString;
+            string query = "SELECT Username, Score FROM Scores";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+            {
+                DataTable dataTable = new DataTable();
+
+                adapter.Fill(dataTable);
+
+                HighScoreGrid.DataContext = dataTable.DefaultView;
+            }
         }
     }
 }

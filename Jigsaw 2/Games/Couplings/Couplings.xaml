@@ -19,7 +19,6 @@
     </gamePage:GamePage.Resources>
 
     <Grid Name="CouplingsGrid">
-        <!--<Line X1="0" X2="0" Y1="150" Y2="600" Stroke="Black" StrokeThickness="0.5" Margin="5,0,10,0" />-->
 
         <Separator Margin="248,32,462,18" RenderTransformOrigin="0.5,0.5" Width="500" Height="700" FontWeight="Bold">
             <Separator.LayoutTransform>

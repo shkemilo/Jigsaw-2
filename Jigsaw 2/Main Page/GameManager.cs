@@ -119,6 +119,8 @@ namespace Jigsaw_2.MainPage
 
             if (games.Count == 0)
             {
+                ScoreInterface.Instance.SubmitScore();
+
                 DialogManager.Instance.TheEnd();
             }
             else

@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         GlowBrush="{DynamicResource AccentColorBrush}"
         BorderThickness="2"
-        Title="Jigsaw" Height="1000" Width="1500"  Icon ="/Jigsaw 2;component/Resources/Graphics/Logo64.png" ShowIconOnTitleBar="True" ResizeMode="CanResizeWithGrip">
+        Title="Jigsaw" Height="1000" Width="1500"  Icon ="/Jigsaw 2;component/Resources/Graphics/Logo64.png" ShowIconOnTitleBar="True" ResizeMode="CanResizeWithGrip" WindowButtonCommandsOverlayBehavior="Never" RightWindowCommandsOverlayBehavior="Never">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -98,13 +98,24 @@
                         </Rectangle.OpacityMask>
                     </Rectangle>
 
-                    <TextBlock Margin="6 0 0 0"
-                   VerticalAlignment="Center"
-                   Text="" FontSize="20" Tag="CurrentUser" />
+                    <ToggleButton Content="" FontSize="20" IsChecked="{Binding ElementName=hsFlyout, Path=IsOpen}" Cursor="Hand" Tag="CurrentUser"/>
                 </StackPanel>
             </Button>
+
+
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
+
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl>
+            <Controls:Flyout x:Name="hsFlyout" Header="Jigsaw Scores" Position="Right" Width="400" AutomationProperties.IsOffscreenBehavior="Offscreen" Theme="Inverse" Controls:ControlsHelper.HeaderFontSize="28">
+                <DataGrid Name="HighScoreGrid" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" Style="{StaticResource AzureDataGrid}" FontSize="20">
+
+                </DataGrid>
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
+
     <Viewbox Stretch="Uniform">
         <Grid Name="MainWindowGrid">
             <TextBox HorizontalAlignment="Right" Height="30" Margin="0,15,1039,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" IsEnabled="False" Tag="ScoreDisplay" FontSize="20" FontWeight="SemiBold" />

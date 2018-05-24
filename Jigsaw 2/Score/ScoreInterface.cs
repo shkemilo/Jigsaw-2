@@ -3,6 +3,8 @@ using Jigsaw_2.Games;
 using Jigsaw_2.Helpers;
 using Jigsaw_2.MainPage;
 using System;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Windows.Controls;
 using System.Windows.Threading;
 
@@ -15,21 +17,18 @@ namespace Jigsaw_2.Score
     {
         #region Private Static Fields
 
-        private static ScoreInterface instance = null;
         private static readonly object padlock = new object();
+        private static ScoreInterface instance = null;
 
         #endregion Private Static Fields
 
         #region Private Fields
 
-        private ScoreEngine scoreEngine;
-        public ScoreEngine ScoreEngine { get => scoreEngine; }
-
-        private Display scoreDisplay;
-
         private ProgressBar progressBar;
-
+        private Display scoreDisplay;
+        private ScoreEngine scoreEngine;
         private DispatcherTimer timeControler;
+        public ScoreEngine ScoreEngine { get => scoreEngine; }
 
         #endregion Private Fields
 
@@ -77,15 +76,21 @@ namespace Jigsaw_2.Score
 
         #region Public Methods
 
-        public void SetTimeControlerInterval(TimeSpan time)
-        {
-            timeControler.Interval = time;
-        }
-
         /// <summary> Draws the score interface GUI elements. </summary>
         public void DrawScoreInterface()
         {
             scoreDisplay.Show();
+        }
+
+        /// <summary> Resets the time bar to 0. </summary>
+        public void ResetTimeBar()
+        {
+            progressBar.SetPercent(0, TimeSpan.FromSeconds(3));
+        }
+
+        public void SetTimeControlerInterval(TimeSpan time)
+        {
+            timeControler.Interval = time;
         }
 
         /// <summary> Starts time. </summary>
@@ -100,10 +105,22 @@ namespace Jigsaw_2.Score
             timeControler.Stop();
         }
 
-        /// <summary> Resets the time bar to 0. </summary>
-        public void ResetTimeBar()
+        public void SubmitScore()
         {
-            progressBar.SetPercent(0, TimeSpan.FromSeconds(3));
+            string connectionString = ConfigurationManager.ConnectionStrings["Jigsaw_2.Properties.Settings.JigsawDatabaseConnectionString"].ConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                connection.Open();
+
+                command.CommandText = "INSERT INTO Scores(Username, score) VALUES(@name, @score)";
+
+                command.Parameters.AddWithValue("@name", DialogManager.Instance.Username);
+                command.Parameters.AddWithValue("@score", ScoreEngine.Score);
+
+                command.ExecuteNonQuery();
+            }
         }
 
         #endregion Public Methods

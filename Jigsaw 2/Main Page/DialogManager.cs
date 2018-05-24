@@ -5,6 +5,7 @@ using MahApps.Metro.Controls.Dialogs;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 
 namespace Jigsaw_2.MainPage
 {
@@ -56,6 +57,8 @@ namespace Jigsaw_2.MainPage
                 }
             }
         }
+
+        public string Username => username;
 
         #endregion Public Static Properties
 
@@ -144,17 +147,7 @@ namespace Jigsaw_2.MainPage
         /// <summary> Sets the text in the main window to show the current user. </summary>
         private void setCurrentUser()
         {
-            foreach (TextBlock tb in Finder.FindVisualChildren<TextBlock>(main))
-            {
-                if (tb.Tag != null)
-                {
-                    if (tb.Tag.ToString() == "CurrentUser")
-                    {
-                        tb.Text = username;
-                        break;
-                    }
-                }
-            }
+            Finder.FindVisualChildWithTag<ToggleButton>(main, "CurrentUser").Content = username;
         }
 
         #endregion Private Methods
