@@ -28,6 +28,7 @@ namespace Jigsaw_2.Score
         private Display scoreDisplay;
         private ScoreEngine scoreEngine;
         private DispatcherTimer timeControler;
+
         public ScoreEngine ScoreEngine { get => scoreEngine; }
 
         #endregion Private Fields
