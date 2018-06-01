@@ -40,7 +40,7 @@ namespace Jigsaw_2
         {
             mainPageControler = new MainPageControler();
 
-            //startSound();
+            startSound();
 
             InitializeComponent();
 
