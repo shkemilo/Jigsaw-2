@@ -13,6 +13,6 @@ Serbian Gameshow "Slagalica" made in C#.
   * __Couplings__ (*Spojnice*) - Classes used for implementing the Couplings Game.
 * __Score__ - Classes used for implementing the Scoreboard.
 
-[Download link](##https://www.dropbox.com/s/qqy71t3oe8awk61/Jigsaw.zip?dl=0)
+[Download link](https://www.dropbox.com/s/qqy71t3oe8awk61/Jigsaw.zip?dl=0)
 
 
