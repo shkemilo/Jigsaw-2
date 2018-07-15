@@ -15,13 +15,14 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 
+
 namespace Jigsaw_2
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : MetroWindow
-    {
+    { 
         private SoundPlayer soundPlayer;
 
         private readonly ICommand nightModeCommand;
@@ -145,17 +146,24 @@ namespace Jigsaw_2
 
         private void loadHighScore()
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["Jigsaw_2.Properties.Settings.JigsawDatabaseConnectionString"].ConnectionString;
+            string connectionString = ConfigurationManager.ConnectionStrings["JigsawDB"].ConnectionString;
             string query = "SELECT Username, Score FROM Scores";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+            try
             {
-                DataTable dataTable = new DataTable();
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+                {
+                    DataTable dataTable = new DataTable();
 
-                adapter.Fill(dataTable);
+                    adapter.Fill(dataTable);
 
-                HighScoreGrid.DataContext = dataTable.DefaultView;
+                    HighScoreGrid.DataContext = dataTable.DefaultView;
+                }
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("Database connection error");
             }
         }
     }

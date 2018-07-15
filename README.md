@@ -1,18 +1,34 @@
-# Jigsaw
+# Jigsaw ![Jigsaw Logo](https://lh3.googleusercontent.com/r08vxQvIHzugCJd3XcKoL_meY4mtmkajpeK_9OIZZanRP3nl9J5HgZXuhy5TxkhNATlqFQ=s64)
 
-Serbian Gameshow "Slagalica" made in C#.
+---
 
-## Class Groups:
+Serbian Gameshow "Slagalica" WPF app, written in C# for High School Graduation project.
 
-* __Abtracts__ - Interfaces and abstract classes.
-* __Helpers__ - Static or singleton classes that are used in other classes for various types of ultilites.
-* __Animators__ - Classes used for animating.
-* __Games__ 
-  * __Letter on Letter__ (*Slovo na slovo*) - Classes used for implementing the Letter on Letter Game.
-  * __Jumper__ (*Skocko*) - Classes used for implementing the Jumper Game.
-  * __Couplings__ (*Spojnice*) - Classes used for implementing the Couplings Game.
-* __Score__ - Classes used for implementing the Scoreboard.
+## Games:
 
-[Download link](https://www.dropbox.com/s/qqy71t3oe8awk61/Jigsaw.zip?dl=0)
+---
+
+* __Letter on Letter__ (*Slovo na slovo*)
+* __My Number__ (*Moj broj*)
+* __Jumper__ (*Skocko*)
+* __Couplings__ (*Spojnice*)
+* __Who Knows Knows__ (*Ko zna zna*)
+* __Associations__ (*Asocijacije*)
+
+## Installation Guide:
+
+---
+
+1. [Download Game](https://www.dropbox.com/s/qqy71t3oe8awk61/Jigsaw.zip?dl=0)
+2. Extract files.
+3. Start *setup.exe*.
+4. If there are problems durring install or there is no internet connection, install *SqlLocalDB.msi* from the Prerequisites folder, and then start *setup.exe* again.
+5. Start the game from the desktop.
+
+## More information:
+
+---
+
+Detailed implementation process available in Serbian: [Dropbox link](https://www.dropbox.com/s/9etpsbrv7xp3jez/Slagalica.pdf?dl=0)
 
 
