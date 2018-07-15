@@ -1,12 +1,8 @@
 # Jigsaw ![Jigsaw Logo](https://lh3.googleusercontent.com/r08vxQvIHzugCJd3XcKoL_meY4mtmkajpeK_9OIZZanRP3nl9J5HgZXuhy5TxkhNATlqFQ=s64)
 
----
-
 Serbian Gameshow "Slagalica" WPF app, written in C# for High School Graduation project.
 
 ## Games:
-
----
 
 * __Letter on Letter__ (*Slovo na slovo*)
 * __My Number__ (*Moj broj*)
@@ -17,8 +13,6 @@ Serbian Gameshow "Slagalica" WPF app, written in C# for High School Graduation p
 
 ## Installation Guide:
 
----
-
 1. [Download Game](https://www.dropbox.com/s/qqy71t3oe8awk61/Jigsaw.zip?dl=0)
 2. Extract files.
 3. Start *setup.exe*.
@@ -26,8 +20,6 @@ Serbian Gameshow "Slagalica" WPF app, written in C# for High School Graduation p
 5. Start the game from the desktop.
 
 ## More information:
-
----
 
 Detailed implementation process available in Serbian: [Dropbox link](https://www.dropbox.com/s/9etpsbrv7xp3jez/Slagalica.pdf?dl=0)
 
