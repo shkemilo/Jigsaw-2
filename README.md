@@ -1,4 +1,4 @@
-# Jigsaw ![Jigsaw Logo](https://lh3.googleusercontent.com/r08vxQvIHzugCJd3XcKoL_meY4mtmkajpeK_9OIZZanRP3nl9J5HgZXuhy5TxkhNATlqFQ=s64)
+# Jigsaw ![Jigsaw Logo](https://imgur.com/8KkHejH)
 
 Serbian Gameshow "Slagalica" WPF app, written in C# for High School Graduation project.
 
